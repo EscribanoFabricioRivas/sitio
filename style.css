@@ -1,0 +1,640 @@
+/* Colores de la paleta */
+:root {
+    --color-gray-lightest: #dadada;
+    --color-gray-light: #c7c7c7;
+    --color-white: #ffffff;
+    --color-gray-medium: #cecece;
+    --color-gold: #c4ad7a; /* Dorado/beige principal */
+    --color-dark-olive: #504602; /* Marrón oscuro / Verde oliva oscuro */
+    --color-black: #000000;
+}
+
+/* Base */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--color-black); /* Texto principal negro */
+    background-color: var(--color-white); /* Fondo general blanco */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--color-dark-olive); /* Enlaces en el color más oscuro de la paleta */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-gold);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600; /* Semi-bold para títulos */
+    color: var(--color-black);
+    line-height: 1.2;
+}
+
+/* Header */
+.header {
+    background-color: var(--color-white);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--color-gray-lightest);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para responsividad */
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px; /* Ajusta el tamaño del logo */
+    margin-right: 15px;
+}
+
+.brand-text h1 {
+    font-size: 2.2em; /* Título principal del header, cercano a 52px */
+    margin: 0;
+    color: var(--color-black);
+}
+
+.brand-text h2 {
+    font-size: 1.4em; /* Subtítulo del header, cercano a 37px */
+    margin: 0;
+    color: var(--color-black);
+}
+
+.brand-text .location {
+    font-size: 0.9em;
+    margin: 0;
+    color: var(--color-dark-olive);
+    text-transform: uppercase;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 25px;
+}
+
+.main-nav a {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--color-dark-olive);
+    padding: 5px 0;
+    position: relative;
+}
+
+.main-nav a.active::after,
+.main-nav a:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-gold);
+    bottom: -5px;
+    left: 0;
+}
+
+/* Hero Section (Home Page) */
+.hero-section {
+    position: relative;
+    height: 500px; /* Altura del hero */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    color: var(--color-white);
+    text-align: left;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4); /* Overlay oscuro para que el texto resalte */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+}
+
+.hero-overlay .container {
+    padding-left: 5%; /* Ajusta el padding para el texto */
+}
+
+.hero-subtitle {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.hero-title {
+    font-size: 3.5em; /* Título grande, cercano a 52px */
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #ff6600; /* Color naranja de tu diseño */
+    color: var(--color-white);
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e65c00;
+}
+
+/* Sections */
+.section-gray {
+    background-color: var(--color-gray-lightest);
+    padding: 80px 0;
+}
+
+.section-white {
+    background-color: var(--color-white);
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5em; /* Títulos de sección */
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--color-black);
+}
+
+/* About Escribano Section (Home) */
+.about-escribano .escribano-profile {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.profile-image-container {
+    width: 250px; /* Tamaño del contenedor de la imagen */
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--color-gold); /* Borde dorado alrededor del círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-gray-light); /* Color de fondo del círculo si la imagen es pequeña */
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el círculo */
+    border-radius: 50%; /* Asegura que la imagen sea circular */
+}
+
+.profile-text {
+    flex: 1;
+    max-width: 600px;
+    font-size: 1.1em; /* Texto de cuerpo, cercano a 17px */
+    line-height: 1.8;
+}
+
+/* Services Preview Section (Home) */
+.services-preview .service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service-cards .card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.service-cards .card:hover {
+    transform: translateY(-5px);
+}
+
+.service-cards .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: var(--color-gray-light); /* Fondo para placeholders */
+}
+
+.service-cards .card h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+    color: var(--color-dark-olive);
+}
+
+.service-cards .card p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: var(--color-dark-olive);
+    color: var(--color-white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-gold);
+}
+
+/* Moments Section (Home) */
+.moments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.moments-grid .grid-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: var(--color-gray-light); /* Fondo para placeholders */
+}
+
+/* Contact Section Home */
+.contact-section-home .contact-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-section-home .contact-text {
+    flex: 1;
+    min-width: 300px;
+    font-size: 1.1em;
+}
+
+.contact-section-home .contact-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-section-home .contact-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: var(--color-gray-light); /* Fondo para placeholders */
+}
+
+.contact-info-footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px dashed var(--color-gray-medium); /* Línea punteada */
+    padding-top: 20px;
+}
+
+.contact-info-footer p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links img {
+    height: 30px; /* Tamaño de los íconos de redes sociales */
+    width: 30px;
+    filter: invert(1); /* Para que sean blancos sobre fondo oscuro, si son negros */
+}
+
+/* Page Hero Section (for Services, About, Contact pages) */
+.page-hero-section {
+    position: relative;
+    height: 300px; /* Altura más baja para páginas internas */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.page-hero-section .hero-overlay {
+    justify-content: center; /* Centra el texto en páginas internas */
+    text-align: center;
+}
+
+.page-hero-title {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.page-hero-subtitle {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Service Details Page */
+.service-details .service-item {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-light);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.service-details .service-title {
+    font-size: 1.8em;
+    color: var(--color-dark-olive);
+    margin-top: 0;
+}
+
+.service-details .cta-section {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px dashed var(--color-gray-medium);
+}
+
+/* About Details Page */
+.about-details .about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.about-details .about-text {
+    flex: 2;
+    min-width: 300px;
+    font-size: 1.1em;
+}
+
+.about-details .about-image-container {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    align-self: center; /* Centra la imagen verticalmente */
+}
+
+.about-details .about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: var(--color-gray-light); /* Fondo para placeholders */
+}
+
+.philosophy-section, .local-connection-section {
+    background-color: var(--color-gray-lightest);
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.philosophy-section h3, .local-connection-section h3 {
+    color: var(--color-gold);
+    font-size: 1.6em;
+    margin-top: 0;
+}
+
+/* Contact Form Section */
+.contact-form-section .contact-intro {
+    font-size: 1.1em;
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.method-card {
+    background-color: var(--color-gray-lightest);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.method-card h3 {
+    color: var(--color-dark-olive);
+    font-size: 1.6em;
+    margin-top: 0;
+}
+
+.method-card p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.method-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp {
+    background-color: #25D366; /* Color WhatsApp */
+    color: var(--color-white);
+}
+
+.btn-whatsapp:hover {
+    background-color: #1DA851;
+}
+
+.btn-map {
+    background-color: #4285F4; /* Color Google Maps */
+    color: var(--color-white);
+}
+
+.btn-map:hover {
+    background-color: #357ae8;
+}
+
+
+/* Formulario */
+.form-container {
+    background-color: var(--color-gray-lightest);
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.form-container h3 {
+    text-align: center;
+    color: var(--color-dark-olive);
+    margin-bottom: 30px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="tel"],
+.form-container textarea {
+    width: calc(100% - 20px); /* Ajusta por el padding */
+    padding: 10px;
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.form-container textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.form-container button[type="submit"] {
+    background-color: var(--color-dark-olive);
+    color: var(--color-white);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button[type="submit"]:hover {
+    background-color: var(--color-gold);
+}
+
+.form-note {
+    font-size: 0.9em;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        margin-top: 15px;
+    }
+
+    .main-nav li {
+        margin: 5px 0;
+    }
+
+    .hero-title {
+        font-size: 2.5em;
+    }
+
+    .about-escribano .escribano-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image-container {
+        margin-bottom: 20px;
+    }
+
+    .contact-section-home .contact-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .social-links {
+        margin-top: 15px;
+    }
+
+    .page-hero-title {
+        font-size: 2.2em;
+    }
+}

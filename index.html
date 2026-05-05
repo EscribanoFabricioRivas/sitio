@@ -52,4 +52,28 @@
       '_blank'
     );
   }
-</script></body></html>
+</script>
+<script>
+// Trackear clics en WhatsApp
+document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"], a[href*="api.whatsapp.com"]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    gtag('event', 'click', {
+      'event_category': 'WhatsApp',
+      'event_label': 'Consulta Notarial',
+      'value': 1
+    });
+  });
+});
+
+// Trackear clics en teléfono
+document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    gtag('event', 'click', {
+      'event_category': 'Llamada',
+      'event_label': 'Teléfono - Contacto Directo',
+      'value': 1
+    });
+  });
+});
+</script>
+</body></html>

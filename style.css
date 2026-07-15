@@ -886,3 +886,54 @@ footer p,footer a{color:rgba(255,255,255,.78)}
     gap: 20px;
   }
 }
+/* ===== AJUSTE FINO HERO VEHÍCULO: alineación premium ===== */
+
+.page-hero-vehiculo .container {
+  display: block;
+}
+
+.hero-vehiculo-wrap {
+  max-width: 1120px;
+}
+
+.page-hero-vehiculo h1 {
+  max-width: 14ch;
+  margin-left: 0;
+}
+
+.page-hero-vehiculo .hero-vehiculo-lead {
+  max-width: 72ch;
+  margin-left: 0;
+}
+
+.page-hero-vehiculo .hero-actions-vehiculo {
+  margin-left: 0;
+}
+
+.vehiculo-services .container,
+.vehiculo-intro .container,
+.vehiculo-process .container,
+.cta-section-premium .container {
+  width: min(calc(100% - 36px), var(--max));
+  margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  .hero-vehiculo-wrap {
+    max-width: 100%;
+  }
+
+  .page-hero-vehiculo h1 {
+    max-width: 15ch;
+  }
+
+  .page-hero-vehiculo .hero-vehiculo-lead {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-hero-vehiculo h1 {
+    max-width: 100%;
+  }
+}

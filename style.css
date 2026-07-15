@@ -937,3 +937,180 @@ footer p,footer a{color:rgba(255,255,255,.78)}
     max-width: 100%;
   }
 }
+/* =========================================================
+   HERO SYSTEM REFACTOR — FABRICIO RIVAS
+   Agregar al FINAL de style.css
+   ========================================================= */
+
+/* 1) BASE TIPOGRÁFICA MÁS NEUTRA */
+h1{
+  font-size:clamp(2.4rem,4.2vw,3.4rem);
+  line-height:1.12;
+  letter-spacing:-.03em;
+  margin:12px 0 18px;
+  font-weight:700;
+  max-width:none;
+}
+
+h2{
+  max-width:none;
+}
+
+/* 2) SISTEMA BASE PARA PAGE HERO */
+.page-hero{
+  padding:58px 0 34px;
+}
+
+.page-hero .container{
+  width:min(calc(100% - 36px),var(--max));
+  margin:0 auto;
+}
+
+.page-hero .eyebrow{
+  margin-bottom:8px;
+}
+
+.page-hero h1{
+  margin-top:0;
+  margin-bottom:18px;
+}
+
+.page-hero .lead{
+  margin-bottom:0;
+}
+
+/* 3) FAMILY: HOME / HERO VISUAL */
+.hero .hero-copy h1{
+  max-width:12ch;
+}
+
+.hero .lead{
+  max-width:60ch;
+}
+
+/* 4) FAMILY: PAGE HERO SERVICE
+   Para páginas tipo Real Estate / servicios / landings compactas */
+.page-hero-service .container{
+  max-width:980px;
+}
+
+.page-hero-service h1{
+  max-width:13ch;
+  font-size:clamp(2.65rem,4.8vw,4.25rem);
+  line-height:1.06;
+  letter-spacing:-.035em;
+}
+
+.page-hero-service .lead{
+  max-width:62ch;
+  font-size:1.08rem;
+}
+
+/* 5) FAMILY: SOLUCIONES */
+.page-hero-soluciones .container,
+.page-hero .hero-soluciones-wrap{
+  max-width:980px;
+}
+
+.page-hero-soluciones h1{
+  max-width:14ch;
+  font-size:clamp(2.75rem,5vw,4.4rem);
+  line-height:1.06;
+  letter-spacing:-.04em;
+}
+
+.page-hero-soluciones .hero-soluciones-lead{
+  max-width:68ch;
+}
+
+.page-hero-soluciones .hero-soluciones-cta{
+  justify-content:center;
+  margin-top:30px;
+}
+
+/* 6) FAMILY: FOREIGN */
+.page-hero-foreign .container{
+  max-width:980px;
+}
+
+.page-hero-foreign h1{
+  max-width:12ch;
+  font-size:clamp(2.7rem,4.9vw,4.3rem);
+  line-height:1.06;
+  letter-spacing:-.04em;
+}
+
+.page-hero-foreign .lead{
+  max-width:64ch;
+}
+
+/* 7) FAMILY: PROFILE / SOBRE FABRICIO */
+.page-hero-profile .container{
+  max-width:900px;
+}
+
+.page-hero-profile h1{
+  max-width:13ch;
+  font-size:clamp(2.5rem,4.5vw,3.9rem);
+  line-height:1.08;
+  letter-spacing:-.03em;
+}
+
+.page-hero-profile .lead{
+  max-width:58ch;
+}
+
+/* 8) FAMILY: GENERIC COMPACT PAGE HERO
+   Fallback elegante para páginas internas */
+.page-hero-compact .container{
+  max-width:920px;
+}
+
+.page-hero-compact h1{
+  max-width:14ch;
+  font-size:clamp(2.4rem,4.4vw,3.8rem);
+  line-height:1.08;
+  letter-spacing:-.03em;
+}
+
+.page-hero-compact .lead{
+  max-width:60ch;
+}
+
+/* 9) AJUSTE DE SEPARACIÓN PARA HERO + PRIMERA SECCIÓN */
+.page-hero + section{
+  padding-top:18px;
+}
+
+/* 10) MOBILE */
+@media (max-width:1100px){
+  .page-hero-service h1,
+  .page-hero-soluciones h1,
+  .page-hero-foreign h1,
+  .page-hero-profile h1,
+  .page-hero-compact h1{
+    max-width:15ch;
+  }
+}
+
+@media (max-width:760px){
+  .hero .hero-copy h1,
+  .page-hero-service h1,
+  .page-hero-soluciones h1,
+  .page-hero-foreign h1,
+  .page-hero-profile h1,
+  .page-hero-compact h1{
+    max-width:100%;
+    font-size:clamp(2.3rem,9vw,3.2rem);
+    line-height:1.1;
+    letter-spacing:-.03em;
+  }
+
+  .page-hero{
+    padding:46px 0 26px;
+  }
+
+  .page-hero + section{
+    padding-top:10px;
+  }
+}

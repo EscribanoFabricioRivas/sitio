@@ -1114,3 +1114,53 @@ h2{
     padding-top:10px;
   }
 }
+/* FIX FINO SOLO PARA SOLUCIONES */
+.page-hero-soluciones {
+  padding-top: 58px;
+  padding-bottom: 34px;
+}
+
+.page-hero-soluciones .hero-soluciones-wrap {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.page-hero-soluciones h1 {
+  max-width: 12ch;
+  font-size: clamp(2.7rem, 4.9vw, 4.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  margin: 0 0 18px;
+}
+
+.page-hero-soluciones .hero-soluciones-lead {
+  max-width: 62ch;
+}
+
+.page-hero-soluciones .hero-soluciones-cta {
+  justify-content: flex-start;
+  margin-top: 30px;
+}
+
+@media (max-width: 760px) {
+  .page-hero-soluciones {
+    padding-top: 46px;
+    padding-bottom: 26px;
+  }
+
+  .page-hero-soluciones h1 {
+    max-width: 100%;
+    font-size: clamp(2.3rem, 9vw, 3.2rem);
+    line-height: 1.1;
+  }
+
+  .page-hero-soluciones .hero-soluciones-lead {
+    max-width: 100%;
+  }
+
+  .page-hero-soluciones .hero-soluciones-cta {
+    justify-content: center;
+    margin-top: 24px;
+  }
+}

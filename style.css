@@ -498,3 +498,36 @@ footer p,footer a{color:rgba(255,255,255,.78)}
   background:rgba(0,0,0,.22);
   margin-top:28px;
 }
+
+/* PAGE HERO SERVICES LIST */
+.page-hero {
+  padding: 40px 0;
+  background: #f5f5f0;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.service-item {
+  background: white;
+  padding: 24px;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--gold);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text);
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+@media(max-width:768px) {
+  .services-list {
+    grid-template-columns: 1fr;
+  }
+  .service-item {
+    font-size: 1.05rem;
+    padding: 20px;
+  }
+}

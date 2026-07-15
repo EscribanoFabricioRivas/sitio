@@ -531,3 +531,112 @@ footer p,footer a{color:rgba(255,255,255,.78)}
     padding: 20px;
   }
 }
+.page-hero-soluciones {
+  padding-top: 72px;
+  padding-bottom: 56px;
+}
+
+.hero-soluciones-wrap {
+  max-width: 920px;
+}
+
+.hero-soluciones-lead {
+  max-width: 760px;
+}
+
+.hero-soluciones-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.cta-premium {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 30px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #d8bc73 0%, #caa454 100%);
+  color: #171717;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid rgba(140, 108, 34, 0.22);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease,
+    color 0.22s ease;
+}
+
+.cta-premium:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.40);
+  background: linear-gradient(180deg, #dcc27a 0%, #c69d49 100%);
+}
+
+.cta-premium:focus-visible {
+  outline: 2px solid rgba(25, 25, 25, 0.75);
+  outline-offset: 4px;
+}
+
+.soluciones-grid-section {
+  padding-top: 8px;
+}
+
+@media (max-width: 991px) {
+  .page-hero-soluciones {
+    padding-top: 60px;
+    padding-bottom: 44px;
+  }
+
+  .hero-soluciones-cta {
+    margin-top: 26px;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-hero-soluciones {
+    padding-top: 46px;
+    padding-bottom: 34px;
+  }
+
+  .hero-soluciones-wrap {
+    text-align: left;
+  }
+
+  .hero-soluciones-lead {
+    max-width: 100%;
+  }
+
+  .hero-soluciones-cta {
+    justify-content: center;
+    margin-top: 24px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cta-premium {
+    width: min(100%, 320px);
+    min-height: 50px;
+    padding: 0 22px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-premium {
+    width: 100%;
+    max-width: 300px;
+  }
+}

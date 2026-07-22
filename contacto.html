@@ -120,6 +120,8 @@
     const mensaje = document.getElementById('mensaje').value;
     const texto = encodeURIComponent(`Hola Fabricio, mi nombre es ${nombre}. Mi contacto: ${contacto}. Tipo de consulta: ${tipo}. Detalle: ${mensaje}`);
     window.open(`https://api.whatsapp.com/send?phone=59899431185&text=${texto}`, '_blank');
+      window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({'event': 'formulario_contacto_enviado', 'tipo_consulta': tipo});
   }
   </script>
 </body>

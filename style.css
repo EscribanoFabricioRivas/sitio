@@ -1350,3 +1350,15 @@ body.poder-vehiculo-page .hero-copy h1 {
 body.home-page .hero-copy h1 {
   max-width: 28ch;
 }
+/* Ajuste fino hero Real Estate */
+body.real-estate-page .page-hero h1 {
+  max-width: 26ch; /* un poco más ancho que ahora */
+}
+
+body.real-estate-page .page-hero .lead {
+  max-width: 48ch;
+}
+
+body.real-estate-page .page-hero + section {
+  padding-top: 16px; /* acerca el bloque de cobertura al hero */
+}

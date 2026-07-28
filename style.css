@@ -1343,3 +1343,7 @@ h2{
     max-width: none;
   }
 }
+/* Ajuste fino para el título de poder-vehiculo */
+body.poder-vehiculo-page .hero-copy h1 {
+  max-width: 28ch; /* ensancha el bloque para que respire como la bajada */
+}

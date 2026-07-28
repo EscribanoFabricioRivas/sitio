@@ -1347,3 +1347,6 @@ h2{
 body.poder-vehiculo-page .hero-copy h1 {
   max-width: 28ch; /* ensancha el bloque para que respire como la bajada */
 }
+body.home-page .hero-copy h1 {
+  max-width: 28ch;
+}

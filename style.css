@@ -1350,23 +1350,21 @@ body.poder-vehiculo-page .hero-copy h1 {
 body.home-page .hero-copy h1 {
   max-width: 28ch;
 }
-/* ===== Real Estate: hero + cards alineados ===== */
-
-body.real-estate-page .page-hero {
-  padding-top: 56px;      /* igual que home o un poco menos */
-  padding-bottom: 32px;   /* corta antes para que las cards suban */
+/* ===== Ajustes Real Estate ===== */
+body.real-estate-page .page-hero.page-hero-service {
+  padding-top: 56px;
+  padding-bottom: 32px;
 }
 
-body.real-estate-page .page-hero + section {
-  padding-top: 0;         /* SIN espacio encima de las cards */
-  margin-top: -8px;       /* solapa apenas el gris con el hero */
-}
-
-/* Ancho del título y bajada solo en esta página */
-body.real-estate-page .page-hero h1 {
+body.real-estate-page .page-hero.page-hero-service h1 {
   max-width: 24ch;
 }
 
-body.real-estate-page .page-hero .lead {
+body.real-estate-page .page-hero.page-hero-service .lead {
   max-width: 48ch;
+}
+
+body.real-estate-page .page-hero.page-hero-service + section {
+  padding-top: 0;
+  margin-top: -8px;
 }

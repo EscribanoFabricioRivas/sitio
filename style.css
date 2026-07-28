@@ -1310,3 +1310,36 @@ h2{
     justify-content: center;
   }
 }
+.hero-vehiculo-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-vehiculo-copy h1 {
+  max-width: 18ch; /* un poco más ancho, no bloque estrecho */
+}
+
+.hero-vehiculo-copy .lead {
+  max-width: 44ch;
+}
+
+.hero-vehiculo-photo {
+  /* se apoya en el estilo que ya tenés para la card con la foto */
+}
+
+@media (max-width: 900px) {
+  .hero-vehiculo-wrap {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero-vehiculo-photo {
+    order: -1; /* foto arriba en mobile, si preferís podés quitar esto */
+  }
+
+  .hero-vehiculo-copy h1 {
+    max-width: none;
+  }
+}

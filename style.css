@@ -1371,7 +1371,7 @@ body.real-estate-page .page-hero.page-hero-service + section {
 /* ===== Real Estate: corregir alineación lateral del hero ===== */
 
 body.real-estate-page .page-hero.page-hero-service {
-  padding-left: 768px;   /* corre el contenido hacia la derecha */
+  padding-left: 1152px;   /* corre el contenido hacia la derecha */
   padding-right: 40px;  /* mantiene aire con la foto */
 }
 

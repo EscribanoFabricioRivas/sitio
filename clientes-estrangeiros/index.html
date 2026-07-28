@@ -80,6 +80,7 @@
               class="btn btn-primary"
               target="_blank"
               rel="noopener noreferrer"
+              data-fr-wa-hero-pt
             >
               WhatsApp — contato direto
             </a>
@@ -88,6 +89,7 @@
               class="btn btn-secondary"
               target="_blank"
               rel="noopener noreferrer"
+              data-fr-wa-hero-pt
             >
               Explicar minha necessidade
             </a>
@@ -134,6 +136,7 @@
                 style="background:#c4ad7a;color:#000;font-size:1rem;padding:14px 24px;"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-fr-wa-secondary-pt
               >
                 WhatsApp — agendar consulta
               </a>
@@ -169,5 +172,63 @@
     <a class="wa" href="https://api.whatsapp.com/send?phone=59899431185&text=Ol%C3%A1%20Fabricio%2C%20sou%20cliente%20estrangeiro%20e%20prefiro%20coordenar%20em%20portugu%C3%AAs%20ou%20ingl%C3%AAs.%20Preciso%20de%20suporte%20notarial%20no%20Uruguai." target="_blank" rel="noopener noreferrer">WhatsApp</a>
     <a class="call" href="tel:+59899431185">Ligar</a>
   </div>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+
+  function frTrack(eventName, extra) {
+    window.dataLayer.push(Object.assign({
+      event: eventName,
+      page_language: 'pt-BR',
+      page_template: 'clientes-estrangeiros'
+    }, extra || {}));
+  }
+
+  // WhatsApp principal (hero)
+  document.addEventListener('DOMContentLoaded', function () {
+    var waHero = document.querySelector('[data-fr-wa-hero-pt]');
+    if (waHero) {
+      waHero.addEventListener('click', function () {
+        frTrack('pt_whatsapp_click_hero', {
+          fr_cta_label: 'WhatsApp — Contato direto'
+        });
+      });
+    }
+
+    // WhatsApp secundario (feature-panel)
+    var waSecondary = document.querySelector('[data-fr-wa-secondary-pt]');
+    if (waSecondary) {
+      waSecondary.addEventListener('click', function () {
+        frTrack('pt_whatsapp_click_secondary', {
+          fr_cta_label: 'WhatsApp — Preciso de ajuda'
+        });
+      });
+    }
+  });
+
+  // Ejemplo de envío de formulário (si luego lo agregás en PT)
+  function enviarWhatsAppPt(e) {
+    e.preventDefault();
+    var nome = document.getElementById('nome-pt')?.value || '';
+    var contato = document.getElementById('contato-pt')?.value || '';
+    var tipo = document.getElementById('tipo-pt')?.value || '';
+    var mensagem = document.getElementById('mensagem-pt')?.value || '';
+
+    var texto = encodeURIComponent(
+      'Olá Fabricio, meu nome é ' + nome +
+      '. Meus dados de contato: ' + contato +
+      '. Tipo de consulta: ' + tipo +
+      '. Detalhe: ' + mensagem
+    );
+
+    frTrack('pt_form_whatsapp_enviado', {
+      fr_form_tipo: tipo
+    });
+
+    window.open(
+      'https://api.whatsapp.com/send?phone=59899431185&text=' + texto,
+      '_blank'
+    );
+  }
+</script>
 </body>
 </html>

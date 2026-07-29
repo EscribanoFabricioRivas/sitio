@@ -2,11 +2,39 @@
 <html lang="pt-BR">
 <head>
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
-  j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-  f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KKH9D4KS');</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function frTrack(eventName, extra) {
+    window.dataLayer.push(Object.assign({
+      event: eventName,
+      page_language: 'pt-BR',
+      page_template: 'clientes-estrangeiros'
+    }, extra || {}));
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Todos los botones con data-fr-wa-hero-pt (los dos del bloque de arriba)
+    var waHeroes = document.querySelectorAll('[data-fr-wa-hero-pt]');
+    waHeroes.forEach(function (el) {
+      el.addEventListener('click', function () {
+        frTrack('pt_whatsapp_click_hero', {
+          fr_cta_label: el.textContent.trim()
+        });
+      });
+    });
+
+    // Botón secundario del panel de abajo
+    var waSecondary = document.querySelector('[data-fr-wa-secondary-pt]');
+    if (waSecondary) {
+      waSecondary.addEventListener('click', function () {
+        frTrack('pt_whatsapp_click_secondary', {
+          fr_cta_label: waSecondary.textContent.trim()
+        });
+      });
+    }
+  });
+</script>
   <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8">

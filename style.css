@@ -2033,3 +2033,91 @@ body.real-estate-page footer a:hover {
     padding-bottom: 104px;
   }
 }
+/* =========================================================
+   SOLUCIONES — PATCH CSS
+   Agregar al FINAL de style.css
+   ========================================================= */
+
+body.soluciones-page .page-hero-soluciones-refined {
+  padding-top: 56px;
+  padding-bottom: 34px;
+}
+
+body.soluciones-page .hero-soluciones-wrap-refined {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+body.soluciones-page .page-hero-soluciones-refined h1 {
+  max-width: 16ch;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: clamp(2.75rem, 4.9vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+body.soluciones-page .page-hero-soluciones-refined .hero-soluciones-lead {
+  max-width: 64ch;
+  text-align: left;
+}
+
+body.soluciones-page .hero-soluciones-cta {
+  justify-content: flex-start;
+}
+
+body.soluciones-page .soluciones-grid-section-refined {
+  padding-top: 12px;
+  padding-bottom: 40px;
+}
+
+body.soluciones-page .soluciones-card-grid {
+  gap: 20px;
+}
+
+body.soluciones-page .soluciones-card-link {
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+body.soluciones-page .soluciones-card-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.10);
+  border-color: rgba(196,173,122,.35);
+}
+
+body.soluciones-page .soluciones-card-link p,
+body.soluciones-page .soluciones-card-link .mini-link,
+body.soluciones-page footer p {
+  text-align: left;
+}
+
+body.soluciones-page footer p,
+body.soluciones-page footer a {
+  color: rgba(255,255,255,.84);
+}
+
+body.soluciones-page footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  body.soluciones-page .page-hero-soluciones-refined {
+    padding-top: 38px;
+    padding-bottom: 24px;
+  }
+
+  body.soluciones-page .page-hero-soluciones-refined h1 {
+    max-width: 100%;
+    font-size: clamp(2.25rem, 9vw, 3.15rem);
+    line-height: 1.08;
+  }
+
+  body.soluciones-page .page-hero-soluciones-refined .hero-soluciones-lead {
+    max-width: 100%;
+  }
+
+  body.soluciones-page .hero-soluciones-cta {
+    justify-content: center;
+  }
+}

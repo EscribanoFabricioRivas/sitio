@@ -1925,3 +1925,111 @@ body.real-estate-page footer p {
     border-radius: 22px;
   }
 }
+/* =========================================================
+   REAL ESTATE — PATCH FINAL
+   Corrige mobile panel oculto + footer + formato visual foto
+   Agregar al FINAL de style.css, debajo del patch anterior.
+   ========================================================= */
+
+/* 1) Desktop: que la foto respire mejor sin parecer vacía */
+body.real-estate-page .hero-visual {
+  min-height: 520px;
+}
+
+body.real-estate-page .hero-visual img {
+  padding-top: 30px;
+  padding-inline: 18px;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+/* 2) Panel negro de criterio: no debe comportarse como lateral oculto */
+body.real-estate-page .feature-panel {
+  overflow: visible;
+}
+
+body.real-estate-page .feature-panel .feature-copy {
+  display: block;
+}
+
+/* 3) Footer con criterio UX más claro */
+body.real-estate-page footer .footer-grid {
+  grid-template-columns: 1.15fr .85fr .95fr;
+  gap: 22px;
+}
+
+body.real-estate-page footer .footer-title {
+  margin-bottom: 12px;
+}
+
+body.real-estate-page footer p {
+  margin: 0 0 8px;
+  text-align: left;
+}
+
+body.real-estate-page footer a {
+  text-decoration: none;
+}
+
+body.real-estate-page footer a:hover {
+  text-decoration: underline;
+}
+
+/* 4) Mobile/tablet: el bloque lateral debe apilarse y verse completo */
+@media (max-width: 900px) {
+  body.real-estate-page .feature-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  body.real-estate-page .feature-panel {
+    display: block;
+    min-height: auto;
+    overflow: visible;
+    border-radius: 24px;
+  }
+
+  body.real-estate-page .feature-panel .feature-copy {
+    width: 100%;
+    padding: 24px 22px;
+  }
+
+  body.real-estate-page .feature-panel .feature-copy h3,
+  body.real-estate-page .feature-panel .feature-copy p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  body.real-estate-page .hero-visual {
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  body.real-estate-page .hero-visual img {
+    width: 100%;
+    max-height: 380px;
+    padding-top: 12px;
+    padding-inline: 12px;
+    object-fit: contain;
+    object-position: center top;
+  }
+
+  body.real-estate-page .feature-panel {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  body.real-estate-page .feature-panel .feature-copy {
+    padding: 22px 20px;
+  }
+
+  body.real-estate-page footer .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  body.real-estate-page footer {
+    padding-bottom: 104px;
+  }
+}

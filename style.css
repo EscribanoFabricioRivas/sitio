@@ -1573,3 +1573,355 @@ body.real-estate-page .page-hero.page-hero-service {
     font-size: 0.82rem;
   }
 }
+/* =========================================================
+   REAL ESTATE — PATCH CSS
+   Agregar al FINAL de style.css
+   Corrige: hero corrido, foto cortada, selector, cobertura,
+   bloque proceso, footer y mobile.
+   ========================================================= */
+
+/* 1) Reset del error que empuja el hero hacia la derecha */
+body.real-estate-page .page-hero.page-hero-service {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background: transparent;
+}
+
+/* 2) Real Estate usa el sistema hero de home, no el page-hero viejo */
+body.real-estate-page .hero.hero-real-estate {
+  padding: 52px 0 30px;
+}
+
+body.real-estate-page .hero-grid-real-estate {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(420px, .98fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+body.real-estate-page .hero-copy {
+  padding-right: 0;
+  align-self: center;
+}
+
+body.real-estate-page .hero-copy h1 {
+  max-width: 15ch;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  font-size: clamp(2.7rem, 4.8vw, 4.15rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+body.real-estate-page .hero-copy .lead {
+  max-width: 56ch;
+  font-size: 1.04rem;
+  margin-bottom: 24px;
+  color: #2b2b2b;
+}
+
+body.real-estate-page .hero-actions {
+  margin-bottom: 20px;
+}
+
+body.real-estate-page .hero-lang-switch {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+body.real-estate-page .hero-notes {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+body.real-estate-page .hero-note {
+  min-height: 100%;
+  text-align: left;
+}
+
+/* 3) Foto: que no se corte la cabeza y que el bloque se vea premium */
+body.real-estate-page .hero-visual {
+  min-height: 560px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, #efefed 0%, #ddddda 100%);
+  display: flex;
+  align-items: stretch;
+}
+
+body.real-estate-page .hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  padding-top: 18px;
+  background: linear-gradient(180deg, #efefed 0%, #ddddda 100%);
+}
+
+body.real-estate-page .hero-badge {
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  padding: 20px;
+  border-radius: 22px;
+}
+
+body.real-estate-page .hero-badge h2 {
+  font-size: 1.42rem;
+  line-height: 1.06;
+  margin: 8px 0 8px;
+}
+
+body.real-estate-page .hero-badge p {
+  text-align: left;
+}
+
+/* 4) Primera sección más compacta para que no explote el scroll */
+body.real-estate-page main > section:nth-of-type(2) {
+  padding-top: 18px;
+  padding-bottom: 34px;
+}
+
+body.real-estate-page .feature-wrap {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+body.real-estate-page .card-cobertura,
+body.real-estate-page .feature-panel {
+  height: 100%;
+}
+
+body.real-estate-page .card-cobertura {
+  padding: 34px 30px 30px;
+}
+
+body.real-estate-page .card-cobertura h3 {
+  margin-bottom: 16px;
+}
+
+body.real-estate-page .card-cobertura .points li {
+  text-align: left;
+}
+
+body.real-estate-page .feature-panel {
+  background: linear-gradient(180deg, #111111 0%, #1b1b1c 100%);
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+body.real-estate-page .feature-panel .feature-copy {
+  width: 100%;
+  background: transparent;
+  padding: 32px 30px;
+}
+
+body.real-estate-page .feature-panel .feature-copy h3 {
+  font-size: 1.4rem;
+  line-height: 1.08;
+  margin: 10px 0 12px;
+}
+
+body.real-estate-page .feature-panel .feature-copy p {
+  text-align: left;
+}
+
+/* 5) Cómo trabajo: más limpio, menos discurso colgado */
+body.real-estate-page .section-alt {
+  padding-top: 42px;
+  padding-bottom: 42px;
+}
+
+body.real-estate-page .section-head {
+  grid-template-columns: minmax(0, 1fr) minmax(280px, .72fr);
+  align-items: end;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+body.real-estate-page .section-head p {
+  text-align: left;
+  max-width: 44ch;
+}
+
+body.real-estate-page .grid-3 {
+  gap: 16px;
+}
+
+body.real-estate-page .grid-3 .card {
+  padding: 24px 22px;
+}
+
+body.real-estate-page .step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  background: rgba(196,173,122,.16);
+  border: 1px solid rgba(80,70,2,.14);
+  color: var(--olive);
+  font-size: .86rem;
+  font-weight: 800;
+}
+
+/* 6) Contacto: más prolijo y con links visibles */
+body.real-estate-page .contact-wrap {
+  align-items: stretch;
+}
+
+body.real-estate-page .contact-card,
+body.real-estate-page .form-shell {
+  height: 100%;
+}
+
+body.real-estate-page .contact-list li,
+body.real-estate-page .contact-list li strong,
+body.real-estate-page .contact-list li a {
+  text-align: left;
+}
+
+body.real-estate-page .contact-list li a {
+  color: inherit;
+}
+
+/* 7) Footer negro: ubicación e Instagram más visibles */
+body.real-estate-page footer {
+  margin-top: 10px;
+}
+
+body.real-estate-page footer p,
+body.real-estate-page footer a {
+  color: rgba(255,255,255,.84);
+}
+
+body.real-estate-page footer a:hover {
+  color: #ffffff;
+}
+
+/* 8) Topbar: que no se rompa visualmente */
+body.real-estate-page .topbar-center {
+  font-size: .84rem;
+}
+
+/* 9) Desactivar justificado en lugares donde arruina UX */
+body.real-estate-page .hero-copy p,
+body.real-estate-page .hero-badge p,
+body.real-estate-page .feature-copy p,
+body.real-estate-page .section-head p,
+body.real-estate-page .contact-card p,
+body.real-estate-page .form-shell p,
+body.real-estate-page .card p,
+body.real-estate-page .points li,
+body.real-estate-page .contact-list li,
+body.real-estate-page footer p {
+  text-align: left;
+  text-justify: auto;
+}
+
+/* 10) Tablet */
+@media (max-width: 1100px) {
+  body.real-estate-page .hero-grid-real-estate,
+  body.real-estate-page .feature-wrap,
+  body.real-estate-page .contact-wrap,
+  body.real-estate-page .section-head,
+  body.real-estate-page .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.real-estate-page .hero-copy h1 {
+    max-width: 18ch;
+  }
+
+  body.real-estate-page .hero-visual {
+    min-height: 460px;
+  }
+}
+
+/* 11) Mobile */
+@media (max-width: 767px) {
+  body.real-estate-page .hero.hero-real-estate {
+    padding: 34px 0 20px;
+  }
+
+  body.real-estate-page .hero-copy h1 {
+    max-width: 100%;
+    font-size: clamp(2.25rem, 9vw, 3.15rem);
+    line-height: 1.08;
+  }
+
+  body.real-estate-page .hero-copy .lead {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  body.real-estate-page .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body.real-estate-page .hero-actions .btn {
+    width: 100%;
+  }
+
+  body.real-estate-page .hero-lang-switch {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  body.real-estate-page .hero-lang-buttons {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  body.real-estate-page .lang-pill,
+  body.real-estate-page .lang-pill-current {
+    min-height: 38px;
+  }
+
+  body.real-estate-page .hero-notes {
+    grid-template-columns: 1fr;
+  }
+
+  body.real-estate-page .hero-visual {
+    min-height: auto;
+    padding-top: 12px;
+  }
+
+  body.real-estate-page .hero-visual img {
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+    object-position: center top;
+    padding-top: 8px;
+  }
+
+  body.real-estate-page .hero-badge {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 0 14px 14px;
+  }
+
+  body.real-estate-page main > section:nth-of-type(2),
+  body.real-estate-page .section-alt,
+  body.real-estate-page section {
+    padding-top: 28px;
+    padding-bottom: 24px;
+  }
+
+  body.real-estate-page .card-cobertura,
+  body.real-estate-page .grid-3 .card,
+  body.real-estate-page .contact-card,
+  body.real-estate-page .form-shell {
+    padding: 22px 20px;
+    border-radius: 22px;
+  }
+}

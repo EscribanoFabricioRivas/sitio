@@ -2368,3 +2368,72 @@ body.real-estate-page footer .mini-link:hover::after{
     opacity: 1;
   }
 }
+/* REAL ESTATE — FOOTER RESET FINAL, SOLO PARA PROBAR BIEN */
+
+body.real-estate-page footer{
+  background: #000 !important;
+  color: #fff !important;
+  padding: 34px 0 88px !important;
+  margin-top: 24px !important;
+  border-top: none !important;
+}
+
+body.real-estate-page footer .footer-grid{
+  display: grid !important;
+  grid-template-columns: 1.2fr .8fr .8fr !important;
+  gap: 18px !important;
+}
+
+body.real-estate-page footer .footer-grid > *{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+body.real-estate-page footer .footer-title{
+  color: #fff !important;
+  margin: 0 0 10px !important;
+}
+
+body.real-estate-page footer p,
+body.real-estate-page footer a,
+body.real-estate-page footer strong{
+  color: rgba(255,255,255,.86) !important;
+  text-align: left !important;
+}
+
+body.real-estate-page footer a{
+  text-decoration: none !important;
+}
+
+body.real-estate-page footer a:hover{
+  color: #fff !important;
+  text-decoration: underline !important;
+}
+
+@media (max-width: 1100px){
+  body.real-estate-page footer .footer-grid{
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+@media (max-width: 767px){
+  body.real-estate-page footer{
+    background: #000 !important;
+    padding: 28px 0 104px !important;
+  }
+
+  body.real-estate-page footer .footer-grid{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  body.real-estate-page footer .footer-grid > *{
+    background: transparent !important;
+    padding: 0 !important;
+  }
+}

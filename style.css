@@ -2141,3 +2141,55 @@ body.real-estate-page .hero-visual img{
 body.real-estate-page .hero-badge{
   bottom: 18px !important;
 }
+/* PATCH FINAL REAL ESTATE — desktop + mobile */
+
+/* Desktop / tablet: panel alto, foto llena y badge apoyado abajo */
+body.real-estate-page .hero-visual{
+  position: relative;
+  min-height: 620px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: #ededed;
+}
+
+body.real-estate-page .hero-visual img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Ajuste del zócalo/badge para que no se corte */
+body.real-estate-page .hero-badge{
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  border-radius: 20px;
+}
+
+/* MOBILE: panel más bajo, foto más grande en relación
+   y badge siempre entero visible debajo */
+@media (max-width: 767px){
+  body.real-estate-page .hero-grid{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  body.real-estate-page .hero-visual{
+    min-height: 420px;
+    height: auto;
+  }
+
+  body.real-estate-page .hero-visual img{
+    height: 100%;
+  }
+
+  body.real-estate-page .hero-badge{
+    position: static;
+    margin: 14px 0 0;
+  }
+}

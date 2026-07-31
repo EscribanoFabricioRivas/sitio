@@ -2299,3 +2299,72 @@ body.real-estate-page footer .mini-link:hover::after{
     padding: 18px 18px 16px;
   }
 }
+/* FOOTER PREMIUM MOBILE — Real Estate */
+
+@media (max-width: 767px){
+
+  /* Fondo y separación general */
+  body.real-estate-page footer{
+    padding-top: 26px;
+    padding-bottom: 32px;
+    border-top: 1px solid rgba(0,0,0,.06);
+    background: linear-gradient(180deg,#e2e0db 0%,#d8d6d0 100%);
+  }
+
+  /* La grilla se vuelve columna */
+  body.real-estate-page footer .footer-grid{
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* Cada bloque como “tile” táctil */
+  body.real-estate-page footer .footer-grid > *{
+    background: linear-gradient(180deg,rgba(255,255,255,.92),rgba(245,243,238,.98));
+    border-radius: 20px;
+    padding: 16px 16px 14px;
+    border: 1px solid rgba(255,255,255,.7);
+    box-shadow: 0 10px 26px rgba(0,0,0,.08);
+    transform: translateY(0);
+    transition:
+      transform .18s ease,
+      box-shadow .18s ease,
+      border-color .18s ease,
+      background .18s ease;
+  }
+
+  /* Al tocar (tap / active) que se sienta botón premium */
+  body.real-estate-page footer .footer-grid > *:active{
+    transform: translateY(1px);
+    box-shadow: 0 6px 18px rgba(0,0,0,.09);
+    border-color: rgba(196,173,122,.55);
+    background: linear-gradient(180deg,rgba(255,255,255,1),rgba(245,243,238,1));
+  }
+
+  /* Links internos: más legibles y con micro-movimiento */
+  body.real-estate-page footer a{
+    font-size: .95rem;
+    letter-spacing: .01em;
+    transition: color .16s ease, opacity .16s ease, transform .16s ease;
+  }
+
+  body.real-estate-page footer .mini-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    color: var(--olive);
+  }
+
+  body.real-estate-page footer .mini-link::after{
+    content: "›";
+    font-size: .9rem;
+    opacity: .8;
+    transform: translateX(0);
+    transition: transform .16s ease, opacity .16s ease;
+  }
+
+  body.real-estate-page footer .mini-link:active::after{
+    transform: translateX(3px);
+    opacity: 1;
+  }
+}

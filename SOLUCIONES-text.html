@@ -83,19 +83,22 @@
   </header>
 
   <main>
-<section class="page-hero page-hero-soluciones page-hero-soluciones-refined" style="text-align: left; padding-left: 0 !important;">
-      <div class="container">
-        <div style="max-width: 900px; margin-left: 0 !important; padding-left: 0 !important;">
+<section class="page-hero page-hero-soluciones page-hero-soluciones-refined">
+      <!-- Acá está el fix definitivo: Forzamos a que actúe como bloque y anulamos el flex-center de tu CSS -->
+      <div class="container" style="display: block !important; width: 100% !important;">
+        
+        <!-- Al tener margin: 0, se pega obligatoriamente a la izquierda del container -->
+        <div style="max-width: 850px; margin: 0 !important; text-align: left; padding: 0;">
           
-          <div class="eyebrow" style="margin-left: 0 !important;">Soluciones notariales</div>
+          <div class="eyebrow" style="margin-bottom: 12px;">Soluciones notariales</div>
 
-          <h1 style="text-align: left; margin-left: 0 !important;">Escribano Público en Punta del Este y Maldonado. Orden, criterio y ejecución notarial.</h1>
+          <h1 style="margin-bottom: 20px;">Escribano Público en Punta del Este y Maldonado. Orden, criterio y ejecución notarial.</h1>
 
-          <p class="lead hero-soluciones-lead" style="text-align: left; margin-left: 0 !important; max-width: 800px;">
+          <p class="lead hero-soluciones-lead" style="max-width: 750px; margin-bottom: 32px;">
             Resolución jurídica ágil con atención directa del Escribano Fabricio Rivas en Punta del Este y Maldonado. Soluciones para operaciones inmobiliarias, sociedades, sucesiones y certificaciones.
           </p>
 
-          <div class="hero-soluciones-cta" style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 24px; margin-left: 0 !important;">
+          <div class="hero-soluciones-cta" style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px;">
             <a href="https://api.whatsapp.com/send?phone=59899431185&text=Hola%20Fabricio%2C%20necesito%20hacer%20una%20consulta%20notarial." class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="font-size:1.05rem; padding:16px 28px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);">
               Consultar por WhatsApp
             </a>

@@ -2512,3 +2512,11 @@ body.real-estate-page footer a:hover{
 .page-hero-soluciones-refined .hero-soluciones-wrap-refined .lead.hero-soluciones-lead {
   max-width: 100%;
 }
+
+
+/* FIX2: forzar ancho real igual al container/footer, ganar especificidad sobre regla de 980px */
+body.soluciones-page .page-hero-soluciones-refined .hero-soluciones-wrap-refined {
+  max-width: var(--max) !important;
+  width: min(calc(100% - 36px), var(--max)) !important;
+  margin: 0 auto !important;
+}

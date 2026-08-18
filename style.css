@@ -2501,3 +2501,14 @@ body.real-estate-page footer a:hover{
     gap: 14px;
   }
 }
+
+
+/* FIX: alinear H1 y bajada de Soluciones al ancho del footer/container */
+.page-hero-soluciones-refined .hero-soluciones-wrap-refined {
+  max-width: var(--max);
+  width: min(calc(100% - 36px), var(--max));
+  margin: 0 auto;
+}
+.page-hero-soluciones-refined .hero-soluciones-wrap-refined .lead.hero-soluciones-lead {
+  max-width: 100%;
+}

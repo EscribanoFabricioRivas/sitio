@@ -1,0 +1,28 @@
+name: Optimize images
+
+on:
+  push:
+    branches: [main]
+    paths: ["**.jpg", "**.jpeg", "**.png", "**.webp", "**.JPG", "**.PNG"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - run: python .github/scripts/optimize_images.py
+      - name: Commit compressed images
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "image-optimizer"
+          git config user.email "actions@users.noreply.github.com"
+          git commit -am "Compress oversized images"
+          git push

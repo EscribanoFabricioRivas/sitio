@@ -295,5 +295,8 @@ Seguir en Instagram
       window.open(`https://api.whatsapp.com/send?phone=59899431185&text=${texto}`, '_blank');
     }
   </script>
+<script>
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(!a)return;window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'llamada_click',page_path:location.pathname});});
+</script>
 </body>
 </html>

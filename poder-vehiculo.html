@@ -362,5 +362,8 @@
   <a class="call" href="tel:+59899431185">Llamar</a>
 </div>
 
+<script>
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(!a)return;window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'llamada_click',page_path:location.pathname});});
+</script>
 </body>
 </html>

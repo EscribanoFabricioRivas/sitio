@@ -205,5 +205,8 @@
     <a class="wa" href="https://api.whatsapp.com/send?phone=59899431185&text=Hello%20Fabricio%2C%20I%20am%20a%20foreign%20client%20and%20I%20prefer%20to%20coordinate%20in%20English%20or%20Portuguese.%20I%20need%20notarial%20assistance%20in%20Uruguay." target="_blank" rel="noopener noreferrer">WhatsApp</a>
     <a class="call" href="tel:+59899431185">Call</a>
   </div>
+<script>
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(!a)return;window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'llamada_click',page_path:location.pathname});});
+</script>
 </body>
 </html>

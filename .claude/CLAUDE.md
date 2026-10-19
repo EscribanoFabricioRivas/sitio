@@ -50,6 +50,13 @@ Este repo es el sitio estático (GitHub Pages, rama `main`) del Escribano Públi
 - Timbres notariales y registros notariales no van como negativas.
 - No agregar recurso de ubicación en Ads.
 
+## Hallazgos verificados (19/10/2026)
+
+- Demanda en Maldonado (Planificador): unas 22 búsquedas por mes sumando "certificación de firma", "certificar firma", "escribano certificación" y "certificado notarial". En Uruguay: "certificado notarial" 210 por mes, "certificación de firma" 30 y "certificar firma" 10.
+- Certificaciones: las palabras de producto real ("certificar firma"…) no se activan; la vista previa solo encontró "firma certificada". El gasto se fue a "certificado notarial" (certificados de ingresos, BPS, registral, a nivel nacional, con "Presencia o interés").
+- Competencia en subastas: aldecoaabogados.com (y pbiinmobiliaria.com). En 90 días coincide en el 20% de las subastas y queda arriba el 46% de esas veces; Fabricio sale en el primer lugar absoluto el 51% de las veces. Donde Aldecoa gana es en reputación local: 307 reseñas (4,7) contra 16, con anuncios que muestran estrellas, Llamar y fotos.
+- PageSpeed de /real-estate en celular: 96 (LCP 1,2 s). La velocidad ya no es el problema.
+
 ## Sitio
 
 - Imágenes: un workflow (`.github/workflows/optimize-images.yml`) las comprime solo al subirlas. Nunca subir imágenes de más de 300 KB.

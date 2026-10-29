@@ -2525,10 +2525,6 @@ body.soluciones-page .page-hero-soluciones-refined .hero-soluciones-wrap-refined
    SOBRE FABRICIO — ESTÉTICA NOTARIAL SOBRIA (CARBÓN #111111, PIEDRA #e9e7e1, DORADO #c4ad7a)
    ========================================================================== */
 
-body.sobre-fabricio-page {
-  font-family: "Avenir Next", "Open Sauce One", Inter, Arial, sans-serif;
-}
-
 .sobre-credentials-badges {
   display: flex;
   flex-wrap: wrap;

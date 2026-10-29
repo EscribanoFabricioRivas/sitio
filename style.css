@@ -2522,20 +2522,38 @@ body.soluciones-page .page-hero-soluciones-refined .hero-soluciones-wrap-refined
 }
 
 /* ==========================================================================
-   SOBRE FABRICIO — COMPONENTES NATIVOS DEL SITIO (CERO AZUL, CERO TEXTO SOBRE LA CARA)
+   SOBRE FABRICIO — ESTÉTICA NOTARIAL SOBRIA (CARBÓN #111111, PIEDRA #e9e7e1, DORADO #c4ad7a)
    ========================================================================== */
 
-.sobre-credential-pill {
-  display: inline-block;
-  margin: 10px 0 6px;
-  padding: 8px 16px;
+body.sobre-fabricio-page {
+  font-family: "Avenir Next", "Open Sauce One", Inter, Arial, sans-serif;
+}
+
+.sobre-credentials-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 10px;
+}
+
+.sobre-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(17, 17, 17, 0.14);
+  font-size: 0.85rem;
   font-weight: 700;
-  color: var(--text);
+  color: #111111;
+  line-height: 1.3;
   text-align: left;
+}
+
+.sobre-badge-primary {
+  background: #111111;
+  color: #f5f4f0;
+  border-color: #c4ad7a;
 }
 
 .sobre-photo-card {
@@ -2550,7 +2568,7 @@ body.soluciones-page .page-hero-soluciones-refined .hero-soluciones-wrap-refined
 
 .sobre-photo-wrap {
   width: 100%;
-  background: #ececec;
+  background: #e9e7e1;
   overflow: hidden;
 }
 
@@ -2566,8 +2584,8 @@ body.soluciones-page .page-hero-soluciones-refined .hero-soluciones-wrap-refined
 .sobre-photo-caption {
   padding: 20px 24px;
   background: #111111;
-  color: #ffffff;
-  border-top: 2px solid var(--gold);
+  color: #f5f4f0;
+  border-top: 2px solid #c4ad7a;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -2580,22 +2598,75 @@ body.soluciones-page .page-hero-soluciones-refined .hero-soluciones-wrap-refined
 
 .sobre-photo-caption span {
   font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #e9e7e1;
 }
 
-.sobre-pending-box {
-  margin-top: 16px;
-  padding: 20px 22px;
-  border-radius: 18px;
-  background: rgba(196, 173, 122, 0.12);
-  border: 1px dashed rgba(80, 70, 2, 0.35);
+/* Módulo de la Oficina / Sede en ARTOWER preparado para foto real */
+.sobre-office-card {
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: #111111;
+  color: #f5f4f0;
+  border: 1px solid rgba(196, 173, 122, 0.35);
+  display: flex;
+  flex-direction: column;
 }
 
-.sobre-pending-box strong {
+.sobre-office-visual {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: #1a1a1a;
+  border-bottom: 2px solid #c4ad7a;
+}
+
+.sobre-office-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
+}
+
+.sobre-office-body {
+  padding: 28px 30px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.sobre-office-body h3 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin: 2px 0 4px;
+}
+
+.sobre-office-body p {
+  color: rgba(245, 244, 240, 0.84);
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.sobre-office-actions {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.sobre-map-link {
+  color: #c4ad7a;
+  font-weight: 700;
   font-size: 0.92rem;
-  color: var(--text);
-  margin-bottom: 8px;
+}
+
+.sobre-map-link:hover {
+  text-decoration: underline;
 }
 
 .step-num {
@@ -2610,4 +2681,20 @@ body.soluciones-page .page-hero-soluciones-refined .hero-soluciones-wrap-refined
   font-weight: 800;
   color: var(--olive);
   margin-bottom: 12px;
+}
+
+/* Protección en los 5 anchos responsive (375px, 768px, 1024px, 1280px, 1440px) */
+@media (max-width: 1180px) {
+  body.sobre-fabricio-page .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  body.sobre-fabricio-page .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .sobre-office-body {
+    padding: 22px 20px 26px;
+  }
 }

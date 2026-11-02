@@ -36,7 +36,7 @@ Este repo es el sitio estático (GitHub Pages, rama `main`) del Escribano Públi
 
 ## Tono y lenguaje
 
-- Español: tratar de **tú con voseo rioplatense** ("coordinás", "tu firma"). Nunca usted.
+- Español: **tuteo** (conjugación con tú: "coordina", "consulta", "envía", "puedes", "tienes", "cree"). Vocabulario y tono rioplatense, pero **nunca voseo** ("coordinás", "podés", "tenés", "escribinos") **ni usted** ("coordine", "su consulta"). Vale para el sitio, los artículos, Ads, Instagram, WhatsApp y cualquier pack de contenidos.
 - Tono sobrio, notarial, sereno. Sin consignas comerciales ("de su lado"), sin comparaciones con inmobiliarias o colegas, sin testimonios inventados.
 - Portugués: **siempre de Brasil**. Inglés: neutro.
 - No mencionar ARTOWER ni "trabajo en persona": decir "atención directa, también a distancia si estás en otro país".

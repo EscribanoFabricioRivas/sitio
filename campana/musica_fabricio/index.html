@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Cabina de Audición Musical · Escribano Fabricio Rivas</title>
+  <style>
+    :root {
+      --carbon: #111111;
+      --carbon-soft: #1a1a1a;
+      --stone: #e9e7e1;
+      --stone-light: #f5f4f0;
+      --gold: #c4ad7a;
+      --gold-dark: #9e8755;
+      --muted: #5c5a55;
+      --line: rgba(17, 17, 17, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Open Sauce One", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--stone-light);
+      color: var(--carbon);
+      line-height: 1.5;
+    }
+    header {
+      background: var(--carbon);
+      color: var(--stone-light);
+      padding: 36px 24px 32px;
+      border-bottom: 2px solid var(--gold);
+    }
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(24px, 3.2vw, 34px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      margin: 0;
+      color: rgba(233, 231, 225, 0.78);
+      font-size: 15px;
+      max-width: 760px;
+    }
+    main {
+      padding: 32px 24px 72px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+      gap: 22px;
+      margin-top: 20px;
+    }
+    @media (max-width: 560px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 10px 28px rgba(17, 17, 17, 0.05);
+    }
+    .card-featured {
+      border: 2px solid var(--gold);
+    }
+    .badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--stone);
+      color: var(--carbon);
+    }
+    .badge-gold {
+      background: var(--carbon);
+      color: var(--gold);
+    }
+    .card h2 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+    }
+    .desc {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .player-box {
+      background: var(--stone-light);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .player-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .player-label span.tag {
+      font-size: 11px;
+      color: var(--gold-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    audio {
+      width: 100%;
+      height: 40px;
+    }
+    .dl-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 13px;
+      border-radius: 8px;
+      background: var(--carbon);
+      color: var(--stone-light);
+      border: 1px solid var(--carbon);
+    }
+    .btn-sec {
+      background: transparent;
+      color: var(--carbon);
+      border: 1px solid var(--line);
+    }
+    .vo-section {
+      margin-top: 36px;
+      background: var(--carbon);
+      color: var(--stone-light);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid var(--gold);
+    }
+    .vo-section h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      color: var(--gold);
+    }
+    .vo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .vo-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(196, 173, 122, 0.3);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .vo-card b {
+      font-size: 14px;
+      color: #fff;
+    }
+    .vo-card small {
+      color: rgba(233, 231, 225, 0.72);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <span class="eyebrow">Identidad Sonora &amp; Cortinas Institucionales · 100% Libre de Derechos</span>
+      <h1>Cabina de Audición Musical · Escribano Fabricio Rivas</h1>
+      <p class="subtitle">
+        4 versiones de estudio reales (Smooth Jazz estilo <em>Café del Mar</em>, Chill R&amp;B / Neo-Soul Ejecutivo, Jazz Club con Escobillas y Lounge Rhodes), cada una en 2 ediciones: <strong>con locución masculina natural</strong> (<em>«Escribano Fabricio Rivas. Punta del Este. Maldonado.»</em>) y <strong>100% instrumental</strong>.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="grid">
+      <!-- VERSION 1 -->
+      <article class="card card-featured">
+        <div class="badge-row">
+          <span class="badge badge-gold">Versión 1 · Smooth Jazz &amp; Café del Mar</span>
+          <span class="badge">28 seg · -15.5 LUFS</span>
+        </div>
+        <h2>1. Smooth Jazz Sunset · Café del Mar</h2>
+        <p class="desc">
+          Guitarra acústica cálida, colchón de Fender Rhodes y pulso suave de atardecer en Punta del Este. Formal, serena, cero pegajosa y con un detalle amable de cuerda acústica.
+        </p>
+
+        <div class="player-box">
+          <div class="player-label">
+            <span>🎙️ 1A · Con Locución Masculina (Mateo · Uruguay)</span>
+            <span class="tag">Ducking en 0:03 y 0:20</span>
+          </div>
+          <audio controls preload="metadata" src="v1_smooth_jazz_sunset_cafe_del_mar_con_locucion.mp3"></audio>
+        </div>
+
+        <div class="player-box">
+          <div class="player-label">
+            <span>🎹 1B · 100% Instrumental (Limpia para fondo de voz)</span>
+            <span class="tag">Sin locución</span>
+          </div>
+          <audio controls preload="metadata" src="v1_smooth_jazz_sunset_cafe_del_mar_instrumental.mp3"></audio>
+        </div>
+
+        <div class="dl-row">
+          <a class="btn" href="v1_smooth_jazz_sunset_cafe_del_mar_con_locucion.mp3" download>⬇️ Descargar 1A (Con Locución)</a>
+          <a class="btn btn-sec" href="v1_smooth_jazz_sunset_cafe_del_mar_instrumental.mp3" download>⬇️ Descargar 1B (Instrumental)</a>
+        </div>
+      </article>
+
+      <!-- VERSION 2 -->
+      <article class="card card-featured">
+        <div class="badge-row">
+          <span class="badge badge-gold">Versión 2 · Notas de R&amp;B / Neo-Soul</span>
+          <span class="badge">28 seg · -15.5 LUFS</span>
+        </div>
+        <h2>2. Chill R&amp;B / Neo-Soul Ejecutivo</h2>
+        <p class="desc">
+          Acordes profundos de piano eléctrico y acústico (<em>min9 / Maj9</em>), sub-bajo R&amp;B redondo, <em>shaker</em> minimalista y un fraseo amable de piano en el registro alto. Sobria, arquitectónica y nocturna.
+        </p>
+
+        <div class="player-box">
+          <div class="player-label">
+            <span>🎙️ 2A · Con Locución Masculina (Tomás · Barítono)</span>
+            <span class="tag">Ducking en 0:03 y 0:20</span>
+          </div>
+          <audio controls preload="metadata" src="v2_chill_rnb_neosoul_ejecutivo_con_locucion.mp3"></audio>
+        </div>
+
+        <div class="player-box">
+          <div class="player-label">
+            <span>🎹 2B · 100% Instrumental (Limpia para fondo de voz)</span>
+            <span class="tag">Sin locución</span>
+          </div>
+          <audio controls preload="metadata" src="v2_chill_rnb_neosoul_ejecutivo_instrumental.mp3"></audio>
+        </div>
+
+        <div class="dl-row">
+          <a class="btn" href="v2_chill_rnb_neosoul_ejecutivo_con_locucion.mp3" download>⬇️ Descargar 2A (Con Locución)</a>
+          <a class="btn btn-sec" href="v2_chill_rnb_neosoul_ejecutivo_instrumental.mp3" download>⬇️ Descargar 2B (Instrumental)</a>
+        </div>
+      </article>
+
+      <!-- VERSION 3 -->
+      <article class="card">
+        <div class="badge-row">
+          <span class="badge">Versión 3 · Smooth Jazz Club Clásico</span>
+          <span class="badge">28 seg · -15.5 LUFS</span>
+        </div>
+        <h2>3. Smooth Jazz Club · Escobillas &amp; Contrabajo</h2>
+        <p class="desc">
+          Trío acústico de estudio con contrabajo caminante, escobillas suaves sobre tambor y piano jazz. Carácter institucional clásico de estudio jurídico-notarial internacional.
+        </p>
+
+        <div class="player-box">
+          <div class="player-label">
+            <span>🎙️ 3A · Con Locución Masculina (Mateo · Uruguay)</span>
+            <span class="tag">Ducking en 0:03 y 0:20</span>
+          </div>
+          <audio controls preload="metadata" src="v3_smooth_jazz_club_contrabajo_con_locucion.mp3"></audio>
+        </div>
+
+        <div class="player-box">
+          <div class="player-label">
+            <span>🎹 3B · 100% Instrumental</span>
+            <span class="tag">Sin locución</span>
+          </div>
+          <audio controls preload="metadata" src="v3_smooth_jazz_club_contrabajo_instrumental.mp3"></audio>
+        </div>
+
+        <div class="dl-row">
+          <a class="btn" href="v3_smooth_jazz_club_contrabajo_con_locucion.mp3" download>⬇️ Descargar 3A (Con Locución)</a>
+          <a class="btn btn-sec" href="v3_smooth_jazz_club_contrabajo_instrumental.mp3" download>⬇️ Descargar 3B (Instrumental)</a>
+        </div>
+      </article>
+
+      <!-- VERSION 4 -->
+      <article class="card">
+        <div class="badge-row">
+          <span class="badge">Versión 4 · Café del Mar Rhodes &amp; Sax</span>
+          <span class="badge">28 seg · -15.5 LUFS</span>
+        </div>
+        <h2>4. Café del Mar Rhodes &amp; Smooth Sax</h2>
+        <p class="desc">
+          Arranca con acordes cálidos de Fender Rhodes MK1 y <em>shaker</em> costero al estilo <em>Café del Mar</em> y suma a mitad de pista el detalle cálido del saxo tenor suave.
+        </p>
+
+        <div class="player-box">
+          <div class="player-label">
+            <span>🎙️ 4A · Con Locución Masculina (Tomás · Barítono)</span>
+            <span class="tag">Ducking en 0:03 y 0:20</span>
+          </div>
+          <audio controls preload="metadata" src="v4_cafe_del_mar_rhodes_sax_con_locucion.mp3"></audio>
+        </div>
+
+        <div class="player-box">
+          <div class="player-label">
+            <span>🎹 4B · 100% Instrumental</span>
+            <span class="tag">Sin locución</span>
+          </div>
+          <audio controls preload="metadata" src="v4_cafe_del_mar_rhodes_sax_instrumental.mp3"></audio>
+        </div>
+
+        <div class="dl-row">
+          <a class="btn" href="v4_cafe_del_mar_rhodes_sax_con_locucion.mp3" download>⬇️ Descargar 4A (Con Locución)</a>
+          <a class="btn btn-sec" href="v4_cafe_del_mar_rhodes_sax_instrumental.mp3" download>⬇️ Descargar 4B (Instrumental)</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- STANDALONE VOICEOVERS -->
+    <section class="vo-section">
+      <h3>🎙️ Locuciones Masculinas Aisladas (Grabadas en 3 Tomas con Cadencia Descendente Natural · Cero Robóticas)</h3>
+      <p style="margin:0;font-size:13px;color:rgba(233,231,225,0.78)">
+        Puedes combinar cualquiera de estos dos timbres masculinos con cualquiera de las 4 músicas de arriba:
+      </p>
+      <div class="vo-grid">
+        <div class="vo-card">
+          <b>Locutor 1 · Mateo (Uruguay · Cadencia Local Serena)</b>
+          <small>«Escribano Fabricio Rivas. Punta del Este. Maldonado.»</small>
+          <audio controls preload="metadata" src="locucion_mateo_uy.mp3"></audio>
+        </div>
+        <div class="vo-card">
+          <b>Locutor 2 · Tomás (Barítono Rioplatense · Grave Ejecutivo)</b>
+          <small>«Escribano Fabricio Rivas. Punta del Este. Maldonado.»</small>
+          <audio controls preload="metadata" src="locucion_tomas_ar.mp3"></audio>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.querySelectorAll('audio').forEach(function(a) {
+      a.addEventListener('play', function() {
+        document.querySelectorAll('audio').forEach(function(other) {
+          if (other !== a) other.pause();
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -547,11 +547,16 @@ def build_reel_mp4_with_typewriter_and_music(slide1_jpg_path, slide2_spec, slide
 def main():
     bg1 = os.path.join(FONDOS_DIR, "bg1.jpg")
     bg2 = os.path.join(FONDOS_DIR, "bg2.jpg")
+    bg3 = os.path.join(FONDOS_DIR, "bg3.jpg")
     bg4 = os.path.join(FONDOS_DIR, "bg4.jpg")
 
-    music_1 = os.path.join(MUSIC_DIR, "01_smooth_jazz_sunset_instrumental.mp3")
-    music_2 = os.path.join(MUSIC_DIR, "02_chill_rnb_neosoul_instrumental.mp3")
-    music_3 = os.path.join(MUSIC_DIR, "04_cafe_del_mar_rhodes_sax_instrumental.mp3")
+    # Pista oficial elegida: 4. Café del Mar Rhodes & Smooth Sax
+    # Intercalada CON locución de Tomás Barítono (1 sola vez en el segundo 3.0) y SIN locución (instrumental puro)
+    music_v4_con_locu = os.path.join(MUSIC_DIR, "v4_cafe_del_mar_rhodes_sax_con_locucion.mp3")
+    music_v4_sin_locu = os.path.join(MUSIC_DIR, "v4_cafe_del_mar_rhodes_sax_instrumental.mp3")
+    music_1 = music_v4_con_locu  # Día 1: CON locución (1 sola vez en seg 3)
+    music_2 = music_v4_sin_locu  # Día 2: SIN locución (Instrumental)
+    music_3 = music_v4_con_locu  # Día 5: CON locución (1 sola vez en seg 3)
 
     # =========================================================================
     # PACK 1 (DÍA 1): DECRETO 4118 IDM — REGULARIZACIÓN DE OBRAS EN MALDONADO

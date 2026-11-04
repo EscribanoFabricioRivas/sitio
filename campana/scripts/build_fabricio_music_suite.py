@@ -103,17 +103,13 @@ def render_studio_track(src_mp3, start_sec, dur_sec, slug, vo_wav, eq_preset="ca
     subprocess.run([FFMPEG, "-y", "-i", master_wav, "-codec:a", "libmp3lame", "-b:a", "256k", inst_mp3], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     shutil.copy2(inst_mp3, os.path.join(DRIVE_DIR, os.path.basename(inst_mp3)))
 
-    # Mix with smooth sidechain-style volume envelope at 2.8s..7.8s (intro signature) and 20.5s..25.5s (outro signature)
+    # Mix with smooth sidechain-style volume envelope ONLY ONCE at 2.8s..7.8s (second 3.0 single voiceover rule)
     duck_fc = (
         "[0:a]volume='if(between(t,2.4,2.9), 0.90-(t-2.4)*1.04, "
         "if(between(t,2.9,7.6), 0.38, "
-        "if(between(t,7.6,8.3), 0.38+(t-7.6)*0.74, "
-        "if(between(t,20.0,20.5), 0.90-(t-20.0)*1.04, "
-        "if(between(t,20.5,25.2), 0.38, "
-        "if(between(t,25.2,25.9), 0.38+(t-25.2)*0.74, 0.90))))))':eval=frame[music];"
+        "if(between(t,7.6,8.3), 0.38+(t-7.6)*0.74, 0.90)))':eval=frame[music];"
         "[1:a]adelay=3000|3000,volume=1.38[vo1];"
-        "[1:a]adelay=20600|20600,volume=1.38[vo2];"
-        "[music][vo1][vo2]amix=inputs=3:duration=first:dropout_transition=0:normalize=0,"
+        "[music][vo1]amix=inputs=2:duration=first:dropout_transition=0:normalize=0,"
         "alimiter=limit=0.93:level=disabled"
     )
     subprocess.run([FFMPEG, "-y", "-i", master_wav, "-i", vo_wav, "-filter_complex", duck_fc, "-codec:a", "libmp3lame", "-b:a", "256k", vo_mp3], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)

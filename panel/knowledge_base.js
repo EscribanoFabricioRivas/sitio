@@ -210,12 +210,26 @@ window.FR_KNOWLEDGE_BASE = {
     },
     {
       id: "certificaciones",
-      name: "3. Certificaciones de Firma (En el día, Bancos, Vehículos)",
-      priority: "Muy Alta (Oportunidad SEO #1 en Search Console + Canva Carrusel A)",
-      searchConsoleSignal: "certificar firma / cuánto sale certificar firma (Pos. 4–11 sin explotar)",
-      pages: ["/certificar-firma-punta-del-este/", "/certificaciones-notariales-1/", "/certificacion-firma-en-el-dia-punta-del-este-1/", "/certificacion-firma-banco-maldonado-1/", "/poder-vehiculo.html"],
+      name: "3. Certificados de Ingresos (Migraciones / Independientes) y Firmas en el Día",
+      priority: "Muy Alta (Demanda Real #1 Confirmada por Fabricio: Migraciones + Independientes + Bancos)",
+      searchConsoleSignal: "certificado notarial de ingresos / certificar firma (Demanda validada)",
+      pages: ["/certificado-de-ingresos-maldonado/", "/certificar-firma-punta-del-este/", "/certificaciones-notariales-1/", "/certificacion-firma-en-el-dia-punta-del-este-1/", "/certificacion-firma-banco-maldonado-1/", "/poder-vehiculo.html"],
       templates: {
         es: [
+          {
+            title: "CERTIFICADO NOTARIAL DE INGRESOS: MIGRACIONES, INDEPENDIENTES Y BANCOS",
+            tag: "RESIDENCIA LEGAL Y TRÁMITES · PUNTA DEL ESTE",
+            bullets: [
+              "1. RESIDENCIA EN MIGRACIONES: Acreditación de medios de vida lícitos en Uruguay para residentes del Mercosur y del exterior.",
+              "2. TRABAJADORES INDEPENDIENTES Y EMPRESAS: Respaldo notarial de ingresos por actividad independiente, unipersonales, SAS, rentas o dividendos.",
+              "3. REVISIÓN PREVIA POR WHATSAPP: Envías qué organismo lo solicita y revisamos los comprobantes antes de coordinar la entrega."
+            ],
+            takeaway: "Atención directa, también a distancia si estás en otro país. Atendimento em português.",
+            cta: "Consulta requisitos y presupuesto · +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/certificado-de-ingresos-maldonado/",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "panel_lateral_v1"
+          },
           {
             title: "CERTIFICACIÓN DE FIRMA EN EL DÍA: QUÉ ENVIAR POR WHATSAPP",
             tag: "CANVA CARRUSEL A · PUNTA DEL ESTE Y MALDONADO",

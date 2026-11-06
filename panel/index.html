@@ -772,8 +772,10 @@ window.FR_KNOWLEDGE_BASE = {
       verticalId: "certificaciones",
       inSitemap: true,
       inLlmsTxt: true,
-      indexedStatus: "Recién publicada hoy · Pedir indexación en Search Console (1 clic)",
+      indexedStatus: "✓ Indexación solicitada en Search Console (06/11) · Calendarizada en Aprobalo (Jueves 12/11)",
       isNew: true,
+      defaultIndexed: true,
+      hasSpecialDropdown: true,
       packDayRef: "Nota #1 BPS/DGI y Certificaciones"
     },
     {
@@ -1799,8 +1801,8 @@ window.FR_KNOWLEDGE_BASE = {
               </td>
               <td>Keyword: <em>certificado notarial vs certificación de firma</em>, BPS / DGI.<br>Enlaza a <code>/certificados-bps-dgi</code> y <code>/certificar-firma-punta-del-este</code>.</td>
               <td>
-                <span class="pill green">✓ PUBLICADA (URL Viva Habilitada)</span><br>
-                <small style="color:var(--muted);">Ya está en Criterio Notarial, Mapa de Sitio y perfil IA · Lista para publicar sus piezas en redes</small>
+                <span class="pill green">✓ PUBLICADA + INDEXACIÓN SOLICITADA</span><br>
+                <small style="color:var(--muted);">Calendarizada en Aprobalo Cloud para el <strong>Jueves 12/11</strong> · Desplegable GBP / Stories / WA activo abajo</small>
               </td>
             </tr>
             <tr>
@@ -1865,6 +1867,76 @@ window.FR_KNOWLEDGE_BASE = {
           </thead>
           <tbody id="blog-table-body"></tbody>
         </table>
+
+        <!-- DESPLEGABLE INTERACTIVO DE FORMATOS ESPECIALES (PASO 3 GEMINI.MD §5) -->
+        <details id="criterio1-special-dropdown" open style="margin-top:22px; background:var(--card-alt); border:1px solid var(--gold); border-radius:12px; padding:18px;">
+          <summary style="cursor:pointer; font-weight:700; color:var(--gold); font-size:15px; display:flex; align-items:center; justify-content:space-between; list-style:none;">
+            <span>📂 Desplegable de Piezas y Copiar en 1 Clic — Nota #1: "¿Certificación de firma o certificado notarial? (BPS y DGI)"</span>
+            <span class="pill green">✓ Calendarizada en Aprobalo (Jueves 12/11) + 3 Formatos Especiales Listos</span>
+          </summary>
+          <p style="font-size:13px; color:var(--muted); margin:12px 0 16px;">
+            El Carrusel 4:5 (5 láminas) y el Reel MP4 9:16 con música ya quedaron subidos y calendarizados en <strong>Aprobalo Cloud</strong> para el jueves 12/11. Aquí tienes listos para descargar y copiar en 1 clic los 3 formatos especiales del circuito (§5 Paso 3):
+          </p>
+
+          <div class="priority-grid">
+            <!-- 1. GOOGLE MAPS / GBP 700x700 -->
+            <div class="priority-card" style="border-color:var(--gold); display:flex; flex-direction:column; gap:10px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h3 style="margin:0; color:var(--gold);">1. 📍 Google Maps / Mi Negocio (700×700)</h3>
+                <span class="pill">utm_source=gbp</span>
+              </div>
+              <img src="../campana/pack_maldonado_en_el_dia/criterio1_gbp_700x700.jpg" alt="Google Maps 700x700" style="width:100%; max-width:240px; border-radius:8px; border:1px solid var(--border); align-self:center; cursor:pointer;" onclick="window.open(this.src, '_blank')" />
+              <div style="font-size:12.5px; background:#0c0e0d; padding:10px; border-radius:6px; border:1px solid var(--border); color:var(--stone);">
+                <strong>Texto Novedad Google Maps:</strong><br>
+                ¿Te pidieron una certificación de firma o un certificado notarial para BPS, DGI o el banco? Los nombres se parecen, pero son dos actos distintos. En esta nueva nota de Criterio Notarial explicamos cómo identificar cuál corresponde según el texto del requisito y qué tener a mano antes de coordinar en Punta del Este y Maldonado. Atendemos consultas em português. WhatsApp directo: +598 99 431 185.
+              </div>
+              <div style="display:flex; flex-direction:column; gap:6px; margin-top:auto;">
+                <a class="btn btn-gold btn-sm" href="../campana/pack_maldonado_en_el_dia/criterio1_gbp_700x700.jpg" download="Fabricio_Rivas_GoogleMaps_700x700_Criterio1.jpg">⬇️ Descargar Imagen 700×700</a>
+                <button class="btn btn-sm" onclick="copyTextValue('¿Te pidieron una certificación de firma o un certificado notarial para BPS, DGI o el banco? Los nombres se parecen, pero son dos actos distintos. En esta nueva nota de Criterio Notarial explicamos cómo identificar cuál corresponde según el texto del requisito y qué tener a mano antes de coordinar en Punta del Este y Maldonado. Atendemos consultas em português. WhatsApp directo: +598 99 431 185.')">📋 Copiar Texto para Google Maps (1 Clic)</button>
+                <button class="btn btn-green btn-sm" onclick="copyTextValue('https://escribanofabriciorivas.com/certificacion-de-firma-o-certificado-notarial-1/?utm_source=gbp&utm_medium=organic&utm_campaign=criterio_2610')">🔗 Copiar Link Botón "Más información" (UTM gbp)</button>
+              </div>
+            </div>
+
+            <!-- 2. STICKER DE URL EN INSTAGRAM STORIES (1080x1920) -->
+            <div class="priority-card" style="border-color:var(--green); display:flex; flex-direction:column; gap:10px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h3 style="margin:0; color:#8ff0b8;">2. 📱 Story IG + Sticker de Enlace (9:16)</h3>
+                <span class="pill green">utm_source=ig_story</span>
+              </div>
+              <img src="../campana/pack_maldonado_en_el_dia/criterio1_story_sticker_1080x1920.jpg" alt="Story Sticker 9:16" style="height:220px; width:auto; border-radius:8px; border:1px solid var(--border); align-self:center; cursor:pointer;" onclick="window.open(this.src, '_blank')" />
+              <div style="font-size:12.5px; background:#0c0e0d; padding:10px; border-radius:6px; border:1px solid var(--border); color:var(--stone);">
+                <strong>Instructivo Sticker de URL:</strong><br>
+                1. Sube esta placa 9:16 a Historias de Instagram.<br>
+                2. Toca el ícono de Stickers arriba y elige <strong>"Enlace" (Link)</strong>.<br>
+                3. Pega el link con UTM de abajo y en "Personalizar texto del sticker" pega: <strong>Leer nota: Firma vs. Certificado</strong>.
+              </div>
+              <div style="display:flex; flex-direction:column; gap:6px; margin-top:auto;">
+                <a class="btn btn-gold btn-sm" href="../campana/pack_maldonado_en_el_dia/criterio1_story_sticker_1080x1920.jpg" download="Fabricio_Rivas_Story_Sticker_9x16_Criterio1.jpg">⬇️ Descargar Placa Story 9:16</a>
+                <button class="btn btn-green btn-sm" onclick="copyTextValue('https://escribanofabriciorivas.com/certificacion-de-firma-o-certificado-notarial-1/?utm_source=ig_story&utm_medium=organic&utm_campaign=criterio_2610')">🔗 Copiar URL para el Sticker de Enlace (1 Clic)</button>
+                <button class="btn btn-sm" onclick="copyTextValue('Leer nota: Firma vs. Certificado')">🏷️ Copiar Texto Visible del Sticker</button>
+              </div>
+            </div>
+
+            <!-- 3. ESTADO DE WHATSAPP DE FABRICIO (1080x1920) -->
+            <div class="priority-card" style="border-color:var(--gold); display:flex; flex-direction:column; gap:10px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h3 style="margin:0; color:var(--gold);">3. 💬 Estado de WhatsApp (+598 99 431 185)</h3>
+                <span class="pill">utm_source=whatsapp</span>
+              </div>
+              <img src="../campana/pack_maldonado_en_el_dia/criterio1_whatsapp_estado_1080x1920.jpg" alt="Estado WhatsApp 9:16" style="height:220px; width:auto; border-radius:8px; border:1px solid var(--border); align-self:center; cursor:pointer;" onclick="window.open(this.src, '_blank')" />
+              <div style="font-size:12.5px; background:#0c0e0d; padding:10px; border-radius:6px; border:1px solid var(--border); color:var(--stone);">
+                <strong>Pie de Foto para el Estado de WhatsApp:</strong><br>
+                ¿Certificación de firma o certificado notarial? Cómo saber cuál te están pidiendo en BPS, DGI o el banco antes de coordinar 👇<br>
+                https://escribanofabriciorivas.com/certificacion-de-firma-o-certificado-notarial-1/?utm_source=whatsapp&amp;utm_medium=organic&amp;utm_campaign=criterio_2610
+              </div>
+              <div style="display:flex; flex-direction:column; gap:6px; margin-top:auto;">
+                <a class="btn btn-gold btn-sm" href="../campana/pack_maldonado_en_el_dia/criterio1_whatsapp_estado_1080x1920.jpg" download="Fabricio_Rivas_Estado_WhatsApp_9x16_Criterio1.jpg">⬇️ Descargar Placa Estado WhatsApp 9:16</a>
+                <button class="btn btn-green btn-sm" onclick="copyTextValue('¿Certificación de firma o certificado notarial? Cómo saber cuál te están pidiendo en BPS, DGI o el banco antes de coordinar 👇\nhttps://escribanofabriciorivas.com/certificacion-de-firma-o-certificado-notarial-1/?utm_source=whatsapp&utm_medium=organic&utm_campaign=criterio_2610')">📋 Copiar Pie de Foto + Link UTM WhatsApp (1 Clic)</button>
+                <button class="btn btn-sm" onclick="copyTextValue('https://escribanofabriciorivas.com/certificacion-de-firma-o-certificado-notarial-1/?utm_source=whatsapp&utm_medium=organic&utm_campaign=criterio_2610')">🔗 Copiar Solo Link UTM WhatsApp</button>
+              </div>
+            </div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -2898,7 +2970,7 @@ window.FR_KNOWLEDGE_BASE = {
       const indexedMap = JSON.parse(localStorage.getItem("fr_blog_indexed") || "{}");
       const tbody = document.getElementById("blog-table-body");
       tbody.innerHTML = KB.blogEntries.map((b, i) => {
-        const isChecked = indexedMap[b.slug] ? "checked" : "";
+        const isChecked = (indexedMap[b.slug] !== undefined ? indexedMap[b.slug] : b.defaultIndexed) ? "checked" : "";
         return `
           <tr>
             <td>
@@ -2921,7 +2993,7 @@ window.FR_KNOWLEDGE_BASE = {
               <div style="display:flex; gap:6px; flex-wrap:wrap;">
                 <button class="btn btn-sm" onclick="copyTextValue('${b.url}')">🔗 Copiar Link</button>
                 <button class="btn btn-green btn-sm" onclick="requestGoogleIndexing('${b.url}')">🚀 Pedir Indexación en Google</button>
-                <button class="btn btn-gold btn-sm" onclick="openBlogInGenerator('${b.verticalId}')">📦 Generar Pack de Redes</button>
+                ${b.hasSpecialDropdown ? `<button class="btn btn-gold btn-sm" onclick="const d=document.getElementById('criterio1-special-dropdown'); d.open=true; d.scrollIntoView({behavior:'smooth'});">📂 Desplegable GBP / Stories / WA</button>` : `<button class="btn btn-gold btn-sm" onclick="openBlogInGenerator('${b.verticalId}')">📦 Generar Pack de Redes</button>`}
               </div>
             </td>
           </tr>

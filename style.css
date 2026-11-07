@@ -2680,6 +2680,38 @@ body.soluciones-page .page-hero-soluciones-refined .hero-soluciones-wrap-refined
 }
 
 /* Protección en los 5 anchos responsive (375px, 768px, 1024px, 1280px, 1440px) */
+header .nav {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 16px !important;
+  padding: 10px 0 !important;
+}
+header .brand {
+  flex-shrink: 0 !important;
+}
+header .brand img {
+  height: 56px !important;
+  width: auto !important;
+}
+header .nav-links {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+header .nav-links a {
+  font-size: 0.88rem !important;
+  white-space: nowrap !important;
+}
+header .nav-links a.nav-cta {
+  padding: 9px 15px !important;
+  font-size: 0.88rem !important;
+  white-space: nowrap !important;
+}
+
 @media (max-width: 1180px) {
   body.sobre-fabricio-page .grid-4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3026,69 +3058,399 @@ a.fr-triage-box:focus-visible {
   text-align: left !important;
 }
 
+.hero-grid > *,
+.hero-copy,
+.hero-foreign-copy,
+.fr-triage-wrap,
+.fr-triage-grid > *,
+a.fr-triage-box,
+a.fr-triage-box > div {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
 .fr-triage-cta {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
   width: 100%;
-  padding: 9px 12px;
-  border-radius: 10px;
-  background: rgba(37, 211, 102, 0.16);
-  border: 1px solid rgba(37, 211, 102, 0.48);
-  color: #4be381;
+  padding: 8px 12px;
+  border-radius: 9px;
+  background: #25D366 !important;
+  border: 1px solid #25D366 !important;
+  color: #111111 !important;
   font-size: 0.82rem;
   font-weight: 800;
   text-align: left;
 }
 
-a.fr-triage-box:hover .fr-triage-cta {
-  background: #25D366;
-  color: #111111;
-  border-color: #25D366;
+a.fr-triage-box:hover .hero-grid > *,
+.hero-copy,
+.hero-foreign-copy,
+.fr-triage-wrap,
+.fr-triage-grid > *,
+a.fr-triage-box,
+a.fr-triage-box > div {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.fr-triage-cta {
+  background: #4be381 !important;
+  color: #000000 !important;
+  border-color: #4be381 !important;
+}
+
+/* Optimización Above-the-Fold en Desktop/Laptop/Tablet (> 767px) */
+.hero,
+.page-hero,
+.ci-hero,
+body.real-estate-page .hero.hero-real-estate,
+body.soluciones-page .page-hero-soluciones-refined {
+  padding: 24px 0 32px !important;
+}
+
+.hero h1,
+.hero .hero-copy h1,
+.page-hero h1,
+.page-hero-foreign h1,
+.page-hero-service h1,
+.page-hero-soluciones h1,
+.ci-hero h1,
+body.real-estate-page .hero-copy h1,
+body.soluciones-page .page-hero-soluciones-refined h1 {
+  font-size: clamp(1.75rem, 2.5vw, 2.35rem) !important;
+  line-height: 1.12 !important;
+  margin: 4px 0 8px !important;
+  max-width: 28ch !important;
+}
+
+.hero .lead,
+.page-hero .lead,
+.ci-lead,
+body.real-estate-page .hero-copy .lead {
+  font-size: 0.95rem !important;
+  line-height: 1.42 !important;
+  margin: 0 0 12px !important;
+}
+
+.fr-triage-wrap {
+  margin: 12px 0 18px !important;
+  padding: 16px 18px !important;
+  border-radius: 20px !important;
+}
+
+.fr-triage-heading {
+  font-size: clamp(1.05rem, 1.4vw, 1.22rem) !important;
+  margin: 0 0 4px !important;
+}
+
+.fr-triage-sub {
+  font-size: 0.85rem !important;
+  margin: 0 0 12px !important;
+}
+
+a.fr-triage-box {
+  padding: 12px 14px !important;
+  border-radius: 14px !important;
+}
+
+.fr-triage-title {
+  font-size: 0.94rem !important;
+  margin: 0 0 3px !important;
+}
+
+.fr-triage-desc {
+  font-size: 0.8rem !important;
+  margin: 0 0 9px !important;
+  line-height: 1.34 !important;
+}
+
+header .nav {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 16px !important;
+  padding: 10px 0 !important;
+}
+header .brand {
+  flex-shrink: 0 !important;
+}
+header .brand img {
+  height: 54px !important;
+  width: auto !important;
+}
+header .nav-links {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+header .nav-links a {
+  font-size: 0.88rem !important;
+  white-space: nowrap !important;
+}
+header .nav-links a.nav-cta {
+  padding: 9px 15px !important;
+  font-size: 0.88rem !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 1180px) {
+  header .nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 8px 0 !important;
+  }
+  header .brand {
+    flex-shrink: 0 !important;
+  }
+  header .brand img {
+    height: 44px !important;
+    width: auto !important;
+  }
+  header .nav-links {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  header .nav-links a {
+    font-size: 0.82rem !important;
+    white-space: nowrap !important;
+  }
+  header .nav-links a.nav-cta {
+    padding: 7px 12px !important;
+    font-size: 0.82rem !important;
+  }
 }
 
 @media (max-width: 980px) {
   .fr-triage-grid,
   .fr-triage-grid-3 {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr !important;
+  }
+  header .nav-links a[href="/criterio-notarial"],
+  header .nav-links a[href="/sobre-fabricio"],
+  header .nav-links a[href="/soluciones"] {
+    display: none !important;
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 767px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
   p, li {
     text-align: left !important;
   }
+  /* 1) Topbar en 1 sola línea compacta (26px) */
+  .topbar .container,
+  .topbar .topbar-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 3px 0 !important;
+    gap: 8px !important;
+    font-size: 0.7rem !important;
+  }
+  .topbar-center,
+  .topbar .container > div:nth-child(2):not(.topbar-lang),
+  .topbar .container > span:nth-child(2) {
+    display: none !important;
+  }
+  .topbar-lang,
+  .topbar-lang-buttons {
+    width: auto !important;
+    justify-content: flex-end !important;
+    gap: 4px !important;
+    flex-direction: row !important;
+  }
+  .topbar-pill {
+    min-width: 32px !important;
+    min-height: 20px !important;
+    padding: 2px 6px !important;
+    font-size: 0.66rem !important;
+  }
+  /* 2) Header en 1 sola fila limpia (Logo izquierda + Botón WhatsApp derecha = 46px) */
   header {
-    position: relative !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 70 !important;
   }
-  .brand img {
-    height: 52px;
+  header .nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 5px 0 !important;
+    gap: 8px !important;
   }
-  .nav {
-    padding: 10px 0;
-    gap: 10px;
+  header .brand img {
+    height: 34px !important;
+    width: auto !important;
   }
-  .nav-links {
-    gap: 8px 12px;
+  header .nav-links {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 0 !important;
   }
-  .nav-links a {
-    font-size: 0.86rem;
+  header .nav-links a:not(.nav-cta) {
+    display: none !important;
   }
-  .hero {
-    padding: 28px 0 32px;
+  header .nav-links a.nav-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 6px 11px !important;
+    font-size: 0.76rem !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
   }
+  /* 3) Hero compacto para que las Cajitas de Acción entren completas en el primer pantallazo (y < 165px) */
+  .hero,
+  .page-hero,
+  .ci-hero,
+  .editorial-header,
+  body.real-estate-page .hero.hero-real-estate,
+  body.soluciones-page .page-hero-soluciones-refined {
+    padding: 8px 0 16px !important;
+  }
+  .ci-hero .container,
+  .ci-body .container {
+    width: min(calc(100% - 28px), 1220px) !important;
+  }
+  .eyebrow,
+  .ci-kicker {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.08em !important;
+    line-height: 1.15 !important;
+    margin: 0 0 2px !important;
+  }
+  h1,
+  .hero h1,
+  .hero .hero-copy h1,
+  .page-hero h1,
+  .page-hero-foreign h1,
+  .page-hero-service h1,
+  .page-hero-soluciones h1,
+  .ci-hero h1,
+  body.real-estate-page .hero-copy h1,
+  body.soluciones-page .page-hero-soluciones-refined h1 {
+    font-size: 1.24rem !important;
+    line-height: 1.14 !important;
+    letter-spacing: -0.02em !important;
+    margin: 0 0 4px !important;
+    max-width: 100% !important;
+  }
+  .hero .lead,
+  .page-hero .lead,
+  .ci-lead,
+  body.real-estate-page .hero-copy .lead {
+    font-size: 0.78rem !important;
+    line-height: 1.28 !important;
+    margin: 0 0 5px !important;
+  }
+  .hero-copy:has(.fr-triage-wrap) > p:not(.lead),
+  .hero-foreign-copy:has(.fr-triage-wrap) > p:not(.lead) {
+    display: none !important;
+  }
+  /* 4) Cajitas de Triaje: Botones Táctiles de 1 Toque 100% visibles Above-the-Fold */
   .fr-triage-wrap {
-    padding: 16px 15px;
-    margin: 16px 0 20px;
-    border-radius: 18px;
+    padding: 9px 10px !important;
+    margin: 4px 0 10px !important;
+    border-radius: 13px !important;
+  }
+  .fr-triage-kicker {
+    font-size: 0.58rem !important;
+    margin: 0 0 1px !important;
+  }
+  .fr-triage-heading {
+    font-size: 0.86rem !important;
+    margin: 0 0 5px !important;
+    line-height: 1.15 !important;
+  }
+  .fr-triage-sub {
+    display: none !important;
   }
   .fr-triage-grid,
   .fr-triage-grid-3 {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr !important;
+    gap: 5px !important;
   }
   a.fr-triage-box {
-    padding: 14px 15px;
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 7px 9px !important;
+    border-radius: 10px !important;
+  }
+  .fr-triage-tag {
+    font-size: 0.56rem !important;
+    margin-bottom: 0 !important;
+  }
+  .fr-triage-title {
+    font-size: 0.82rem !important;
+    margin: 0 !important;
+    line-height: 1.14 !important;
+  }
+  .fr-triage-desc {
+    font-size: 0.7rem !important;
+    margin: 1px 0 0 !important;
+    line-height: 1.18 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .hero-grid > *,
+.hero-copy,
+.hero-foreign-copy,
+.fr-triage-wrap,
+.fr-triage-grid > *,
+a.fr-triage-box,
+a.fr-triage-box > div {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.fr-triage-cta {
+    width: auto !important;
+    padding: 6px 9px !important;
+    border-radius: 7px !important;
+    background: #25D366 !important;
+    border-color: #25D366 !important;
+    color: #111111 !important;
+    font-size: 0.7rem !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+  }
+}
+
+
+/* === ZERO HORIZONTAL OVERFLOW ON ALL VIEWPORTS === */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+@media (max-width: 980px) {
+  .ci-layout, .hero-grid, .feature-wrap, .contact-wrap, .footer-grid, .points-landing, .grid-2, .grid-3, .cards {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .container, main, section, article, aside, .card, .hero-card, .ci-box, .ci-card, .ci-side {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 }

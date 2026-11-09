@@ -18,6 +18,9 @@ window.FR_KNOWLEDGE_BASE = {
       white: "#f5f4f0"
     },
     forbiddenWords: [
+      { bad: "reuní", fix: "reúne", reason: "Detectado en Canva Muestra V1: prohibido voseo (usar tuteo)" },
+      { bad: "necesitás", fix: "necesitas", reason: "Detectado en Canva Muestra V1: prohibido voseo (usar tuteo)" },
+      { bad: "deslice", fix: "desliza", reason: "Detectado en Canva Muestra V6: prohibido trato de usted (usar tuteo)" },
       { bad: "tenés", fix: "tienes", reason: "Prohibido el voseo (usar tuteo estricto)" },
       { bad: "podés", fix: "puedes", reason: "Prohibido el voseo (usar tuteo estricto)" },
       { bad: "querés", fix: "quieres", reason: "Prohibido el voseo (usar tuteo estricto)" },
@@ -29,6 +32,14 @@ window.FR_KNOWLEDGE_BASE = {
       { bad: "coordine", fix: "coordina", reason: "Prohibido el trato de usted (usar tuteo)" },
       { bad: "artower", fix: "[eliminado]", reason: "Término prohibido por regla de marca" },
       { bad: "trabajo en persona", fix: "atención directa, también a distancia si estás en otro país", reason: "Frase prohibida por regla de marca" }
+    ],
+    canvaBrandKitId: "kAFr1jaFxvw",
+    canvaBrandKitName: "FR (Carbón #111111 · Piedra #e9e7e1 · Dorado #c4ad7a · Avenir Next)",
+    canvaDesigns: [
+      { id: "DAHY4fxJk2Y", title: "Muestra V1 APROBADA · Panel Lateral 67/33 (4:5 IG Feed/Carrusel)", format: "1080x1350", url: "https://www.canva.com/d/8Oprb1kwbL9ESPZ", verticalId: "re_vendedor" },
+      { id: "DAHZUjnABVc", title: "Muestra V1 APROBADA · Panel Lateral 67/33 (9:16 Video Celular / Reel)", format: "1080x1920", url: "https://www.canva.com/d/DWcMeShKTeFg1BN", verticalId: "re_vendedor" },
+      { id: "DAHZUtaKLhg", title: "Muestra V1 APROBADA · Panel Lateral 67/33 (LinkedIn)", format: "1080x1350", url: "https://www.canva.com/d/Gn6vFHZDho1SvUt", verticalId: "re_vendedor" },
+      { id: "DAHZUqx1pKQ", title: "Muestra V1 APROBADA · Panel Lateral 67/33 (1:1 Facebook)", format: "1080x1350", url: "https://www.canva.com/d/OSxQIJU0x2_Sgbx", verticalId: "re_vendedor" }
     ],
     backgrounds: [
       { id: "bg1", label: "Fachada Contemporánea La Barra (Piedra y Madera)", url: "../campana/fondos_ia/bg1.jpg" },
@@ -127,11 +138,27 @@ window.FR_KNOWLEDGE_BASE = {
     {
       id: "re_vendedor",
       name: "2. Real Estate Vendedor (Documentación antes de vender)",
-      priority: "Alta (Nota Nueva Publicada)",
+      priority: "Alta (Nota Nueva Publicada + Canva V1)",
       searchConsoleSignal: "Nueva nota en Criterio Notarial (Indexación activa)",
       pages: ["/documentacion-vender-propiedad-punta-del-este-1/"],
       templates: {
         es: [
+          {
+            title: "¿VENDES UNA PROPIEDAD? ORDENA LA DOCUMENTACIÓN ANTES DE FIJAR LA FIRMA",
+            tag: "CANVA MUESTRA V1 · COMPRAVENTA EN PUNTA DEL ESTE",
+            bullets: [
+              "• REÚNE LO QUE TENGAS: Títulos y antecedentes del inmueble, planos y construcciones.",
+              "• SITUACIÓN DEL PADRÓN: Contribución, Primaria, gastos comunes (si es PH) y estado civil de titulares.",
+              "• CRITERIO PREVENTIVO: No necesitas pedir certificados ni completar todo por tu cuenta antes de consultar."
+            ],
+            takeaway: "Una carpeta completa no reemplaza la revisión notarial. Cada operación requiere controles propios.",
+            cta: "Revisa tu carpeta antes de firmar · +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/documentacion-vender-propiedad-punta-del-este-1/",
+            canvaUrl: "https://www.canva.com/d/8Oprb1kwbL9ESPZ",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "editorial"
+          },
+
           {
             title: "DOCUMENTACIÓN PARA VENDER SIN DEMORAS",
             tag: "CRITERIO NOTARIAL · VENDEDORES",
@@ -183,12 +210,42 @@ window.FR_KNOWLEDGE_BASE = {
     },
     {
       id: "certificaciones",
-      name: "3. Certificaciones de Firma (En el día, Bancos, Vehículos)",
-      priority: "Muy Alta (Oportunidad SEO #1 en Search Console)",
-      searchConsoleSignal: "certificar firma / cuánto sale certificar firma (Pos. 4–11 sin explotar)",
-      pages: ["/certificar-firma-punta-del-este/", "/certificaciones-notariales-1/", "/certificacion-firma-en-el-dia-punta-del-este-1/", "/certificacion-firma-banco-maldonado-1/", "/poder-vehiculo.html"],
+      name: "3. Certificados de Ingresos (Migraciones / Independientes) y Firmas en el Día",
+      priority: "Muy Alta (Demanda Real #1 Confirmada por Fabricio: Migraciones + Independientes + Bancos)",
+      searchConsoleSignal: "certificado notarial de ingresos / certificar firma (Demanda validada)",
+      pages: ["/certificado-de-ingresos-maldonado/", "/certificar-firma-punta-del-este/", "/certificaciones-notariales-1/", "/certificacion-firma-en-el-dia-punta-del-este-1/", "/certificacion-firma-banco-maldonado-1/", "/poder-vehiculo.html"],
       templates: {
         es: [
+          {
+            title: "CERTIFICADO NOTARIAL DE INGRESOS: MIGRACIONES, INDEPENDIENTES Y BANCOS",
+            tag: "RESIDENCIA LEGAL Y TRÁMITES · PUNTA DEL ESTE",
+            bullets: [
+              "1. RESIDENCIA EN MIGRACIONES: Acreditación de medios de vida lícitos en Uruguay para residentes del Mercosur y del exterior.",
+              "2. TRABAJADORES INDEPENDIENTES Y EMPRESAS: Respaldo notarial de ingresos por actividad independiente, unipersonales, SAS, rentas o dividendos.",
+              "3. REVISIÓN PREVIA POR WHATSAPP: Envías qué organismo lo solicita y revisamos los comprobantes antes de coordinar la entrega."
+            ],
+            takeaway: "Atención directa, también a distancia si estás en otro país. Atendimento em português.",
+            cta: "Consulta requisitos y presupuesto · +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/certificado-de-ingresos-maldonado/",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "panel_lateral_v1"
+          },
+          {
+            title: "CERTIFICACIÓN DE FIRMA EN EL DÍA: QUÉ ENVIAR POR WHATSAPP",
+            tag: "CANVA CARRUSEL A · PUNTA DEL ESTE Y MALDONADO",
+            bullets: [
+              "1. ENVÍA EL DOCUMENTO COMPLETO: Todas las páginas (una foto solo del espacio de la firma no alcanza).",
+              "2. CUENTA QUIÉN LO RECIBE Y QUIÉNES FIRMAN: Banco, empresa u organismo; firma personal, por sociedad o poder.",
+              "3. TRAE EL DOCUMENTO SIN FIRMAR: Se firma delante del escribano con tu documento de identidad vigente."
+            ],
+            takeaway: "Indica tu fecha límite para darte prioridad. Atendemos consultas em português.",
+            cta: "Envía tu documento por WhatsApp · +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/certificacion-firma-en-el-dia-punta-del-este-1/",
+            canvaUrl: "https://www.canva.com/d/ksc3bw_AUMTh2M-",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "technical_stone"
+          },
+
           {
             title: "CERTIFICACIÓN DE FIRMAS EN EL DÍA",
             tag: "PUNTA DEL ESTE Y MALDONADO · FLUJO RÁPIDO",
@@ -479,6 +536,182 @@ window.FR_KNOWLEDGE_BASE = {
           }
         ]
       }
+    },
+    {
+      id: "meta_ads_extranjeros",
+      name: "8. 🎯 PAUTA TEST META ADS (Semana Próxima): Extranjeros que Compran en Punta del Este",
+      priority: "Prioridad Comercial #1 (De donde vinieron las operaciones grandes · Nicho Inversor Exterior)",
+      searchConsoleSignal: "Nicho ganador detectado por Ariana en Ads: Compradores de AR, BR, USA y Europa en PDE",
+      pages: ["/clientes-extranjeros/", "/comprar-en-punta-del-este-seguridad-juridica/", "/foreign-clients.html", "/clientes-estrangeiros/"],
+      templates: {
+        es: [
+          {
+            title: "¿COMPRAS PROPIEDAD EN PUNTA DEL ESTE DESDE EL EXTERIOR?",
+            tag: "SEGURIDAD JURÍDICA Y TRATO DIRECTO ANTES DE FIRMAR LA RESERVA",
+            bullets: [
+              "• TU PROPIO ESCRIBANO: En Uruguay quien compra elige a su escribano de confianza para resguardar su inversión.",
+              "• SEÑA EN CUSTODIA (ESCROW) + 30 AÑOS: Tu entrega inicial queda protegida mientras auditamos títulos, planos y libre deuda.",
+              "• TRATO DIRECTO Y A DISTANCIA: Puedes estructurar la reserva o firmar con Poder Especial Apostillado sin viajar."
+            ],
+            takeaway: "No necesitas reunir certificados por tu cuenta antes de consultar: revisamos el borrador de reserva en el día.",
+            cta: "Consulta directa por WhatsApp · +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/clientes-extranjeros/",
+            canvaUrl: "https://www.canva.com/d/8Oprb1kwbL9ESPZ",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "panel_lateral_v1"
+          }
+        ],
+        en: [
+          {
+            title: "BUYING PROPERTY IN PUNTA DEL ESTE FROM ABROAD?",
+            tag: "DIRECT NOTARIAL GUIDANCE & ESCROW PROTECTION · URUGUAY",
+            bullets: [
+              "• BUYER CHOOSES THE NOTARY: Under Uruguayan law, you appoint your own Notary Public to protect your purchase.",
+              "• ESCROW & 30-YEAR TITLE AUDIT: Your deposit stays in notarial custody until all deeds and clearances are verified.",
+              "• REMOTE CLOSING AVAILABLE: Complete the reservation and closing via apostilled Power of Attorney without traveling."
+            ],
+            takeaway: "Direct, agile guidance before you sign any reservation or transfer funds.",
+            cta: "Message Fabricio Rivas directly · +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/buying-property-punta-del-este-foreigners-1/",
+            canvaUrl: "https://www.canva.com/d/8Oprb1kwbL9ESPZ",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "panel_lateral_v1"
+          }
+        ],
+        pt: [
+          {
+            title: "VAI COMPRAR IMÓVEL EM PUNTA DEL ESTE MORANDO NO EXTERIOR?",
+            tag: "SEGURANÇA JURÍDICA E TRATO DIRETO · URUGUAI",
+            bullets: [
+              "• ESCOLHA DO COMPRADOR: No Uruguai, quem compra escolhe o seu próprio Escribano de confiança.",
+              "• SINAL EM CUSTÓDIA (ESCROW): Seu depósito fica protegido enquanto auditamos 30 anos de títulos e plantas.",
+              "• COMPRA A DISTÂNCIA: Assine com segurança por Procuração Apostilada sem precisar viajar."
+            ],
+            takeaway: "Atendemos consultas em português com trato direto e ágil pelo WhatsApp.",
+            cta: "Fale diretamente pelo WhatsApp · +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/clientes-estrangeiros/",
+            canvaUrl: "https://www.canva.com/d/8Oprb1kwbL9ESPZ",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "panel_lateral_v1"
+          }
+        ]
+      }
+    },
+    {
+      id: "importancia_escribano_propio",
+      name: "9. Por qué elegir tu propio Escribano antes de señar (Resguardo y Trato Directo)",
+      priority: "Alta (Posicionamiento de Autoridad · Sin dar cátedra contable)",
+      searchConsoleSignal: "escribano punta del este / compraventa segura en Uruguay",
+      pages: ["/comprar-en-punta-del-este-seguridad-juridica/", "/real-estate.html", "/sobre-fabricio.html"],
+      templates: {
+        es: [
+          {
+            title: "POR QUÉ EL ESCRIBANO ENTRA ANTES DE LA RESERVA Y NO DESPUÉS",
+            tag: "RESGUARDO PATRIMONIAL · TRATO DIRECTO EN PUNTA DEL ESTE",
+            bullets: [
+              "• CONDICIONES DEL ACUERDO: Antes de entregar dinero o fijar plazos, tu escribano revisa las cláusulas de la reserva.",
+              "• AUDITORÍA DE FONDO: Controlamos la cadena de títulos de 30 años, planos inscriptos y situación real del padrón.",
+              "• TRABAJO EN EQUIPO: Coordinamos con tu contador o asesor de confianza para que cada etapa cierre sin demoras."
+            ],
+            takeaway: "Trato directo, ágil y profesional. Un control a tiempo evita observaciones cuando ya firmaste.",
+            cta: "Envía tu consulta antes de firmar · +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/comprar-en-punta-del-este-seguridad-juridica/",
+            canvaUrl: "https://www.canva.com/d/8Oprb1kwbL9ESPZ",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "panel_lateral_v1"
+          }
+        ],
+        en: [
+          {
+            title: "WHY YOUR NOTARY PUBLIC STEPS IN BEFORE THE RESERVATION",
+            tag: "PREVENTIVE LEGAL SECURITY · PUNTA DEL ESTE",
+            bullets: [
+              "• CONTRACT REVIEW FIRST: Never sign a preliminary agreement or wire a deposit before notarial review.",
+              "• FULL PROPERTY AUDIT: 30-year title history, survey plans and municipal/BPS compliance.",
+              "• DIRECT COORDINATION: We work alongside your accountant or advisor for a seamless closing."
+            ],
+            takeaway: "Direct and agile professional service in Punta del Este, also remotely from abroad.",
+            cta: "Consult on WhatsApp · +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/foreign-clients.html",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "panel_lateral_v1"
+          }
+        ],
+        pt: [
+          {
+            title: "POR QUE O ESCRIBANO ATUA ANTES DA RESERVA DO IMÓVEL",
+            tag: "PROTEÇÃO PATRIMONIAL · PUNTA DEL ESTE",
+            bullets: [
+              "• REVISÃO PRÉVIA: Antes de entregar qualquer sinal, o seu Escribano valida as cláusulas e prazos da reserva.",
+              "• CONTROLE REGISTRAL: Auditoria completa da titularidade, plantas e regularidade do imóvel.",
+              "• TRATO DIRETO: Coordenação ágil com o seu contador ou consultor para um fechamento seguro."
+            ],
+            takeaway: "Atendemos consultas em português · Trato direto e profissional.",
+            cta: "Chame no WhatsApp · +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/clientes-estrangeiros/",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "panel_lateral_v1"
+          }
+        ]
+      }
+    },
+    {
+      id: "maps_youtube_b2b",
+      name: "10. 📍 Google Maps / My Business + YouTube Shorts + Derivación Profesional (Trato Directo Ágil)",
+      priority: "Muy Alta (El canal local #1 que más convierte en Punta del Este y Maldonado)",
+      searchConsoleSignal: "Ficha Google Maps Pos. #1.8 ('escribano punta del este') · Foto + Video 9:16 + Novedades",
+      pages: ["/sobre-fabricio.html", "/certificar-firma-punta-del-este/", "/soluciones.html"],
+      templates: {
+        es: [
+          {
+            title: "¿NECESITAS ASESORAMIENTO NOTARIAL EN PUNTA DEL ESTE?",
+            tag: "GOOGLE MAPS & CANAL DIRECTO · TRATO DIRECTO Y ÁGIL",
+            bullets: [
+              "• RESOLUCIÓN EN EL DÍA: Certificaciones de firma, poderes, actas de constatación y certificados BPS/DGI.",
+              "• OPERACIONES INMOBILIARIAS: Reservas, promesas y compraventas para compradores locales y extranjeros.",
+              "• COORDINACIÓN POR WHATSAPP: Envías tu documento antes de venir para revisar todo sin esperas."
+            ],
+            takeaway: "Trato directo y profesional · Atención directa, también a distancia si estás en otro país.",
+            cta: "Consulta directa: +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/sobre-fabricio.html",
+            canvaUrl: "https://www.canva.com/d/8Oprb1kwbL9ESPZ",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "cierre_institucional"
+          }
+        ],
+        en: [
+          {
+            title: "NEED NOTARIAL ASSISTANCE IN PUNTA DEL ESTE?",
+            tag: "DIRECT & AGILE SERVICE · LOCAL & FOREIGN CLIENTS",
+            bullets: [
+              "• SAME-DAY CERTIFICATIONS: Signatures, powers of attorney, corporate certificates and notarial records.",
+              "• REAL ESTATE CLOSINGS: Reservation review, escrow custody and 30-year title due diligence.",
+              "• WHATSAPP COORDINATION: Pre-review your documents digitally before your appointment."
+            ],
+            takeaway: "Direct guidance in Punta del Este, also remotely if you are in another country.",
+            cta: "WhatsApp: +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/foreign-clients.html",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "cierre_institucional"
+          }
+        ],
+        pt: [
+          {
+            title: "PRECISA DE ASSESSORIA NOTARIAL EM PUNTA DEL ESTE?",
+            tag: "TRATO DIRETO E ÁGIL · ATENDIMENTO EM PORTUGUÊS",
+            bullets: [
+              "• AGILIDADE NO DIA: Reconhecimento e certificação de assinaturas, procurações e atas notariais.",
+              "• COMPRA E VENDA DE IMÓVEIS: Custódia de sinal (escrow), revisão de reserva e auditoria de títulos.",
+              "• PRÉ-ANÁLISE PELO WHATSAPP: Envie seus documentos antes para atendimento rápido e sem espera."
+            ],
+            takeaway: "Atendemos consultas em português · Punta del Este & Maldonado.",
+            cta: "WhatsApp: +598 99 431 185",
+            url: "https://escribanofabriciorivas.com/clientes-estrangeiros/",
+            recommendedFormat: "1080x1350",
+            recommendedStyle: "cierre_institucional"
+          }
+        ]
+      }
     }
   ],
 
@@ -553,10 +786,10 @@ window.FR_KNOWLEDGE_BASE = {
 
   week1Pack: [
     {
-      day: "Día 1 · Lunes (ACCIÓN #1 DE ESTA SEMANA)",
-      badge: "PRIORIDAD #1 ESTA SEMANA",
-      vertical: "Real Estate Vendedor (Nota Nueva del Blog)",
-      style: "Editorial Arquitectónico",
+      day: "Día 1 · Nota Vendedor (✓ YA ENTREGADA Y USADA · ONDA EDITORIAL APROBADA)",
+      badge: "✓ YA PUBLICADO / USADO (ONDA APROBADA)",
+      vertical: "Real Estate Vendedor (Nota Nueva del Blog + Base Muestra V1)",
+      style: "Editorial Arquitectónico con IA + Adaptación Panel Lateral V1",
       title: "Documentación para vender una propiedad en Punta del Este sin frenar la operación",
       feedImg: "../campana/semana_1_pack_completo/piezas/dia1_feed_1080x1350.jpg",
       vertImg: "../campana/semana_1_pack_completo/piezas/dia1_vertical_1080x1920.jpg",
@@ -567,17 +800,17 @@ window.FR_KNOWLEDGE_BASE = {
       gbpCopy: `Nueva guía en Criterio Notarial: Documentación necesaria para vender una propiedad en Punta del Este sin demoras ni observaciones. Revisa títulos, planos y certificados antes de firmar la reserva. Consultas directas por WhatsApp al +598 99 431 185.`
     },
     {
-      day: "Día 2 · Martes / Jueves (ACCIÓN #2 DE ESTA SEMANA · CARRUSEL TÉCNICO XXL)",
-      badge: "PRIORIDAD #2 ESTA SEMANA (+ PAUTA US$ 2–3/DÍA)",
+      day: "Día 2 · PRÓXIMO DISPARO + PAUTA TEST META ADS (NICHO EXTRANJEROS QUE COMPRAN ACÁ)",
+      badge: "🎯 FOCO PAUTA META ADS SEMANA PRÓXIMA (EXTRANJEROS PDE)",
       vertical: "Real Estate Comprador (Proceso en 3 Etapas + PH vs. Casa)",
       style: "Híbrido: Portada Editorial + Placas Técnicas XXL Sin IA",
       title: "Carrusel Técnico XXL: Los 3 Momentos de tu Compra + Checklist PH vs. Casa",
-      feedImg: "../campana/semana_1_pack_completo/piezas_tecnicas_sin_ia/tecnica_01_proceso_compraventa_1080x1350.jpg",
+      feedImg: "../campana/semana_1_pack_completo/piezas/v1_lateral_extranjeros_01_1080x1350.jpg",
       extraImgs: [
         "../campana/semana_1_pack_completo/piezas/dia2_carrusel_01_1080x1350.jpg",
         "../campana/semana_1_pack_completo/piezas_tecnicas_sin_ia/tecnica_01_proceso_compraventa_1080x1350.jpg",
-        "../campana/semana_1_pack_completo/piezas_tecnicas_sin_ia/tecnica_03_checklist_ph_vs_casa_1080x1350.jpg",
-        "../campana/semana_1_pack_completo/piezas/dia2_carrusel_05_1080x1350.jpg"
+        "../campana/semana_1_pack_completo/piezas/cierre_universal_sello_1080x1350.jpg",
+        "../campana/semana_1_pack_completo/piezas/cierre_universal_foto_re_1080x1350.jpg"
       ],
       vertImg: "../campana/semana_1_pack_completo/piezas/dia2_vertical_1080x1920.jpg",
       blogUrl: "https://escribanofabriciorivas.com/compraventa-inmuebles-punta-del-este-1/",

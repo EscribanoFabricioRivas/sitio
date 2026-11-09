@@ -1261,92 +1261,14 @@ window.FR_KNOWLEDGE_BASE = {
 </head>
 <body>
 
-<!-- MOTOR DE CONEXIÓN Y PUBLICACIÓN DIRECTA POR API (2 - FABRICIO RIVAS · PUERTO 8892 AISLADO) -->
-<section style="background:#111111; color:#e9e7e1; border:2px solid #c4ad7a; border-radius:14px; padding:18px 22px; margin:16px auto; max-width:1360px; font-family:'Avenir Next',Inter,sans-serif;">
-  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
-    <div>
-      <span style="background:#c4ad7a; color:#111111; font-size:11px; font-weight:800; padding:4px 10px; border-radius:999px; letter-spacing:0.06em;">🔒 BÓVEDA AISLADA FABRICIO RIVAS (.agents/vault/social_keys.json · PUERTO 8892)</span>
-      <h2 style="margin:6px 0 2px; font-size:17px; font-weight:800; color:#ffffff;">Conexión Directa: 📍 Google Maps / My Business (Foto+Video+Post) · ▶️ YouTube Shorts · 📸 Meta (IG/FB + Ads) · 💼 LinkedIn</h2>
-      <p style="margin:0; font-size:12px; color:#c4ad7a;">✔️ Foco #1 Local: Google Maps / My Business (Foto + Video 9:16 + Novedades) · ✔️ Foco #1 Tickets Grandes: Meta Ads Extranjeros en PDE · ✔️ Linter Tuteo Estricto Activo</p>
-    </div>
-    <div id="fr-api-badges" style="display:flex; gap:8px; flex-wrap:wrap; font-size:12px; font-weight:700;">
-      <span id="fr-badge-gbp" style="background:rgba(56,178,111,0.16); border:1px solid #38b26f; color:#8ff0b8; padding:6px 12px; border-radius:8px;">📍 Google Maps / My Business: Prioridad #1 Local (Foto + Video)</span>
-      <span id="fr-badge-yt" style="background:#1a1a1a; border:1px solid #c4ad7a; padding:6px 12px; border-radius:8px;">▶️ YouTube / Shorts: Listo para conectar</span>
-      <span id="fr-badge-meta" style="background:#1a1a1a; border:1px solid #c4ad7a; padding:6px 12px; border-radius:8px;">📸 Meta (IG/FB + Ads): Verificando...</span>
-      <span id="fr-badge-li" style="background:#1a1a1a; border:1px solid #c4ad7a; padding:6px 12px; border-radius:8px;">💼 LinkedIn Empresa: Verificando...</span>
-    </div>
-  </div>
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:10px; align-items:end;">
-    <div>
-      <label style="font-size:11px; color:#c4ad7a; font-weight:700; display:block; margin-bottom:4px;">📍 Google Maps / My Business (Location ID / OAuth):</label>
-      <input id="fr-gbp-loc" type="text" placeholder="Location ID o Link Ficha Google Maps PDE..." style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid #444; background:#1a1a1a; color:#fff; font-size:12px;">
-    </div>
-    <div>
-      <label style="font-size:11px; color:#c4ad7a; font-weight:700; display:block; margin-bottom:4px;">▶️ YouTube Canal / Shorts (Channel ID / OAuth):</label>
-      <input id="fr-yt-channel" type="text" placeholder="Canal YouTube Fabricio Rivas..." style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid #444; background:#1a1a1a; color:#fff; font-size:12px;">
-    </div>
-    <div>
-      <label style="font-size:11px; color:#c4ad7a; font-weight:700; display:block; margin-bottom:4px;">📸 Token Meta Graph API (IG/FB + Meta Ads):</label>
-      <input id="fr-meta-token" type="password" placeholder="Pegar Token Meta de Fabricio Rivas..." style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid #444; background:#1a1a1a; color:#fff; font-size:12px;">
-    </div>
-    <div>
-      <label style="font-size:11px; color:#c4ad7a; font-weight:700; display:block; margin-bottom:4px;">💼 Token LinkedIn + URN Empresa:</label>
-      <div style="display:flex; gap:6px;">
-        <input id="fr-li-token" type="password" placeholder="Token..." style="flex:1; padding:8px 10px; border-radius:8px; border:1px solid #444; background:#1a1a1a; color:#fff; font-size:12px;">
-        <input id="fr-li-urn" type="text" placeholder="urn:li:organization:..." style="width:135px; padding:8px 10px; border-radius:8px; border:1px solid #444; background:#1a1a1a; color:#fff; font-size:12px;">
-      </div>
-    </div>
-    <div>
-      <button onclick="connectFrApis()" style="width:100%; background:#c4ad7a; color:#111111; border:none; padding:9px 14px; border-radius:8px; font-weight:800; font-size:12px; cursor:pointer;">🔌 Guardar en Bóveda Fabricio Rivas</button>
-    </div>
-  </div>
-  <div id="fr-api-msg" style="margin-top:8px; font-size:12px; color:#c4ad7a; font-weight:700;"></div>
-</section>
-<script>
-  async function checkFrApiStatus() {
-    try {
-      const r = await fetch("/api/status");
-      const s = await r.json();
-      const bm = document.getElementById("fr-badge-meta");
-      const bl = document.getElementById("fr-badge-li");
-      bm.textContent = s.meta_connected ? ("✅ Meta: " + (s.fb_page_name || "") + " / @" + (s.ig_username || "")) : "⚪ Meta (IG/FB): Pendiente Token";
-      if (s.linkedin_connected) {
-        const isPersonal = (s.linkedin_name || "").includes("Perfil Personal") || (s.linkedin_name || "").includes("Ariana");
-        bl.textContent = isPersonal ? ("🛑 LinkedIn Bloqueado (apunta a " + s.linkedin_name + ", falta URN Empresa)") : ("✅ LinkedIn Empresa: " + s.linkedin_name);
-      } else {
-        bl.textContent = "⚪ LinkedIn Empresa: Pendiente Token";
-      }
-    } catch (e) {}
-  }
-  async function connectFrApis() {
-    const body = {
-      gbp_location: document.getElementById("fr-gbp-loc").value,
-      youtube_channel: document.getElementById("fr-yt-channel").value,
-      meta_token: document.getElementById("fr-meta-token").value,
-      linkedin_token: document.getElementById("fr-li-token").value,
-      linkedin_urn: document.getElementById("fr-li-urn").value
-    };
-    try {
-      const r = await fetch("/api/connect", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body)});
-      const d = await r.json();
-      document.getElementById("fr-api-msg").textContent = (d.messages || ["✓ Guardado en Bóveda"]).join(" · ");
-      checkFrApiStatus();
-    } catch (e) {
-      localStorage.setItem("fr_vault_extra", JSON.stringify(body));
-      document.getElementById("fr-api-msg").textContent = "✓ Guardado localmente en la Bóveda de Fabricio Rivas";
-    }
-  }
-  window.addEventListener("DOMContentLoaded", checkFrApiStatus);
-</script>
-
   <!-- PIN MODAL OPCIONAL (1705) -->
   <div id="pin-overlay">
     <div class="pin-box">
       <h2>ESCRIBANO FABRICIO RIVAS</h2>
-      <p>Panel Central de Contenido, Diseño XXL, Blog y Métricas.<br>Ingresa el PIN de acceso (por defecto: <strong>1705</strong>):</p>
+      <p>Panel de publicaciones, artículos y métricas.<br>Ingresa el PIN de acceso (por defecto: <strong>1705</strong>):</p>
       <input type="password" id="pin-input" class="pin-input" maxlength="4" placeholder="••••" />
       <div>
-        <button class="btn btn-gold" onclick="verifyPin()">Entrar al Panel</button>
+        <button class="btn btn-gold" onclick="verifyPin()">Entrar al panel</button>
       </div>
     </div>
   </div>
@@ -1358,72 +1280,38 @@ window.FR_KNOWLEDGE_BASE = {
       <div class="brand-title">
         <div class="brand-badge">FR</div>
         <div>
-          <h1>Sistema Autónomo 360° · Escribano Fabricio Rivas</h1>
-          <small>MATRÍCULA 17058/5 · PUNTA DEL ESTE & MALDONADO · TUTEO ESTRICTO · ZONAS SEGURAS 4:5 Y 9:16</small>
+          <h1>Panel de Gestión · Escribano Fabricio Rivas</h1>
+          <small>MATRÍCULA 17058/5 · PUNTA DEL ESTE Y MALDONADO</small>
         </div>
       </div>
       <div class="header-actions">
-        <span class="pill green">✓ Sitio + Sitemap + GA4 + Ads Conectados</span>
+        <a class="btn btn-green" href="https://aprobala-app.943ari.workers.dev/p/pr24e23ZVASa6UYFADTzOaVY8rckdKde" target="_blank" rel="noopener noreferrer" style="font-size:14px;padding:10px 18px;">✅ Abrir mis publicaciones para aprobar (Aprobalo) →</a>
         <span class="pill">WhatsApp: +598 99 431 185</span>
         <button class="btn btn-sm" onclick="togglePinLock()" id="pinLockBtn">🔒 Activar PIN (1705)</button>
       </div>
     </div>
 
     <nav class="nav-tabs">
-      <button class="tab-btn active" onclick="openTab('tab-guide', this)" style="border-color:#2ecc71;">🧭 0. INSTRUCTIVO FÁCIL PARA FABRICIO (ABC / 1-2-3)</button>
-      <button class="tab-btn" onclick="openTab('tab-generator', this)">🎲 1. Generador & Rotación Inteligente (PNG + Copys)</button>
-      <button class="tab-btn" onclick="openTab('tab-week1', this)">📅 2. Semana 1 Lista + Semanas 2, 3 y 4 Evolutivas</button>
-      <button class="tab-btn" onclick="openTab('tab-blog', this)">🌐 3. Blog "Criterio Notarial" + Indexación Google</button>
-      <button class="tab-btn" onclick="openTab('tab-brain', this)">🧠 4. Entrenar al Sistema (Feedback de Fabricio)</button>
-      <button class="tab-btn" onclick="openTab('tab-metrics', this)">📊 5. Métricas Reales (Ads, GA4, Search Console)</button>
+      <button class="tab-btn active" onclick="openTab('tab-guide', this)" style="border-color:#2ecc71;">🧭 0. Inicio rápido (1 clic)</button>
+      <button class="tab-btn" onclick="openTab('tab-generator', this)">🎲 1. Generador de placas y textos</button>
+      <button class="tab-btn" onclick="openTab('tab-week1', this)">📅 2. Calendario de semanas</button>
+      <button class="tab-btn" onclick="openTab('tab-blog', this)">🌐 3. Artículos "Criterio Notarial" (Google Maps / WhatsApp)</button>
+      <button class="tab-btn" onclick="openTab('tab-brain', this)">🧠 4. Enviar sugerencias o criterios</button>
+      <button class="tab-btn" onclick="openTab('tab-metrics', this)">📊 5. Métricas (Ads, GA4, Search Console)</button>
     </nav>
   </header>
 
   <main>
-        <!-- HUB DE SISTEMAS DE DISEÑO APROBADOS (MUESTRA V1 PANEL LATERAL + PLACA FINAL DE CIERRE EN ZONA SEGURA) -->
-    <section class="panel-card" style="border:2px solid #c4ad7a; background:linear-gradient(135deg, rgba(196,173,122,0.14) 0%, #141816 100%); margin-bottom:24px;">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
-        <div>
-          <span class="pill green" style="font-weight:700;">✅ DISEÑO DEPURADO SEGÚN TUS COMENTARIOS · KIT "FR" (kAFr1jaFxvw)</span>
-          <h2 style="font-size:18px; color:var(--gold); margin-top:6px;">Sistemas Visuales Aprobados: Muestra V1 Panel Lateral (Check) + Placas Universales de Cierre Ajustadas a Zona Segura</h2>
-          <p style="font-size:13px; color:var(--muted);">❌ Eliminados BASE 1/2/3 (otra cuenta), ❌ Descartada Historia Buenos Aires (restricción territorial) y ❌ Descartados Carruseles A/B/C viejos. ✅ Dejamos como base maestra tu <strong>Muestra V1 · Panel Lateral 67/33</strong> + la <strong>Placa Final de Cierre</strong> re-maquetada 100% dentro de márgenes de seguridad (con sello notarial o con la única foto aprobada de <code>/real-estate.html</code> sin repetir):</p>
+    <!-- ACCESO PRINCIPAL EN 1 CLIC A APROBALO -->
+    <section class="panel-card" style="border:2px solid #2ecc71; background:linear-gradient(135deg, rgba(46,204,113,0.14) 0%, #141816 100%); margin-bottom:24px; padding:22px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <div style="max-width:760px;">
+          <span class="pill green" style="font-weight:700; margin-bottom:8px; display:inline-block;">📲 PASO PRINCIPAL DE LA SEMANA</span>
+          <h2 style="font-size:21px; color:#ffffff; margin:4px 0 8px;">Revisa y aprueba tus publicaciones de la semana en 1 clic</h2>
+          <p style="font-size:14px; color:#d5d2c8; margin:0; line-height:1.5;">En tu panel de <strong>Aprobalo</strong> tienes todas las publicaciones listas con sus láminas en grande, su video y su texto completo. Solo entras, miras cada tarjeta y tocas <strong>«✅ Aprobar esta publicación»</strong> (o escribes ahí mismo si quieres cambiar alguna palabra).</p>
         </div>
-      </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(265px, 1fr)); gap:10px;">
-        <a class="btn btn-gold" style="justify-content:flex-start; text-align:left; padding:10px 12px;" href="../campana/semana_1_pack_completo/piezas/v1_lateral_extranjeros_01_1080x1350.jpg" target="_blank">🎯 <strong>NUEVA Muestra V1 · Extranjeros PDE (4:5)</strong></a>
-        <a class="btn btn-gold" style="justify-content:flex-start; text-align:left; padding:10px 12px;" href="../campana/semana_1_pack_completo/piezas/v1_lateral_extranjeros_01_1080x1920.jpg" target="_blank">📱 <strong>NUEVA Muestra V1 · Extranjeros PDE (9:16 Video)</strong></a>
-        <a class="btn btn-green" style="justify-content:flex-start; text-align:left; padding:10px 12px;" href="../campana/semana_1_pack_completo/piezas/cierre_universal_sello_1080x1350.jpg" target="_blank">✒️ <strong>Placa Final Cierre · Sello FR (4:5 Zona Segura)</strong></a>
-        <a class="btn btn-green" style="justify-content:flex-start; text-align:left; padding:10px 12px;" href="../campana/semana_1_pack_completo/piezas/cierre_universal_sello_1080x1920.jpg" target="_blank">✒️ <strong>Placa Final Cierre · Sello FR (9:16 Zona Segura)</strong></a>
-        <a class="btn" style="justify-content:flex-start; text-align:left; padding:10px 12px; border-color:#c4ad7a;" href="../campana/semana_1_pack_completo/piezas/cierre_universal_foto_re_1080x1350.jpg" target="_blank">👤 <strong>Placa Final Cierre · Única Foto Real Estate (4:5)</strong></a>
-        <a class="btn" style="justify-content:flex-start; text-align:left; padding:10px 12px; border-color:#c4ad7a;" href="../campana/semana_1_pack_completo/piezas/cierre_universal_foto_re_1080x1920.jpg" target="_blank">👤 <strong>Placa Final Cierre · Única Foto Real Estate (9:16)</strong></a>
-        <a class="btn" style="justify-content:flex-start; text-align:left; padding:10px 12px;" href="https://www.canva.com/d/8Oprb1kwbL9ESPZ" target="_blank">🎨 <strong>Canva Muestra V1 Base (4:5 IG · Check)</strong></a>
-        <a class="btn" style="justify-content:flex-start; text-align:left; padding:10px 12px;" href="https://www.canva.com/d/DWcMeShKTeFg1BN" target="_blank">🎨 <strong>Canva Muestra V1 Base (9:16 Video Celular)</strong></a>
-      </div>
-    </section>
-
-    <!-- BANNER ESTRATÉGICO: MOTOR DE VENTAS REAL (META ADS EXTRANJEROS + GOOGLE MAPS/YOUTUBE LOCAL + ESTADO PUBLICADO) -->
-    <section class="priority-banner">
-      <h2>🎯 Foco Comercial de Venta y Ejecución Inmediata (Actualizado con tu Estrategia)</h2>
-      <div class="priority-grid">
-        <div class="priority-card" style="border-color:#2ecc71;">
-          <h3>1. 🎯 FOCO TICKETS GRANDES (SEMANA PRÓXIMA): Pauta Test Paga en Meta Ads · Extranjeros que Compran en PDE</h3>
-          <p>Los trabajos grandes llegaron por tus Ads apuntando al <strong>nicho de extranjeros (AR, BR, EE.UU., Europa) que compran en Punta del Este</strong>. Ya tienes lista la pieza en formato <strong>Muestra V1 Panel Lateral + Cierre en Zona Segura</strong> con foco en: <em>En Uruguay el comprador elige a su escribano · Seña en custodia (Escrow) · Auditoría 30 años · Trato directo y a distancia</em>.</p>
-          <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <a class="btn btn-gold btn-sm" href="../campana/semana_1_pack_completo/piezas/v1_lateral_extranjeros_01_1080x1350.jpg" download="MetaAds_Extranjeros_PDE_4x5.jpg">⬇️ Bajar Placa Ads 4:5</a>
-            <a class="btn btn-sm" href="../campana/semana_1_pack_completo/piezas/v1_lateral_extranjeros_01_1080x1920.jpg" download="MetaAds_Extranjeros_PDE_9x16.jpg">⬇️ Bajar Reel/Story Ads 9:16</a>
-            <a class="btn btn-green btn-sm" href="../campana/semana_1_pack_completo/piezas/cierre_universal_foto_re_1080x1350.jpg" download="Cierre_Unica_Foto_RealEstate_4x5.jpg">⬇️ Placa Final Cierre (Foto Real Estate)</a>
-            <button class="btn btn-sm" onclick="loadFromFutureWeek(7, 'es', 0, '1080x1350', 'panel_lateral_v1')">⚡ Abrir Pack Meta Ads en Generador</button>
-          </div>
-        </div>
-        <div class="priority-card" style="border-color:var(--gold);">
-          <h3>2. 📍 FOCO FLUJO RÁPIDO LOCAL (EL QUE MÁS FUNCIONA ACÁ): Google Maps / My Business + YouTube Shorts</h3>
-          <p>En la zona Fabricio necesita agilidad y <strong>"Trato directo"</strong> (certificaciones en el día, poderes, actas, pre-revisión por WhatsApp sin firmar antes). Para dominar Google Maps (hoy Pos. 1.8 en <em>"escribano punta del este"</em>), sube cada semana <strong>Foto 4:5 + Video 9:16 + Novedad Local</strong>.</p>
-          <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <a class="btn btn-gold btn-sm" href="../campana/semana_1_pack_completo/piezas/cierre_universal_sello_1080x1350.jpg" download="GoogleMaps_Foto_Asesoramiento_4x5.jpg">⬇️ Foto para Google Maps (4:5)</a>
-            <a class="btn btn-sm" href="../campana/semana_1_pack_completo/piezas/cierre_universal_sello_1080x1920.jpg" download="YouTubeShorts_Maps_9x16.jpg">⬇️ Placa Video 9:16 (Maps / Shorts)</a>
-            <button class="btn btn-green btn-sm" onclick="loadFromFutureWeek(9, 'es', 0, '1080x1350', 'cierre_institucional')">📋 Copiar Texto SEO Google Maps</button>
-            <button class="btn btn-sm" onclick="openTabById('tab-blog'); requestGoogleIndexing('https://escribanofabriciorivas.com/documentacion-vender-propiedad-punta-del-este-1/')">🚀 Indexar Nota Vendedor (Ya Publicada en Redes)</button>
-          </div>
+        <div style="display:flex; flex-direction:column; gap:8px; min-width:260px;">
+          <a class="btn btn-green" href="https://aprobala-app.943ari.workers.dev/p/pr24e23ZVASa6UYFADTzOaVY8rckdKde" target="_blank" rel="noopener noreferrer" style="justify-content:center; padding:14px 20px; font-size:15.5px; font-weight:800;">✅ Entrar a aprobar mis publicaciones →</a>
         </div>
       </div>
     </section>

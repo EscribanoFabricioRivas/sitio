@@ -353,5 +353,8 @@
     if(aCajita){window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'whatsapp_cajita_especifica',cajita_id:aCajita.getAttribute('data-cajita'),page_path:location.pathname});}
   });
   </script>
+<script>
+document.addEventListener("click",function(e){var aWa=e.target.closest&&e.target.closest("a[href*=\"whatsapp.com\"],a[href*=\"wa.me\"]");if(aWa){try{var u="https://aprobala-app.943ari.workers.dev/ir/track?slug=fabricio-wa";if(navigator.sendBeacon)navigator.sendBeacon(u);else fetch(u,{mode:"no-cors",keepalive:true});}catch(_){}}});
+</script>
 </body>
 </html>

@@ -3077,29 +3077,20 @@ a.fr-triage-box > div {
   width: 100%;
   padding: 8px 12px;
   border-radius: 9px;
-  background: #25D366 !important;
-  border: 1px solid #25D366 !important;
+  background: #c4ad7a !important;
+  border: 1px solid #c4ad7a !important;
   color: #111111 !important;
   font-size: 0.82rem;
   font-weight: 800;
   text-align: left;
+  transition: background-color 0.16s ease, border-color 0.16s ease;
 }
 
-a.fr-triage-box:hover .hero-grid > *,
-.hero-copy,
-.hero-foreign-copy,
-.fr-triage-wrap,
-.fr-triage-grid > *,
-a.fr-triage-box,
-a.fr-triage-box > div {
-  min-width: 0 !important;
-  max-width: 100% !important;
-}
-
-.fr-triage-cta {
-  background: #4be381 !important;
-  color: #000000 !important;
-  border-color: #4be381 !important;
+a.fr-triage-box:hover .fr-triage-cta,
+a.fr-triage-box:focus-visible .fr-triage-cta {
+  background: #d4be8d !important;
+  border-color: #d4be8d !important;
+  color: #111111 !important;
 }
 
 /* Optimización Above-the-Fold en Desktop/Laptop/Tablet (> 767px) */
@@ -3398,21 +3389,23 @@ header .nav-links a.nav-cta {
     border-radius: 10px !important;
   }
   .fr-triage-tag {
-    font-size: 0.56rem !important;
-    margin-bottom: 0 !important;
+    font-size: 0.58rem !important;
+    margin-bottom: 1px !important;
   }
   .fr-triage-title {
-    font-size: 0.82rem !important;
+    font-size: 0.85rem !important;
     margin: 0 !important;
-    line-height: 1.14 !important;
+    line-height: 1.16 !important;
   }
   .fr-triage-desc {
-    font-size: 0.7rem !important;
-    margin: 1px 0 0 !important;
-    line-height: 1.18 !important;
-    white-space: nowrap !important;
+    font-size: 0.74rem !important;
+    margin: 2px 0 0 !important;
+    line-height: 1.24 !important;
+    white-space: normal !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
   }
   .hero-grid > *,
 .hero-copy,
@@ -3427,12 +3420,12 @@ a.fr-triage-box > div {
 
 .fr-triage-cta {
     width: auto !important;
-    padding: 6px 9px !important;
-    border-radius: 7px !important;
-    background: #25D366 !important;
-    border-color: #25D366 !important;
+    padding: 7px 10px !important;
+    border-radius: 8px !important;
+    background: #c4ad7a !important;
+    border-color: #c4ad7a !important;
     color: #111111 !important;
-    font-size: 0.7rem !important;
+    font-size: 0.72rem !important;
     font-weight: 800 !important;
     white-space: nowrap !important;
   }

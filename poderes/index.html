@@ -399,7 +399,7 @@
         <div>
           <div class="fr-cluster-card-tag">Matrícula 17058/5</div>
           <h3>Sobre el Escribano Fabricio Rivas</h3>
-          <p>Trayectoria profesional, rigor técnico y atención personalizada desde Edificio ARTOWER en Punta del Este.</p>
+          <p>Trayectoria profesional, rigor técnico y atención directa en Punta del Este y Maldonado.</p>
         </div>
         <span class="fr-cluster-card-cta">Conocer el estudio <span>↗</span></span>
       </a>
@@ -487,6 +487,10 @@
 <script>
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(!a)return;window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'llamada_click',page_path:location.pathname});});
 document.addEventListener('click',function(e){var c=e.target.closest&&e.target.closest('a[data-cajita]');if(!c)return;window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'whatsapp_cajita_especifica',cajita_id:c.getAttribute('data-cajita'),page_path:location.pathname});});
+</script>
+<script>
+try{if(document.referrer&&document.referrer.indexOf("escribanofabriciorivas.com")===-1){var uP="https://aprobala-app.943ari.workers.dev/ir/track?slug=fabricio-poderes";if(navigator.sendBeacon)navigator.sendBeacon(uP);else fetch(uP,{mode:"no-cors",keepalive:true});}}catch(_){}
+document.addEventListener("click",function(e){var aWa=e.target.closest&&e.target.closest("a[href*=\"whatsapp.com\"],a[href*=\"wa.me\"]");if(aWa){try{var u="https://aprobala-app.943ari.workers.dev/ir/track?slug=fabricio-wa";if(navigator.sendBeacon)navigator.sendBeacon(u);else fetch(u,{mode:"no-cors",keepalive:true});}catch(_){}}});
 </script>
 </body>
 </html>

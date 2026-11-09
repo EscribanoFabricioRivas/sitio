@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <title>Certificación de Firmas en Punta del Este | Escribano Fabricio Rivas</title>
+  <link rel="canonical" href="https://escribanofabriciorivas.com/certificaciones-notariales">
+  
+  <style>
+    body { margin: 0; background: #111111; color: #e9e7e1; font-family: "Avenir Next", -apple-system, BlinkMacSystemFont, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 24px; }
+    .box { max-width: 420px; }
+    .gold { color: #c4ad7a; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+    a { color: #c4ad7a; text-decoration: none; font-weight: 600; }
+  </style>
+  <script>
+    (function() {
+      var ref = (document.referrer || "").toLowerCase();
+      var ua = (navigator.userAgent || "").toLowerCase();
+      var params = new URLSearchParams(window.location.search);
+      var src = params.get("utm_source") || params.get("src") || "";
+      if (!src) {
+        if (ref.indexOf("instagram") !== -1 || ua.indexOf("instagram") !== -1) src = "instagram";
+        else if (ref.indexOf("facebook") !== -1 || ref.indexOf("fb.com") !== -1 || ua.indexOf("fban") !== -1 || ua.indexOf("fbav") !== -1) src = "facebook";
+        else if (ref.indexOf("linkedin") !== -1 || ua.indexOf("linkedin") !== -1) src = "linkedin";
+        else if (ref.indexOf("youtube") !== -1 || ref.indexOf("youtu.be") !== -1) src = "youtube";
+        else if (ua.indexOf("whatsapp") !== -1 || ref.indexOf("whatsapp") !== -1) src = "whatsapp";
+        else src = "social";
+      }
+      var trackUrl = "https://aprobala-app.943ari.workers.dev/ir/track?slug=fabricio-certificaciones&src=" + encodeURIComponent(src);
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(trackUrl);
+        } else {
+          fetch(trackUrl, { mode: "no-cors", keepalive: true });
+        }
+      } catch (e) {}
+      var dest = "https://escribanofabriciorivas.com/certificaciones-notariales";
+      if (dest.indexOf("escribanofabriciorivas.com") !== -1) {
+        var u = new URL(dest);
+        u.searchParams.set("utm_source", src);
+        u.searchParams.set("utm_medium", params.get("utm_medium") || "post");
+        u.searchParams.set("utm_campaign", params.get("utm_campaign") || "fabricio-certificaciones");
+        dest = u.toString();
+        window.location.replace(dest);
+      } else {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "shortlink_click",
+          utm_source: src,
+          utm_medium: "post",
+          utm_campaign: "fabricio-certificaciones"
+        });
+        setTimeout(function() { window.location.replace(dest); }, 180);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="box">
+    <div class="gold">Fabricio Rivas · Escribano Público</div>
+    <p>Abriendo <a href="https://escribanofabriciorivas.com/certificaciones-notariales">Certificación de Firmas en Punta del Este | Escribano Fabricio Rivas</a>...</p>
+  </div>
+</body>
+</html>

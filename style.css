@@ -2967,36 +2967,36 @@ a.fr-cluster-card:hover {
   margin: 22px 0 26px;
   padding: 22px 24px;
   border-radius: 24px;
-  background: #111111;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.9);
+  color: #111111;
   border: 1px solid rgba(196, 173, 122, 0.55);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.06);
 }
 
 .fr-triage-kicker {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #c4ad7a;
+  color: #7b6637;
   margin: 0 0 6px;
 }
 
 .fr-triage-heading {
-  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  font-size: clamp(1.12rem, 1.7vw, 1.34rem);
   font-weight: 800;
-  color: #ffffff;
+  color: #111111;
   margin: 0 0 6px;
   line-height: 1.22;
 }
 
 .fr-triage-sub {
-  font-size: 0.92rem;
-  color: rgba(233, 231, 225, 0.86);
-  margin: 0 0 16px !important;
+  font-size: 0.9rem;
+  color: #4a4945;
+  margin: 0 0 14px !important;
   text-align: left !important;
   line-height: 1.45;
 }
@@ -3015,11 +3015,11 @@ a.fr-triage-box {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 16px 18px;
+  padding: 15px 16px;
   border-radius: 16px;
-  background: #1b1b1c;
-  border: 1px solid rgba(196, 173, 122, 0.38);
-  color: #ffffff !important;
+  background: #f7f5ef;
+  border: 1px solid rgba(196, 173, 122, 0.45);
+  color: #111111 !important;
   text-decoration: none !important;
   transition: transform 0.16s ease, border-color 0.16s ease, background-color 0.16s ease, box-shadow 0.16s ease;
   cursor: pointer;
@@ -3028,33 +3028,33 @@ a.fr-triage-box {
 a.fr-triage-box:hover,
 a.fr-triage-box:focus-visible {
   transform: translateY(-2px);
-  background: #222224;
-  border-color: #c4ad7a;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32);
+  background: #ffffff;
+  border-color: #111111;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
 .fr-triage-tag {
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #c4ad7a;
-  margin-bottom: 5px;
+  color: #7b6637;
+  margin-bottom: 4px;
 }
 
 .fr-triage-title {
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 800;
-  color: #ffffff;
-  margin: 0 0 5px;
-  line-height: 1.25;
+  color: #111111;
+  margin: 0 0 4px;
+  line-height: 1.24;
 }
 
 .fr-triage-desc {
-  font-size: 0.85rem;
-  color: rgba(233, 231, 225, 0.82) !important;
+  font-size: 0.84rem;
+  color: #4a4945 !important;
   margin: 0 0 12px !important;
-  line-height: 1.42;
+  line-height: 1.4;
   text-align: left !important;
 }
 
@@ -3076,11 +3076,11 @@ a.fr-triage-box > div {
   gap: 8px;
   width: 100%;
   padding: 8px 12px;
-  border-radius: 9px;
-  background: #c4ad7a !important;
-  border: 1px solid #c4ad7a !important;
-  color: #111111 !important;
-  font-size: 0.82rem;
+  border-radius: 999px;
+  background: #111111 !important;
+  border: 1px solid #111111 !important;
+  color: #ffffff !important;
+  font-size: 0.8rem;
   font-weight: 800;
   text-align: left;
   transition: background-color 0.16s ease, border-color 0.16s ease;
@@ -3088,74 +3088,42 @@ a.fr-triage-box > div {
 
 a.fr-triage-box:hover .fr-triage-cta,
 a.fr-triage-box:focus-visible .fr-triage-cta {
-  background: #d4be8d !important;
-  border-color: #d4be8d !important;
+  background: #7b6637 !important;
+  border-color: #7b6637 !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   ACCESOS RÁPIDOS EDITORIALES (.fr-quick-pills) Y RESPONSIVE LIMPIO
+   ========================================================================== */
+.fr-quick-pills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0 20px;
+}
+
+a.fr-quick-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 11px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(196, 173, 122, 0.55);
   color: #111111 !important;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition: transform 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
 }
 
-/* Optimización Above-the-Fold en Desktop/Laptop/Tablet (> 767px) */
-.hero,
-.page-hero,
-.ci-hero,
-body.real-estate-page .hero.hero-real-estate,
-body.soluciones-page .page-hero-soluciones-refined {
-  padding: 24px 0 32px !important;
-}
-
-.hero h1,
-.hero .hero-copy h1,
-.page-hero h1,
-.page-hero-foreign h1,
-.page-hero-service h1,
-.page-hero-soluciones h1,
-.ci-hero h1,
-body.real-estate-page .hero-copy h1,
-body.soluciones-page .page-hero-soluciones-refined h1 {
-  font-size: clamp(1.75rem, 2.5vw, 2.35rem) !important;
-  line-height: 1.12 !important;
-  margin: 4px 0 8px !important;
-  max-width: 28ch !important;
-}
-
-.hero .lead,
-.page-hero .lead,
-.ci-lead,
-body.real-estate-page .hero-copy .lead {
-  font-size: 0.95rem !important;
-  line-height: 1.42 !important;
-  margin: 0 0 12px !important;
-}
-
-.fr-triage-wrap {
-  margin: 12px 0 18px !important;
-  padding: 16px 18px !important;
-  border-radius: 20px !important;
-}
-
-.fr-triage-heading {
-  font-size: clamp(1.05rem, 1.4vw, 1.22rem) !important;
-  margin: 0 0 4px !important;
-}
-
-.fr-triage-sub {
-  font-size: 0.85rem !important;
-  margin: 0 0 12px !important;
-}
-
-a.fr-triage-box {
-  padding: 12px 14px !important;
-  border-radius: 14px !important;
-}
-
-.fr-triage-title {
-  font-size: 0.94rem !important;
-  margin: 0 0 3px !important;
-}
-
-.fr-triage-desc {
-  font-size: 0.8rem !important;
-  margin: 0 0 9px !important;
-  line-height: 1.34 !important;
+a.fr-quick-pill:hover {
+  transform: translateY(-1px);
+  background: #ffffff;
+  border-color: #111111;
 }
 
 header .nav {
@@ -3192,30 +3160,22 @@ header .nav-links a.nav-cta {
 
 @media (max-width: 1180px) {
   header .nav {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: space-between !important;
-    align-items: center !important;
     gap: 10px !important;
     padding: 8px 0 !important;
   }
-  header .brand {
-    flex-shrink: 0 !important;
-  }
   header .brand img {
     height: 44px !important;
-    width: auto !important;
   }
   header .nav-links {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
     gap: 10px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+  }
+  header .nav-links::-webkit-scrollbar {
+    display: none !important;
   }
   header .nav-links a {
     font-size: 0.82rem !important;
-    white-space: nowrap !important;
   }
   header .nav-links a.nav-cta {
     padding: 7px 12px !important;
@@ -3224,14 +3184,12 @@ header .nav-links a.nav-cta {
 }
 
 @media (max-width: 980px) {
+  .ci-layout, .hero-grid, body.real-estate-page .hero-grid-real-estate, .feature-wrap, .contact-wrap, .footer-grid, .points-landing {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
   .fr-triage-grid,
   .fr-triage-grid-3 {
     grid-template-columns: 1fr 1fr !important;
-  }
-  header .nav-links a[href="/criterio-notarial"],
-  header .nav-links a[href="/sobre-fabricio"],
-  header .nav-links a[href="/soluciones"] {
-    display: none !important;
   }
 }
 
@@ -3243,7 +3201,7 @@ header .nav-links a.nav-cta {
   p, li {
     text-align: left !important;
   }
-  /* 1) Topbar en 1 sola línea compacta (26px) */
+  /* 1) Topbar limpia en 1 fila */
   .topbar .container,
   .topbar .topbar-grid {
     display: flex !important;
@@ -3251,9 +3209,9 @@ header .nav-links a.nav-cta {
     flex-wrap: nowrap !important;
     justify-content: space-between !important;
     align-items: center !important;
-    padding: 3px 0 !important;
+    padding: 4px 0 !important;
     gap: 8px !important;
-    font-size: 0.7rem !important;
+    font-size: 0.72rem !important;
   }
   .topbar-center,
   .topbar .container > div:nth-child(2):not(.topbar-lang),
@@ -3268,12 +3226,13 @@ header .nav-links a.nav-cta {
     flex-direction: row !important;
   }
   .topbar-pill {
-    min-width: 32px !important;
-    min-height: 20px !important;
-    padding: 2px 6px !important;
-    font-size: 0.66rem !important;
+    min-width: 34px !important;
+    min-height: 22px !important;
+    padding: 2px 7px !important;
+    font-size: 0.68rem !important;
   }
-  /* 2) Header en 1 sola fila limpia (Logo izquierda + Botón WhatsApp derecha = 46px) */
+
+  /* 2) Header mobile con Logo + Menú navegable en barra deslizable limpia */
   header {
     position: sticky !important;
     top: 0 !important;
@@ -3281,53 +3240,104 @@ header .nav-links a.nav-cta {
   }
   header .nav {
     display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: space-between !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 8px 0 6px !important;
+    gap: 6px !important;
+  }
+  header .brand {
+    display: flex !important;
     align-items: center !important;
-    padding: 5px 0 !important;
-    gap: 8px !important;
   }
   header .brand img {
-    height: 34px !important;
+    height: 36px !important;
     width: auto !important;
   }
   header .nav-links {
     display: flex !important;
+    flex-direction: row !important;
     flex-wrap: nowrap !important;
     align-items: center !important;
-    gap: 0 !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding-bottom: 2px !important;
   }
-  header .nav-links a:not(.nav-cta) {
+  header .nav-links::-webkit-scrollbar {
     display: none !important;
   }
-  header .nav-links a.nav-cta {
+  header .nav-links a:not(.nav-cta) {
     display: inline-flex !important;
     align-items: center !important;
-    padding: 6px 11px !important;
+    padding: 5px 10px !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.65) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    font-size: 0.76rem !important;
+    font-weight: 600 !important;
+    color: #111111 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  header .nav-links a.nav-cta {
+    order: 99 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 5px 11px !important;
     font-size: 0.76rem !important;
     font-weight: 800 !important;
     white-space: nowrap !important;
+    flex-shrink: 0 !important;
   }
-  /* 3) Hero compacto para que las Cajitas de Acción entren completas en el primer pantallazo (y < 165px) */
+
+  /* 3) Hero editorial equilibrado en mobile y foto 100% despejada */
+  .hero-visual {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: auto !important;
+    background: #ededed !important;
+  }
+  .hero-visual img {
+    width: 100% !important;
+    height: 320px !important;
+    object-fit: cover !important;
+    object-position: center 8% !important;
+    display: block !important;
+  }
+  .hero-badge {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: -22px 12px 12px !important;
+    padding: 16px 18px !important;
+    border-radius: 18px !important;
+    background: rgba(17, 17, 17, 0.92) !important;
+  }
+  .hero-badge h2 {
+    font-size: 1.15rem !important;
+    line-height: 1.18 !important;
+    margin: 6px 0 6px !important;
+  }
+  .hero-badge p {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
   .hero,
   .page-hero,
   .ci-hero,
   .editorial-header,
   body.real-estate-page .hero.hero-real-estate,
   body.soluciones-page .page-hero-soluciones-refined {
-    padding: 8px 0 16px !important;
-  }
-  .ci-hero .container,
-  .ci-body .container {
-    width: min(calc(100% - 28px), 1220px) !important;
+    padding: 20px 0 24px !important;
   }
   .eyebrow,
   .ci-kicker {
-    font-size: 0.62rem !important;
-    letter-spacing: 0.08em !important;
-    line-height: 1.15 !important;
-    margin: 0 0 2px !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1.25 !important;
+    margin: 0 0 6px !important;
   }
   h1,
   .hero h1,
@@ -3339,98 +3349,68 @@ header .nav-links a.nav-cta {
   .ci-hero h1,
   body.real-estate-page .hero-copy h1,
   body.soluciones-page .page-hero-soluciones-refined h1 {
-    font-size: 1.24rem !important;
-    line-height: 1.14 !important;
-    letter-spacing: -0.02em !important;
-    margin: 0 0 4px !important;
+    font-size: clamp(1.65rem, 6.4vw, 2.15rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.025em !important;
+    margin: 0 0 10px !important;
     max-width: 100% !important;
   }
   .hero .lead,
   .page-hero .lead,
   .ci-lead,
   body.real-estate-page .hero-copy .lead {
+    font-size: 0.94rem !important;
+    line-height: 1.45 !important;
+    margin: 0 0 14px !important;
+  }
+  .fr-quick-pills {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    margin: 12px 0 16px !important;
+  }
+  a.fr-quick-pill {
+    padding: 10px 11px !important;
     font-size: 0.78rem !important;
-    line-height: 1.28 !important;
-    margin: 0 0 5px !important;
+    border-radius: 12px !important;
   }
-  .hero-copy:has(.fr-triage-wrap) > p:not(.lead),
-  .hero-foreign-copy:has(.fr-triage-wrap) > p:not(.lead) {
-    display: none !important;
-  }
-  /* 4) Cajitas de Triaje: Botones Táctiles de 1 Toque 100% visibles Above-the-Fold */
   .fr-triage-wrap {
-    padding: 8px 10px !important;
-    margin: 4px 0 8px !important;
-    border-radius: 13px !important;
-  }
-  .fr-triage-kicker {
-    font-size: 0.56rem !important;
-    margin: 0 0 1px !important;
-  }
-  .fr-triage-heading {
-    font-size: 0.84rem !important;
-    margin: 0 0 5px !important;
-    line-height: 1.15 !important;
-  }
-  .fr-triage-sub {
-    display: none !important;
+    padding: 12px 12px !important;
+    margin: 10px 0 14px !important;
+    border-radius: 16px !important;
   }
   .fr-triage-grid,
   .fr-triage-grid-3 {
     grid-template-columns: minmax(0, 1fr) !important;
-    gap: 5px !important;
+    gap: 6px !important;
   }
   a.fr-triage-box {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) auto !important;
     align-items: center !important;
     gap: 8px !important;
-    padding: 6px 9px !important;
-    border-radius: 10px !important;
+    padding: 8px 10px !important;
+    border-radius: 11px !important;
   }
   .fr-triage-tag {
-    font-size: 0.56rem !important;
+    font-size: 0.6rem !important;
     margin-bottom: 1px !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
   }
   .fr-triage-title {
-    font-size: 0.84rem !important;
+    font-size: 0.86rem !important;
     margin: 0 !important;
-    line-height: 1.16 !important;
+    line-height: 1.18 !important;
   }
   .fr-triage-desc {
-    font-size: 0.72rem !important;
-    margin: 1px 0 0 !important;
-    line-height: 1.22 !important;
-    white-space: normal !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 1 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-  }
-  .hero-grid > *,
-  .hero-copy,
-  .hero-foreign-copy,
-  .fr-triage-wrap,
-  .fr-triage-grid > *,
-  a.fr-triage-box,
-  a.fr-triage-box > div {
-    min-width: 0 !important;
-    max-width: 100% !important;
+    font-size: 0.74rem !important;
+    margin: 2px 0 0 !important;
+    line-height: 1.25 !important;
   }
   .fr-triage-cta {
     width: auto !important;
-    padding: 6px 9px !important;
+    padding: 6px 10px !important;
     border-radius: 8px !important;
-    background: #c4ad7a !important;
-    border-color: #c4ad7a !important;
-    color: #111111 !important;
-    font-size: 0.7rem !important;
-    font-weight: 800 !important;
+    font-size: 0.72rem !important;
     white-space: nowrap !important;
-    gap: 4px !important;
   }
   .fr-triage-cta > span:first-child {
     display: none !important;
@@ -3441,30 +3421,16 @@ header .nav-links a.nav-cta {
   a.fr-triage-box:not([href*="whatsapp"]) .fr-triage-cta::before {
     content: "Ver";
   }
-  .hero:has(.fr-triage-wrap) .hero-visual,
-  .hero:has(.fr-triage-wrap) .hero-actions,
-  .page-hero:has(.fr-triage-wrap) .hero-actions {
-    display: none !important;
-  }
   .sticky-mobile {
-    left: 10px !important;
-    right: 10px !important;
+    left: 12px !important;
+    right: 12px !important;
     bottom: 8px !important;
     gap: 8px !important;
   }
   .sticky-mobile a {
-    padding: 9px 12px !important;
+    padding: 9px 14px !important;
     font-size: 0.8rem !important;
     line-height: 1.1 !important;
     white-space: nowrap !important;
-  }
-}
-
-
-
-/* === ZERO OVERFLOW GRID FIX === */
-@media (max-width: 980px) {
-  .ci-layout, .hero-grid, body.real-estate-page .hero-grid-real-estate, .feature-wrap, .contact-wrap, .footer-grid, .points-landing {
-    grid-template-columns: minmax(0, 1fr) !important;
   }
 }

@@ -5,6 +5,20 @@
 
 ---
 
+## 0. Principio de Raíz Única: Prohibición de Silos y Diseño Cosmético
+
+Las redes sociales NO son un circuito cerrado de diseño ni un fin en sí mismo. **Todo posteo, reel o artículo nace obligatoriamente del Dossier de Raíz (`claude/`)**:
+1. **Intención Real de Búsqueda:** Extraída de `auditoria-ads-sitio-FR-12-11.md` y `claude/MIGRACION_CURADA_ADS_Y_CRITERIO_FR.md` (términos con urgencia y dinero en juego: compraventas, revisión de títulos de 30 años, poderes consulares, certificados bancarios).
+2. **Fricciones de Trinchera:** Extraídas de `claude/Registro semanal de consultas - FR.md` (las dudas, miedos y objeciones que verbalizan clientes reales por teléfono y WhatsApp).
+3. **Derivación Simultánea:** Un dolor documentado se resuelve en 4 frentes coordinados:
+   - **Google Ads:** Anuncio directo para quien busca hoy.
+   - **Web / Landing:** Triaje en 1 pantalla Above-the-Fold (`/real-estate`, `/certificar-firma-punta-del-este`).
+   - **Blog Criterio Notarial:** Respaldo técnico exhaustivo (SEO/GEO).
+   - **Redes Sociales:** Alerta patrimonial en carrusel/reel que detiene el scroll de brokers y compradores.
+*Filtro de Descarte:* Si una idea no resuelve una fricción documentada en `claude/`, **se descarta automáticamente**. Prohibido inventar contenido desde la cosmética.
+
+---
+
 ## 1. Identidad Visual, Tipografía y Garantía Lumínica
 
 1. **Tipografía oficial:** Sans Geométrica (`Avenir Next DemiBold` / `Open Sauce One`), *tracking* `-0.02em`.

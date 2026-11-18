@@ -77,3 +77,24 @@ Genera la próxima tanda de piezas para Fabricio Rivas cumpliendo el estándar d
 - Reels en español con audio oficial_cuenta_fabricio_canva.mp3 y fade; piezas en inglés 100% instrumentales.
 - Ejecuta los 4 filtros del Gatekeeper Pre-Aprobalo (luma, lint_copys.py, audio y zonas seguras) antes de marcar cualquier pieza como listo_para_aprobar.
 ```
+
+---
+
+## 6. Arquitectura de Flexibilidad: Las 3 Compuertas Vivas del Negocio
+
+El chasis de marca es inmutable en calidad lumínica y tipografía, pero se adapta al crecimiento real mediante 3 compuertas estandarizadas en `campana/boveda_multimedia/`:
+
+1. **Compuerta A — Bóveda Multimedia Real (`boveda_multimedia/retratos_reales/` y `videos_camara/`):**
+   - *Regla de Sustitución en Cascada:* Tan pronto se añaden fotos reales de Fabricio en su estudio o firmando escrituras, el generador reemplaza automáticamente la Matriz 2 por la fotografía real aplicando máscara con borde suavizado y contraste sobre carbón. Lo real tiene prioridad 1 sobre la maqueta.
+2. **Compuerta B — Matrices de Temporada (`boveda_multimedia/temporadas/`):**
+   - *Módulo Verano Punta del Este (`verano_pde_2026/`):* Hereda la paleta carbón/oro y sans geométrica, pero activa ganchos de urgencia de temporada alta:
+     - Alquileres de temporada: resguardo de seña, fianza e inventario con firma certificada.
+     - Compraventas express de verano: revisión de títulos contra reloj antes de señar en la playa.
+     - Poderes apostillados urgentes para extranjeros que quieren reservar sin viajar en enero.
+3. **Compuerta C — Guiones a Cámara con Safe Zone (15 a 30s):**
+   - Cuando Fabricio grabe a cámara con celular, el guion se estructura en 3 bloques fijos:
+     - **0 a 3s (Gancho de Fricción):** El problema que hace perder una reserva o dinero en Maldonado.
+     - **3 a 18s (Criterio Notarial Práctico):** La solución en lenguaje directo persona a persona.
+     - **18 a 25s (Llamada al WhatsApp directo):** Cierre institucional.
+   - **Zona Segura Vertical:** Rostro y subtítulos confinados estrictamente en `y = 300..1440` (formato 9:16) con subtítulos en sans geométrica de la web, garantizando 0 interferencias con la interfaz de Instagram / Shorts.
+

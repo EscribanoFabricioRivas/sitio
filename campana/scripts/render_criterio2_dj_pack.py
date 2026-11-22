@@ -478,114 +478,103 @@ def draw_9x16_scene(
     return canvas.convert("RGB")
 
 
+def draw_9x16_single_plate(
+    logo: Image.Image,
+    watermark: Image.Image,
+    words_to_show: int,
+) -> Image.Image:
+    """
+    Lienzo único 1080x1920 para Reel MP4 con marco, títulos, recuadro y pie 100% fijos
+    y cuerpo con efecto typewriter palabra por palabra sin cursor parpadeante,
+    siguiendo exactamente el ritmo pausado aprobado de 11.0s (8.2s escritura + 2.8s lectura).
+    """
+    W, H = 1080, 1920
+    canvas = Image.new("RGBA", (W, H), C_CARBON + (255,))
+    canvas.paste(watermark, ((W - watermark.size[0]) // 2, 660), watermark)
+    draw = ImageDraw.Draw(canvas, "RGBA")
+
+    # Marco fino fijo dentro de la zona segura vertical (y = 300..1440)
+    draw.rectangle([(64, 304), (W - 64, 1436)], outline=C_GOLD_BORDER, width=1)
+    canvas.paste(logo, (104, 344), logo)
+
+    f_kicker = get_font(20, "demibold")
+    draw_tracked_text(draw, (104, 468), "CRITERIO NOTARIAL · PUNTA DEL ESTE", f_kicker, C_GOLD, tracking=2.5)
+
+    f_h = get_font(58, "demibold")
+    headline_lines = ["¿Declaración jurada", "con firma certificada?"]
+    y = 524
+    for ln in headline_lines:
+        draw.text((104, y), ln, font=f_h, fill=C_WHITE)
+        y += 72
+    y += 18
+    draw.line([(104, y), (204, y)], fill=C_GOLD, width=3)
+
+    full_body = (
+        "En una declaración jurada tú afirmas hechos propios bajo tu responsabilidad "
+        "y el Escribano Público acredita tu identidad y certifica tu firma presencial. "
+        "Envía el requisito por WhatsApp para revisarlo antes de firmar."
+    )
+    f_b = get_font(34, "regular")
+    wrapped_full = wrap_lines(draw, full_body, f_b, 860)
+
+    ty = y + 38
+    remaining = max(0, words_to_show)
+    for ln in wrapped_full:
+        if remaining <= 0:
+            break
+        ln_words = ln.split(" ")
+        take = ln_words[:remaining]
+        draw.text((104, ty), " ".join(take), font=f_b, fill=C_PEARL)
+        remaining -= len(take)
+        ty += 48
+
+    # Recuadro inferior fijo de coordinación directa
+    box_y1, box_y2 = 1068, 1236
+    draw.rounded_rectangle([(104, box_y1), (W - 104, box_y2)], radius=18, fill=C_BOX_BG + (238,), outline=C_GOLD_BORDER, width=1)
+    f_bl = get_font(19, "demibold")
+    draw_tracked_text(draw, (140, box_y1 + 28), "REVISIÓN PREVIA POR WHATSAPP", f_bl, C_GOLD_LIGHT, tracking=2.5)
+    f_bt = get_font(28, "medium")
+    box_txt = "Envía una foto o el texto que te solicitan al +598 99 431 185 antes de ir a firmar."
+    by = box_y1 + 68
+    for ln in wrap_lines(draw, box_txt, f_bt, 792):
+        draw.text((140, by), ln, font=f_bt, fill=C_WHITE)
+        by += 38
+
+    # Pie fijo en y = 1300..1400 (100% dentro de y = 300..1440)
+    draw.line([(104, 1300), (W - 104, 1300)], fill=C_GOLD_BORDER, width=1)
+    f_f1 = get_font(27, "medium")
+    f_f2 = get_font(21, "regular")
+    draw.text((104, 1320), "Fabricio Rivas · Escribano Público", font=f_f1, fill=C_WHITE)
+    draw.text((104, 1358), "Matrícula SCJ 17058/5 · ARTOWER, Punta del Este · +598 99 431 185", font=f_f2, fill=C_MUTED)
+    return canvas.convert("RGB")
+
+
 def build_9x16_reel():
     logo = load_logo(target_height=56)
     watermark = make_subtle_watermark(size=440)
-    portrait = extract_clean_portrait(target_h=540)
     fps = 24
-    # 12.0s totales (288 cuadros): lectura cómoda, cero zoompan en placas editoriales
-    scenes = [
-        {
-            "bg": C_CARBON,
-            "badge": "01 / 04",
-            "kicker": "CRITERIO NOTARIAL · CERTIFICACIONES",
-            "headline": "Declaración jurada con firma certificada:",
-            "full_text": "Tú declaras bajo tu responsabilidad. El Escribano Público acredita tu identidad y firma.",
-            "box_mode": False,
-            "box_label": "",
-            "portrait": None,
-            "dur": 2.9,
-        },
-        {
-            "bg": C_CARBON,
-            "badge": "02 / 04",
-            "kicker": "QUÉ HACE CADA PARTE",
-            "headline": "Cómo se divide el documento ante un organismo:",
-            "full_text": "Tu afirmación define el contenido; la certificación del Escribano Público valida quién firmó.",
-            "box_mode": True,
-            "box_label": "CRITERIO NOTARIAL",
-            "portrait": None,
-            "dur": 3.2,
-        },
-        {
-            "bg": C_BRONZE,
-            "badge": "03 / 04",
-            "kicker": "REVISIÓN PREVIA POR WHATSAPP",
-            "headline": "Qué revisamos antes de coordinar la firma:",
-            "full_text": "Foto del requisito exacto, modelo recibido y tu documento de identidad vigente.",
-            "box_mode": True,
-            "box_label": "PASO PREVIO",
-            "portrait": None,
-            "dur": 3.1,
-        },
-        {
-            "bg": C_CARBON,
-            "badge": "04 / 04",
-            "kicker": "ATENCIÓN DIRECTA · PUNTA DEL ESTE",
-            "headline": "¿Te solicitan una declaración jurada en Maldonado?",
-            "full_text": "Atención directa en Punta del Este, también con coordinación previa a distancia.\n\nConsulta el enlace en la biografía o escribe por WhatsApp.",
-            "box_mode": False,
-            "box_label": "",
-            "portrait": portrait,
-            "dur": 2.8,
-        },
-    ]
+    total_dur = 11.0
+    typing_dur = 8.2
+    n_frames = int(round(total_dur * fps))      # 264 cuadros exactos
+    typing_frames = int(round(typing_dur * fps)) # 197 cuadros (~8.2s) + 67 cuadros fijos (~2.8s)
+    total_words = len((
+        "En una declaración jurada tú afirmas hechos propios bajo tu responsabilidad "
+        "y el Escribano Público acredita tu identidad y certifica tu firma presencial. "
+        "Envía el requisito por WhatsApp para revisarlo antes de firmar."
+    ).split(" "))
 
     out_mp4 = os.path.join(OUT_DIR, "reel.mp4")
     with tempfile.TemporaryDirectory() as tmpdir:
-        f_idx = 0
-        for sc in scenes:
-            n_frames = int(round(sc["dur"] * fps))
-            if sc["portrait"] is not None:
-                # Escena final estática y limpia (sin tipeo)
-                im_final = draw_9x16_scene(
-                    bg_color=sc["bg"],
-                    logo=logo,
-                    watermark=watermark,
-                    badge=sc["badge"],
-                    kicker=sc["kicker"],
-                    headline=sc["headline"],
-                    typed_txt=sc["full_text"],
-                    show_cursor=False,
-                    box_mode=False,
-                    portrait=sc["portrait"],
-                )
-                for _ in range(n_frames):
-                    im_final.save(os.path.join(tmpdir, f"f_{f_idx:04d}.jpg"), "JPEG", quality=90)
-                    f_idx += 1
+        cache_cards = {}
+        for i in range(n_frames):
+            if i >= typing_frames:
+                wc = total_words
             else:
-                txt = sc["full_text"]
-                start_f = int(0.15 * fps)
-                end_f = int((sc["dur"] - 0.85) * fps)
-                span = max(1, end_f - start_f)
-                cache_frames = {}
-                for i in range(n_frames):
-                    if i < start_f:
-                        sub, cur = "", True
-                    elif i <= end_f:
-                        chars = int(round(((i - start_f) / span) * len(txt)))
-                        sub, cur = txt[:chars], True
-                    else:
-                        sub = txt
-                        cur = ((i - end_f) // 6) % 2 == 0
-                    key = (sub, cur)
-                    if key not in cache_frames:
-                        cache_frames[key] = draw_9x16_scene(
-                            bg_color=sc["bg"],
-                            logo=logo,
-                            watermark=watermark,
-                            badge=sc["badge"],
-                            kicker=sc["kicker"],
-                            headline=sc["headline"],
-                            typed_txt=sub,
-                            show_cursor=cur,
-                            box_mode=sc["box_mode"],
-                            box_label=sc["box_label"],
-                        )
-                    cache_frames[key].save(os.path.join(tmpdir, f"f_{f_idx:04d}.jpg"), "JPEG", quality=90)
-                    f_idx += 1
+                wc = max(1, int(((i + 1) / typing_frames) * total_words))
+            if wc not in cache_cards:
+                cache_cards[wc] = draw_9x16_single_plate(logo, watermark, wc)
+            cache_cards[wc].save(os.path.join(tmpdir, f"f_{i:04d}.jpg"), "JPEG", quality=92)
 
-        total_dur = sum(s["dur"] for s in scenes)
         fade_out_start = round(total_dur - 1.8, 2)
         cmd = [
             FFMPEG_BIN, "-y",
@@ -595,15 +584,18 @@ def build_9x16_reel():
             "-filter_complex",
             f"[1:a]atrim=0:{total_dur},equalizer=f=350:t=q:w=1:g=2,afade=t=in:st=0:d=0.45,afade=t=out:st={fade_out_start}:d=1.8[aout]",
             "-map", "0:v", "-map", "[aout]",
-            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-r", str(fps), "-preset", "medium", "-crf", "23",
+            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-r", str(fps), "-preset", "medium", "-crf", "22",
             "-c:a", "aac", "-b:a", "160k",
             "-movflags", "+faststart",
             out_mp4,
         ]
         subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        # Extraer un frame de prueba para inspección visual de zona segura
         subprocess.run(
-            [FFMPEG_BIN, "-y", "-ss", "10.0", "-i", out_mp4, "-vframes", "1", os.path.join(OUT_DIR, "preview_reel_s4.jpg")],
+            [FFMPEG_BIN, "-y", "-ss", "2.5", "-i", out_mp4, "-vframes", "1", os.path.join(OUT_DIR, "preview_reel_2s.jpg")],
+            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
+        subprocess.run(
+            [FFMPEG_BIN, "-y", "-ss", "9.5", "-i", out_mp4, "-vframes", "1", os.path.join(OUT_DIR, "preview_reel_9s.jpg")],
             check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
         )
     return out_mp4

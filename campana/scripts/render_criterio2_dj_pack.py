@@ -13,7 +13,7 @@ Cumple estrictamente con `sitio/campana/SISTEMA_REDES_OFICIAL_FR.md` y reglas D1
    - 4:5 (1080x1350): todo texto y logo dentro de y = 185..1145.
    - 9:16 (1080x1920): todo texto y logo dentro de y = 300..1440.
 5. Video Reel MP4: placas/títulos/marco 100% fijos (0px de movimiento), typewriter suave en cuerpo,
-   audio `oficial_cuenta_fabricio_canva.mp3` con afade in 0.45s / out 1.8s y refuerzo >300Hz.
+   Audio V4 `v4_cafe_del_mar_rhodes_sax_con_locucion.mp3` con afade in 0.45s / out 1.8s y refuerzo >300Hz.
 """
 
 import os
@@ -29,7 +29,8 @@ SITIO_DIR = "/Users/arianawajntraub/Documents/antigravity/elegant-bardeen/sitio"
 OUT_DIR = os.path.join(SITIO_DIR, "campana", "tanda_2_declaracion_jurada")
 LOGO_PATH = os.path.join(SITIO_DIR, "images", "fr logo transparente fondo dorado FR escribano fabricio rivas.png")
 PORTRAIT_PATH = os.path.join(SITIO_DIR, "images", "fabricio-real-estate.webp")
-MUSIC_MP3 = os.path.join(SITIO_DIR, "campana", "musica_fabricio", "oficial_cuenta_fabricio_canva.mp3")
+MUSIC_MP3 = os.path.join(SITIO_DIR, "campana", "musica_fabricio", "v4_cafe_del_mar_rhodes_sax_con_locucion.mp3")
+assert os.path.exists(MUSIC_MP3) and "canva" not in MUSIC_MP3.lower(), f"Audio inválido: {MUSIC_MP3}"
 FONT_PATH = "/System/Library/Fonts/Avenir Next.ttc"
 
 os.makedirs(OUT_DIR, exist_ok=True)
@@ -230,7 +231,7 @@ def render_4x5_carousel():
     f_h1 = get_font(60, "demibold")
     h1_lines = wrap_lines(
         d1,
-        "Declaración jurada con firma certificada: tú declaras, el escribano certifica tu firma.",
+        "¿Declaración jurada con firma certificada?",
         f_h1,
         884,
     )
@@ -245,12 +246,25 @@ def render_4x5_carousel():
 
     f_body = get_font(33, "regular")
     body1 = (
-        "En trámites ante organismos públicos, bancos o registros en Maldonado, "
-        "son dos responsabilidades distintas que se unen en un mismo documento."
+        "Son dos actos con alcances distintos en un mismo documento: tú afirmas hechos propios "
+        "bajo tu responsabilidad y el Escribano Público certifica tu identidad y tu firma presencial."
     )
     for ln in wrap_lines(d1, body1, f_body, 880):
         d1.text((96, y), ln, font=f_body, fill=C_PEARL)
         y += 48
+
+    f_box_lbl = get_font(19, "demibold")
+    f_box_txt = get_font(28, "medium")
+    box1_txt = "El organismo, banco o registro que recibe el documento define el alcance y el formulario exigido."
+    box1_lines = wrap_lines(d1, box1_txt, f_box_txt, 808)
+    box1_y1 = 815
+    box1_y2 = box1_y1 + 66 + len(box1_lines) * 40 + 24
+    d1.rounded_rectangle([(96, box1_y1), (984, box1_y2)], radius=18, fill=C_BOX_BG + (240,), outline=C_GOLD_BORDER, width=1)
+    draw_tracked_text(d1, (132, box1_y1 + 26), "REQUISITO DE LA ENTIDAD", f_box_lbl, C_GOLD_LIGHT, tracking=2.5)
+    by1 = box1_y1 + 64
+    for ln in box1_lines:
+        d1.text((132, by1), ln, font=f_box_txt, fill=C_WHITE)
+        by1 += 40
 
     draw_footer_4x5(d1, "Matrícula SCJ 17058/5 · Punta del Este · Desliza para ver más")
     p1_path = os.path.join(OUT_DIR, "0.jpg")
@@ -261,11 +275,11 @@ def render_4x5_carousel():
     # ------------------------------------------------------------------
     c2 = draw_base_card_4x5(C_CARBON, "02 / 04", logo, watermark)
     d2 = ImageDraw.Draw(c2, "RGBA")
-    draw_tracked_text(d2, (96, 318), "QUÉ HACE CADA PARTE · ALCANCE LEGAL", f_kicker, C_GOLD, tracking=2.6)
+    draw_tracked_text(d2, (96, 318), "QUÉ HACE CADA PARTE", f_kicker, C_GOLD, tracking=2.6)
 
     f_h2 = get_font(54, "demibold")
     y = 372
-    for ln in wrap_lines(d2, "Qué declaras tú y qué acredita la actuación notarial:", f_h2, 884):
+    for ln in wrap_lines(d2, "Tú declaras el contenido; el Escribano certifica tu firma", f_h2, 884):
         d2.text((96, y), ln, font=f_h2, fill=C_WHITE)
         y += 66
 
@@ -276,9 +290,9 @@ def render_4x5_carousel():
     f_it_title = get_font(30, "demibold")
     f_it_body = get_font(28, "regular")
     items2 = [
-        ("01 · Tu declaración:", "Manifiestas un hecho o dato personal bajo tu responsabilidad ante quien te lo solicita."),
-        ("02 · La certificación notarial:", "El escribano verifica tu identidad y da fe de que la firma fue puesta en su presencia."),
-        ("03 · Si firmas por una empresa:", "Se controla además la representación vigente (estatuto, contrato social o poder)."),
+        ("01 · Tu declaración:", "Deja asentados los hechos o datos por escrito bajo tu responsabilidad."),
+        ("02 · La certificación notarial:", "El Escribano Público acredita tu identidad, la representación societaria y la fecha cierta."),
+        ("03 · Control notarial previo:", "Revisamos que el texto cumpla con la forma exigida por la entidad receptora antes de firmar."),
     ]
     for it_t, it_b in items2:
         d2.text((96, y), it_t, font=f_it_title, fill=C_GOLD_LIGHT)
@@ -297,10 +311,10 @@ def render_4x5_carousel():
     # ------------------------------------------------------------------
     c3 = draw_base_card_4x5(C_BRONZE, "03 / 04", logo, watermark)
     d3 = ImageDraw.Draw(c3, "RGBA")
-    draw_tracked_text(d3, (96, 318), "REGLA PRÁCTICA ANTES DE FIRMAR", f_kicker, C_GOLD, tracking=2.6)
+    draw_tracked_text(d3, (96, 318), "REVISIÓN PREVIA POR WHATSAPP", f_kicker, C_GOLD, tracking=2.6)
 
     y = 372
-    for ln in wrap_lines(d3, "Tres recaudos para resolver el trámite en una sola visita:", f_h2, 884):
+    for ln in wrap_lines(d3, "Qué revisamos antes de coordinar la firma", f_h2, 884):
         d3.text((96, y), ln, font=f_h2, fill=C_WHITE)
         y += 66
 
@@ -309,27 +323,26 @@ def render_4x5_carousel():
     y += 32
 
     body3 = (
-        "Envía antes por WhatsApp el modelo o instructivo del organismo, "
-        "la foto del requisito exacto y tu documento de identidad vigente "
-        "para preparar el texto."
+        "1. El requisito o formulario enviado por el organismo o banco.\n"
+        "2. Tu documento de identidad vigente.\n"
+        "3. La documentación societaria si firmas en representación."
     )
     for ln in wrap_lines(d3, body3, f_body, 880):
         d3.text((96, y), ln, font=f_body, fill=C_PEARL)
         y += 46
 
-    # Recuadro interno Criterio de Seguridad: ancho contenido x = 96..984 (0 desbordes)
-    f_box_lbl = get_font(19, "demibold")
-    f_box_txt = get_font(30, "medium")
-    box_txt = "Primero se revisa qué te pide el organismo; después se redacta y se certifica la firma."
-    box_lines = wrap_lines(d3, box_txt, f_box_txt, 808)
-    box_y1 = 790
+    # Recuadro interno Paso Previo: ancho contenido x = 96..984 (0 desbordes)
+    f_box_txt3 = get_font(30, "medium")
+    box_txt = "Envía foto del requisito por WhatsApp para confirmar los recaudos antes de acudir a firmar."
+    box_lines = wrap_lines(d3, box_txt, f_box_txt3, 808)
+    box_y1 = 810
     box_h = 68 + len(box_lines) * 42 + 28
     box_y2 = box_y1 + box_h
     d3.rounded_rectangle([(96, box_y1), (984, box_y2)], radius=18, fill=C_BOX_BG + (240,), outline=C_GOLD_BORDER, width=1)
-    draw_tracked_text(d3, (132, box_y1 + 26), "CRITERIO DE SEGURIDAD", f_box_lbl, C_GOLD_LIGHT, tracking=2.5)
+    draw_tracked_text(d3, (132, box_y1 + 26), "PASO PREVIO EN EL ESTUDIO", f_box_lbl, C_GOLD_LIGHT, tracking=2.5)
     by = box_y1 + 66
     for ln in box_lines:
-        d3.text((132, by), ln, font=f_box_txt, fill=C_WHITE)
+        d3.text((132, by), ln, font=f_box_txt3, fill=C_WHITE)
         by += 42
 
     draw_footer_4x5(d3, "Matrícula SCJ 17058/5 · Punta del Este · Desliza para ver más")
@@ -347,12 +360,12 @@ def render_4x5_carousel():
     c4.paste(portrait, (px, py), portrait)
 
     d4 = ImageDraw.Draw(c4, "RGBA")
-    draw_tracked_text(d4, (96, 318), "ATENCIÓN NOTARIAL DIRECTA", f_kicker, C_GOLD, tracking=2.6)
+    draw_tracked_text(d4, (96, 318), "ATENCIÓN DIRECTA · PUNTA DEL ESTE", f_kicker, C_GOLD, tracking=2.6)
 
     # Columna izquierda acotada a max_w = 485px para no superponerse jamás al retrato
     f_h4 = get_font(46, "demibold")
     y = 374
-    for ln in wrap_lines(d4, "¿Te pidieron una declaración jurada con firma certificada?", f_h4, 490):
+    for ln in wrap_lines(d4, "Revisión previa por WhatsApp", f_h4, 490):
         d4.text((96, y), ln, font=f_h4, fill=C_WHITE)
         y += 58
 
@@ -363,7 +376,7 @@ def render_4x5_carousel():
     f_b4 = get_font(28, "regular")
     body4 = (
         "Atención directa en Punta del Este y Maldonado, también con coordinación previa a distancia.\n\n"
-        "Consulta la guía en el enlace de la bio o envía el requisito por WhatsApp."
+        "Consulta el enlace en la biografía o envía tu requisito por mensaje directo."
     )
     for ln in wrap_lines(d4, body4, f_b4, 480):
         d4.text((96, y), ln, font=f_b4, fill=C_PEARL)
@@ -477,7 +490,7 @@ def build_9x16_reel():
             "badge": "01 / 04",
             "kicker": "CRITERIO NOTARIAL · CERTIFICACIONES",
             "headline": "Declaración jurada con firma certificada:",
-            "full_text": "Tú declaras bajo tu responsabilidad. El escribano acredita tu identidad y firma.",
+            "full_text": "Tú declaras bajo tu responsabilidad. El Escribano Público acredita tu identidad y firma.",
             "box_mode": False,
             "box_label": "",
             "portrait": None,
@@ -486,9 +499,9 @@ def build_9x16_reel():
         {
             "bg": C_CARBON,
             "badge": "02 / 04",
-            "kicker": "ALCANCE DE CADA PARTE",
+            "kicker": "QUÉ HACE CADA PARTE",
             "headline": "Cómo se divide el documento ante un organismo:",
-            "full_text": "Tu afirmación define el contenido; la certificación notarial valida quién firmó.",
+            "full_text": "Tu afirmación define el contenido; la certificación del Escribano Público valida quién firmó.",
             "box_mode": True,
             "box_label": "CRITERIO NOTARIAL",
             "portrait": None,
@@ -497,20 +510,20 @@ def build_9x16_reel():
         {
             "bg": C_BRONZE,
             "badge": "03 / 04",
-            "kicker": "QUÉ ENVIAR ANTES POR WHATSAPP",
-            "headline": "Resuelve el trámite en una sola visita:",
-            "full_text": "Foto del requisito exacto, texto o modelo recibido y tu cédula vigente.",
+            "kicker": "REVISIÓN PREVIA POR WHATSAPP",
+            "headline": "Qué revisamos antes de coordinar la firma:",
+            "full_text": "Foto del requisito exacto, modelo recibido y tu documento de identidad vigente.",
             "box_mode": True,
-            "box_label": "RECAUDOS PREVIOS",
+            "box_label": "PASO PREVIO",
             "portrait": None,
             "dur": 3.1,
         },
         {
             "bg": C_CARBON,
             "badge": "04 / 04",
-            "kicker": "ATENCIÓN NOTARIAL DIRECTA",
-            "headline": "¿Te pidieron firma certificada en Maldonado?",
-            "full_text": "Atención directa en Punta del Este, también con coordinación previa a distancia.\n\nConsulta el enlace en bio o escribe por WhatsApp.",
+            "kicker": "ATENCIÓN DIRECTA · PUNTA DEL ESTE",
+            "headline": "¿Te solicitan una declaración jurada en Maldonado?",
+            "full_text": "Atención directa en Punta del Este, también con coordinación previa a distancia.\n\nConsulta el enlace en la biografía o escribe por WhatsApp.",
             "box_mode": False,
             "box_label": "",
             "portrait": portrait,

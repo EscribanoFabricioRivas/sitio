@@ -62,7 +62,7 @@ Las redes sociales NO son un circuito cerrado de diseño ni un fin en sí mismo.
 
 ### B) Instagram — Reel Tipográfico (`9:16` · `1080x1920` · MP4)
 * **Etapa actual (previa a grabación a cámara):** Video con movimiento real (paneo/zoom sobre arquitectura bajo velo carbón, entrada secuencial de bloques en sans geométrica dentro de zona segura `y = 300..1440` y cierre con `FOTO OPTIMIZADA PERFIL.mp4` o retrato integrado).
-* **Audio en español:** Obligatorio `sitio/campana/musica_fabricio/oficial_cuenta_fabricio_canva.mp3` (con locución institucional de cierre) aplicando *fade* de entrada y salida (`afade=t=in:st=0:d=0.45`, `afade=t=out:st=10.2:d=1.8`).
+* **Audio en español:** Obligatorio **Audio V4** (`sitio/campana/musica_fabricio/v4_cafe_del_mar_rhodes_sax_con_locucion.mp3` en piezas impares y `v4_cafe_del_mar_rhodes_sax_instrumental.mp3` en pares) aplicando *fade* de entrada y salida (`afade=t=in:st=0:d=0.45`, `afade=t=out:st=10.2:d=1.8`). Prohibida cualquier pista genérica de Canva.
 * **Audio en inglés (`Foreign Clients`):** Pista 100% instrumental (ej. `v1_smooth_jazz_sunset_cafe_del_mar_instrumental.mp3`). Prohibido incluir locución en español en piezas en inglés.
 
 ### C) LinkedIn — Perfil Personal de Fabricio Rivas
@@ -88,7 +88,7 @@ Toda pieza nace como borrador técnico interno y **solo pasa a `listo_para_aprob
 Genera la próxima tanda de piezas para Fabricio Rivas cumpliendo el estándar de "sitio/campana/SISTEMA_REDES_OFICIAL_FR.md" y las reglas D1 de la cuenta 157b0649-9026-47c3-8a3a-efa62587877b:
 - Respeta estrictamente las 4 matrices visuales (1, 2, 3A, 3B) con sans geométrica en caja alta/baja y mean_luma <= 39.
 - Tuteo formal uruguayo sobrio en Instagram y primera persona directa en LinkedIn personal (sin tono corporativo vacío). ARTOWER solo como dirección física.
-- Reels en español con audio oficial_cuenta_fabricio_canva.mp3 y fade; piezas en inglés 100% instrumentales.
+- Reels en español con Audio V4 (`v4_cafe_del_mar_rhodes_sax_con_locucion.mp3` / `v4_cafe_del_mar_rhodes_sax_instrumental.mp3`, prohibida música de Canva) y fade; piezas en inglés 100% instrumentales.
 - Ejecuta los 4 filtros del Gatekeeper Pre-Aprobalo (luma, lint_copys.py, audio y zonas seguras) antes de marcar cualquier pieza como listo_para_aprobar.
 ```
 

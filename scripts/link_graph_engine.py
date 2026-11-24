@@ -95,6 +95,10 @@ SEMANTIC_ENTITIES_ES = [
 ]
 
 SEMANTIC_ENTITIES_EN = [
+    (r"\bnotarial income certificates?\b", "/income-certificate-uruguay-residency-1/"),
+    (r"\bincome certificates?\b", "/income-certificate-uruguay-residency-1/"),
+    (r"\bproof of means of living\b", "/income-certificate-uruguay-residency-1/"),
+    (r"\brental guarantees?\b", "/income-certificate-uruguay-residency-1/"),
     (r"\bnotarial certifications?\b", "/notarial-certifications-punta-del-este-1/"),
     (r"\bsignature certifications?\b", "/notarial-certifications-punta-del-este-1/"),
     (r"\bcertify(?:ing)? signatures?\b", "/notarial-certifications-punta-del-este-1/"),
@@ -134,7 +138,7 @@ CLUSTERS = {
                 "url": "/certificar-firma-punta-del-este",
                 "tag": "Atención inmediata",
                 "title": "Certificar firma en Punta del Este y Maldonado",
-                "desc": "Requisitos de identidad, coordinación en oficina ARTOWER y validez legal en el día.",
+                "desc": "Requisitos de identidad, coordinación previa por WhatsApp y validez legal en el día.",
                 "cta": "Ver requisitos y plazos",
             },
             {
@@ -245,6 +249,13 @@ CLUSTERS = {
                 "cta": "Cómo otorgar un poder",
             },
             {
+                "url": "/income-certificate-uruguay-residency-1/",
+                "tag": "English Guide · Residency & Income",
+                "title": "Notarial income certificate for Uruguay residency & rental guarantees",
+                "desc": "Remote document pre-review for Migración, rental guarantee insurers and remote contractors in Punta del Este and Maldonado. Service in English and Portuguese.",
+                "cta": "Read income guide",
+            },
+            {
                 "url": "/buying-property-punta-del-este-foreigners-1/",
                 "tag": "English Guide · Real Estate",
                 "title": "Buying property in Punta del Este as a foreigner",
@@ -291,7 +302,7 @@ CLUSTERS = {
                 "url": "/sobre-fabricio",
                 "tag": "Matrícula 17058/5",
                 "title": "Sobre el Escribano Fabricio Rivas",
-                "desc": "Trayectoria profesional, rigor técnico y atención personalizada desde Edificio ARTOWER en Punta del Este.",
+                "desc": "Trayectoria profesional, rigor técnico y atención directa en Punta del Este y Maldonado.",
                 "cta": "Conocer el estudio",
             },
             {
@@ -351,7 +362,7 @@ CAPSULE_BY_CLUSTER = {
 
 def classify_page_cluster(rel: str) -> str:
     r = rel.lower()
-    if any(k in r for k in ["foreign", "extranjero", "estrangeiro", "poderes-desde-el-exterior", "notarial-certifications", "buying-property"]):
+    if any(k in r for k in ["foreign", "extranjero", "estrangeiro", "poderes-desde-el-exterior", "notarial-certifications", "buying-property", "income-certificate"]):
         return "extranjeros"
     if any(k in r for k in ["boleto", "promesa", "compraventa", "real-estate", "comprar-en-punta", "documentacion-vender"]):
         return "inmobiliario"
@@ -364,7 +375,7 @@ def detect_lang(rel: str) -> str:
     r = rel.lower()
     if "estrangeiros" in r:
         return "pt"
-    if any(k in r for k in ["foreign", "buying-property", "notarial-certifications"]):
+    if any(k in r for k in ["foreign", "buying-property", "notarial-certifications", "income-certificate"]):
         return "en"
     return "es"
 
@@ -489,7 +500,7 @@ def build_layer2_capsule(cluster_key: str, self_url: str, lang: str) -> str:
         btn_url = "/real-estate" if self_url.rstrip("/") != "/real-estate" else "/notarial-certifications-punta-del-este-1/"
     elif lang == "pt":
         kicker = "Continuidade Jurídica no Uruguai"
-        text = "Toda reserva, procuração ou escritura em Punta del Este conta com <strong>auditoria de títulos de 30 anos</strong> e atendimento direto em nosso escritório no Edifício ARTOWER."
+        text = "Toda reserva, procuração ou escritura em Punta del Este conta com <strong>auditoria de títulos de 30 anos</strong> e atendimento direto em Punta del Este e Maldonado."
         btn_label = "Ver prática de Real Estate ↗"
         btn_url = "/real-estate"
     else:

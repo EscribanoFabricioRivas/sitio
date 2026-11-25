@@ -57,7 +57,6 @@
   "description": "Certificaci&#243;n de firmas y servicios notariales en Punta del Este y Maldonado, Uruguay.",
   "url": "https://escribanofabriciorivas.com",
   "telephone": "+598-99-431-185",
-  "email": "escribano@escribanofabriciorivas.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Punta del Este",
@@ -294,8 +293,7 @@
     </div>
     <div>
       <p class="footer-title">Contacto directo</p>
-      <p><a href="mailto:escribano@escribanofabriciorivas.com">escribano@escribanofabriciorivas.com</a></p>
-      <p>+598 99 431 185</p>
+      <p>WhatsApp y tel&eacute;fono: +598 99 431 185</p>
     </div>
   </div>
 </footer>

@@ -202,7 +202,10 @@ def render_pack(cfg: dict, logo: Image.Image, watermark: Image.Image, portrait: 
         ds.text((104, sy), ln, font=f_sb, fill=C_PEARL)
         sy += 46
     ds.rounded_rectangle([(104, 1084), (W - 104, 1236)], radius=20, fill=C_BOX_BG + (210,), outline=C_GOLD, width=1)
-    draw_tracked(ds, (236, 1144), cfg["story_sticker_hint"], get_font(20, "demibold"), C_GOLD_LIGHT, tracking=1.9)
+    f_hint = get_font(20, "demibold")
+    hint_txt = cfg["story_sticker_hint"]
+    hint_w = sum(ds.textlength(ch, font=f_hint) + 1.9 for ch in hint_txt)
+    draw_tracked(ds, (int((W - hint_w) / 2), 1144), hint_txt, f_hint, C_GOLD_LIGHT, tracking=1.9)
     ds.line([(104, 1300), (W - 104, 1300)], fill=C_GOLD_BORDER, width=1)
     ds.text((104, 1320), "Fabricio Rivas · Escribano Público", font=get_font(27, "medium"), fill=C_WHITE)
     ds.text((104, 1358), "Matrícula SCJ 17058/5 · Punta del Este · +598 99 431 185", font=get_font(21, "regular"), fill=C_MUTED)
@@ -343,28 +346,28 @@ PACKS = [
         "s3_items": [
             ("01 · Títulos e registros públicos:", "Cadeia de escrituras, certidões em Maldonado e Montevidéu e ausência de ônus."),
             ("02 · Regularidade fiscal e de obra:", "Imposto municipal, despesas comuns, imposto primário, Catastro e BPS."),
-            ("03 · Procuração antes do voo de volta:", "Lavrada no protocolo uruguaio: dispensa cartório BR, Apostila e tradução."),
+            ("03 · Procuração antes do voo de volta:", "Lavrada no livro notarial uruguaio: dispensa cartório BR, Apostila e tradução."),
         ],
         "s4_title": "Procuração assinada no Uruguai",
         "s4_body": "Poupa cartório brasileiro, Apostila de Haia e tradução pública.\n\nAtendimento em português. Coordenação prévia pelo WhatsApp no link da bio.",
         "gbp_kicker": "IMÓVEIS · PUNTA DEL ESTE",
-        "gbp_title": "Comprar imóvel em Punta del Este",
+        "gbp_title": "Imóvel em\nPunta del Este",
         "gbp_body": "Reserva, custódia de sinal (escrow), estudo de títulos e procuração antes do voo de volta ao Brasil.",
         "story_kicker": "GUIA EM PORTUGUÊS · IMÓVEIS",
         "story_title": "Imóvel em Punta del Este",
         "story_body": "Proteja o sinal na reserva e deixe a procuração assinada no Uruguai antes do voo de volta ao Brasil.",
         "story_sticker_hint": "TOQUE NO LINK  ·  LER GUIA COMPLETO",
-        "wa_title": "Vai comprar em Punta del Este?",
+        "wa_title": "Vai comprar em\nPunta del Este?",
         "wa_body": "Revise o contrato de reserva, proteja o sinal em custódia e assine a procuração antes de voltar ao Brasil.",
         "reel_kicker": "IMÓVEIS · CLIENTES BRASILEIROS",
-        "reel_title": "Vai comprar imóvel em Punta del Este?",
+        "reel_title": "Vai comprar imóvel em\nPunta del Este?",
         "reel_body": "No Uruguai, o comprador escolhe o seu Tabelião. Revisamos o contrato de reserva, protegemos o sinal em custódia e lavramos sua procuração antes do voo de volta ao Brasil.",
     },
     {
         "folder": "tanda_5_brasil_cartorio_pt",
         "s1_kicker": "CARTÓRIO EM PUNTA DEL ESTE · TEMPORADA",
-        "s1_title": "Precisa de Cartório em Punta del Este?",
-        "s1_sub": "Reconhecimento de firma no mesmo dia, procurações, locação, autorização de menor, renda DNM e veículos.",
+        "s1_title": "Precisa de Cartório em\nPunta del Este?",
+        "s1_sub": "Reconhecimento de firma no mesmo dia, procurações, locação, viagem de menor, certidão de renda e veículos.",
         "s1_box_kicker": "ATENDIMENTO EM PORTUGUÊS",
         "s1_box_text": "Coordenação prévia pelo WhatsApp em português.",
         "s2_kicker": "DOCUMENTOS PRÁTICOS NA TEMPORADA",
@@ -377,23 +380,23 @@ PACKS = [
         "s3_title": "Outros atos para brasileiros",
         "s3_items": [
             ("01 · Locação e viagem de menor:", "Contratos de temporada ou anuais em Maldonado e autorização de viagem de menor."),
-            ("02 · Certidão notarial de renda:", "Aceita na DNM e em bancos; conferimos antes o critério de seguradoras."),
+            ("02 · Certidão notarial de renda:", "Aceita na Migração (DNM) e em bancos; conferimos antes o critério de seguradoras."),
             ("03 · Veículos e embarcações:", "Carta poder para circulação ou transferência definitiva com certidões."),
         ],
         "s4_title": "Conferência prévia pelo WhatsApp",
-        "s4_body": "Atendimento direto em Punta del Este, com coordenação documental prévia à distância.\n\nAtendimento em português. Acesse o link na bio.",
+        "s4_body": "Coordenação documental prévia à distância e atendimento presencial em Punta del Este.\n\nAtendimento em português. Acesse o link na bio.",
         "gbp_kicker": "CARTÓRIO NO URUGUAI · PUNTA DEL ESTE",
-        "gbp_title": "Cartório em Punta del Este",
-        "gbp_body": "Reconhecimento de firma no mesmo dia, procuração, locação, viagem de menor, renda DNM e veículos.",
+        "gbp_title": "Cartório em\nPunta del Este",
+        "gbp_body": "Reconhecimento de firma no mesmo dia, procuração, locação, viagem de menor, certidão de renda e veículos.",
         "story_kicker": "GUIA EM PORTUGUÊS · TEMPORADA",
-        "story_title": "Cartório em Punta del Este",
-        "story_body": "Reconhecimento de firma no mesmo dia, procurações, contratos de locação, autorização de menor, renda e veículos.",
+        "story_title": "Cartório em\nPunta del Este",
+        "story_body": "Reconhecimento de firma no mesmo dia, procurações, contratos de locação, viagem de menor, certidão de renda e veículos.",
         "story_sticker_hint": "TOQUE NO LINK  ·  VER SERVIÇOS E GUIA",
-        "wa_title": "Documentação em Punta del Este?",
-        "wa_body": "Reconhecimento de firma no mesmo dia, procuração, locação, viagem de menor, renda DNM e veículos.",
+        "wa_title": "Documentação em\nPunta del Este?",
+        "wa_body": "Reconhecimento de firma no mesmo dia, procuração, locação, viagem de menor, certidão de renda e veículos.",
         "reel_kicker": "CARTÓRIO EM PUNTA DEL ESTE",
-        "reel_title": "Precisa de Cartório em Punta del Este?",
-        "reel_body": "Reconhecimento de firma no mesmo dia, procuração, contrato de locação, autorização de viagem de menor, certidão notarial de renda para a DNM e transferência de veículos ou embarcações.",
+        "reel_title": "Precisa de Cartório em\nPunta del Este?",
+        "reel_body": "Reconhecimento de firma no mesmo dia, procuração, contrato de locação, autorização de viagem de menor, certidão notarial de renda para a Migração (DNM) e transferência de veículos ou embarcações.",
     },
 ]
 

@@ -1,0 +1,258 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Generador oficial de las 15 placas Google Business Profile (700x700) · Temporada 2026-2027 (ES · PT · EN)
+Orden cronológico 1 a 1 del 30/11/2026 al 02/01/2027.
+Destino: sitio/campana/gbp_15_temporada/gbp_01.jpg ... gbp_15.jpg
+"""
+import os
+import sys
+import json
+from PIL import Image, ImageDraw, ImageStat
+
+sys.path.insert(0, os.path.dirname(__file__))
+import render_criterio_en_income_pack as base
+
+SITIO_DIR = base.SITIO_DIR
+OUT_DIR = os.path.join(SITIO_DIR, "campana", "gbp_15_temporada")
+os.makedirs(OUT_DIR, exist_ok=True)
+
+C_CARBON = base.C_CARBON
+C_BRONZE = base.C_BRONZE
+C_BOX_BG = base.C_BOX_BG
+C_GOLD = base.C_GOLD
+C_GOLD_BORDER = base.C_GOLD_BORDER
+C_GOLD_LIGHT = base.C_GOLD_LIGHT
+C_WHITE = base.C_WHITE
+C_PEARL = base.C_PEARL
+C_MUTED = base.C_MUTED
+get_font = base.get_font
+load_logo = base.load_logo
+make_watermark = base.make_watermark
+draw_tracked = base.draw_tracked
+wrap_lines = base.wrap_lines
+
+ENTRIES = [
+    {
+        "num": 1, "date": "2026-11-30", "lang": "ES",
+        "url": "https://escribanofabriciorivas.com/certificar-firma-punta-del-este?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_01",
+        "plate_kicker": "CERTIFICACIÓN DE FIRMA EN EL DÍA",
+        "plate_title": "Certifica tu firma\nen el día",
+        "plate_body": "Envías tu documento por WhatsApp para revisión previa y coordinas la firma en Punta del Este.",
+        "box_kicker": "REVISIÓN PREVIA POR WHATSAPP",
+        "box_text": "Tu cita confirmada con horario",
+        "footer_sub": "Punta del Este y Maldonado · +598 99 431 185",
+        "gbp_text": "¿Se puede certificar una firma en el día en Punta del Este?\n\nSí. Con un Escribano Público habilitado puedes certificar tu firma en el día en Punta del Este y Maldonado, con coordinación previa por WhatsApp, para contratos, autorizaciones, declaraciones juradas o formularios bancarios. Para agilizar tu cita, envías primero por WhatsApp una foto del documento junto con tu cédula o pasaporte vigente. El Escribano Público Fabricio Rivas verifica los datos, redacta el acta notarial correspondiente y confirma tu horario de firma presencial (Matrícula SCJ 17058/5).\n\nCoordina tu revisión previa por WhatsApp al +598 99 431 185."
+    },
+    {
+        "num": 2, "date": "2026-12-02", "lang": "PT",
+        "url": "https://escribanofabriciorivas.com/clientes-estrangeiros/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_02",
+        "plate_kicker": "CLIENTES BRASILEIROS · URUGUAI",
+        "plate_title": "Escribano no Uruguai\ne Tabelião no Brasil",
+        "plate_body": "No Uruguai, o comprador escolhe o seu Tabelião para revisar títulos e lavrar a escritura.",
+        "box_kicker": "ATENDIMENTO EM PORTUGUÊS",
+        "box_text": "Coordenação prévia pelo WhatsApp",
+        "footer_sub": "Punta del Este e Maldonado · +598 99 431 185",
+        "gbp_text": "Qual a diferença entre Escribano Público no Uruguai e Cartório/Tabelião no Brasil?\n\nNo Uruguai, o Escribano Público reúne as atribuições do Tabelião de Notas brasileiro e atua em livro de notas próprio na assessoria jurídica imobiliária. Você escolhe o profissional de sua confiança para revisar o contrato preliminar de reserva (boleto de reserva), realizar o estudo completo de títulos e antecedentes registrais, checar débitos na Prefeitura (Intendência) de Maldonado, BPS e Catastro, custodiar o sinal (escrow) e lavrar a escritura pública.\n\nWhatsApp +598 99 431 185. Atendimento em português."
+    },
+    {
+        "num": 3, "date": "2026-12-04", "lang": "EN",
+        "url": "https://escribanofabriciorivas.com/foreign-clients?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_03",
+        "plate_kicker": "FOREIGN CLIENTS · URUGUAY",
+        "plate_title": "Role of the Escribano\nin Punta del Este",
+        "plate_body": "In Uruguay, the buyer selects the Escribano Público to verify title, hold escrow, and execute deeds.",
+        "box_kicker": "ENGLISH & PORTUGUESE SERVICE",
+        "box_text": "Prior remote review via WhatsApp",
+        "footer_sub": "Punta del Este & Maldonado · +598 99 431 185",
+        "gbp_text": "What is an Escribano Público (Notary Public) in Punta del Este and why does the buyer choose one?\n\nIn Uruguay, an Escribano Público is a licensed legal officer authorized by the Supreme Court of Justice to confer public faith, draft contracts, and audit real estate titles. In property purchases across Punta del Este and Maldonado, the buyer chooses the Escribano Público because this professional conducts full title due diligence, checks public registries and tax clearances, structures escrow custody, and executes the deed before closing. Direct attention in Punta del Este with prior remote review (SCJ Reg. 17058/5).\n\nMessage WhatsApp +598 99 431 185."
+    },
+    {
+        "num": 4, "date": "2026-12-07", "lang": "ES",
+        "url": "https://escribanofabriciorivas.com/boleto-reserva-punta-del-este-1/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_04",
+        "plate_kicker": "REAL ESTATE · PUNTA DEL ESTE",
+        "plate_title": "Qué revisa el Escribano\nantes de reservar",
+        "plate_body": "Auditamos titularidad, padrón, custodia de seña y plazos de estudio de títulos antes de firmar.",
+        "box_kicker": "RESGUARDO ANTES DE SEÑAR",
+        "box_text": "Envía tu borrador por WhatsApp",
+        "footer_sub": "Punta del Este y Maldonado · +598 99 431 185",
+        "gbp_text": "¿Qué revisa un Escribano antes de firmar un boleto de reserva en Punta del Este?\n\nAntes de entregar una seña, el Escribano Público controla la identificación del padrón o unidad, la titularidad del vendedor, las facultades de quien firma y las cláusulas que protegen tu depósito. También define quién custodia la seña, el plazo real para completar el estudio de títulos e información registral y las condiciones de devolución si surgen observaciones dominiales. Así reservas tu propiedad en Punta del Este o Maldonado con respaldo jurídico completo desde el inicio de la operación (Matrícula SCJ 17058/5).\n\nEnvía tu borrador por WhatsApp al +598 99 431 185."
+    },
+    {
+        "num": 5, "date": "2026-12-09", "lang": "PT",
+        "url": "https://escribanofabriciorivas.com/comprar-imovel-punta-del-este-tabeliao/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_05",
+        "plate_kicker": "IMÓVEL EM PUNTA DEL ESTE",
+        "plate_title": "Procuração antes de\nvoltar ao Brasil",
+        "plate_body": "Assine a procuração no Uruguai ainda durante sua estadia e poupe Apostila e tradução no retorno.",
+        "box_kicker": "ATENDIMENTO EM PORTUGUÊS",
+        "box_text": "Poupa cartório brasileiro e Haia",
+        "footer_sub": "Punta del Este e Maldonado · +598 99 431 185",
+        "gbp_text": "Comprar imóvel em Punta del Este: por que assinar a procuração antes de voltar ao Brasil?\n\nAo aproveitar sua estadia no Uruguai para assinar a procuração pública no livro de notas do Escribano Público, você evita trâmites em cartório brasileiro, Apostila de Haia e tradução juramentada após a volta. Assim, seu procurador de confiança assina o compromisso de compra e venda ou a escritura pública diante do Escribano após o estudo de títulos e quitações junto ao BHU e Catastro, com coordenação documental prévia à distância.\n\nWhatsApp +598 99 431 185. Atendimento em português."
+    },
+    {
+        "num": 6, "date": "2026-12-11", "lang": "EN",
+        "url": "https://escribanofabriciorivas.com/buying-property-punta-del-este-foreigners-1/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_06",
+        "plate_kicker": "REAL ESTATE · FOREIGN BUYERS",
+        "plate_title": "Buying property in\nPunta del Este safely",
+        "plate_body": "Review your boleto de reserva, escrow custody, and full title due diligence before committing funds.",
+        "box_kicker": "PROTECT YOUR DEPOSIT",
+        "box_text": "Reservation & title check first",
+        "footer_sub": "Punta del Este & Maldonado · +598 99 431 185",
+        "gbp_text": "How do reservation contracts, escrow custody, and title due diligence work when buying property in Punta del Este?\n\nForeign buyers acquire real estate in Uruguay under the same ownership rights as local citizens. A well-structured purchase starts before signing the boleto de reserva (reservation contract). Your Escribano Público reviews deposit terms, arranges secure escrow custody of the earnest money, and performs full title due diligence across ownership records, registries, cadastral plans, and municipal taxes before the deed or promesa. Service in English and Portuguese with prior remote review (SCJ Reg. 17058/5).\n\nConsult via WhatsApp +598 99 431 185."
+    },
+    {
+        "num": 7, "date": "2026-12-14", "lang": "ES",
+        "url": "https://escribanofabriciorivas.com/carta-poder-o-poder-vehiculo-1/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_07",
+        "plate_kicker": "AUTOMOTORES · MALDONADO",
+        "plate_title": "Carta poder o poder\npara tu vehículo",
+        "plate_body": "Definimos el documento exacto según autorices circular, gestionar ante Intendencia o vender el rodado.",
+        "box_kicker": "TRÁMITE VEHICULAR CLARO",
+        "box_text": "Envía foto de libreta y cédulas",
+        "footer_sub": "Punta del Este y Maldonado · +598 99 431 185",
+        "gbp_text": "¿Carta poder o poder notarial para conducir o vender un vehículo en Maldonado?\n\nEl instrumento adecuado depende del acto que necesitas autorizar. Para circular con el rodado o realizar gestiones administrativas ante Intendencia, SUCIVE o aseguradoras, corresponde una carta poder con firma certificada por Escribano Público. Cuando el encargo incluye vender el vehículo o firmar la transferencia de titularidad, redactamos un poder con facultades expresas de disposición. Envías foto de la libreta de propiedad y cédulas para preparar el texto exacto (Matrícula SCJ 17058/5).\n\nCoordina tu documento por WhatsApp al +598 99 431 185."
+    },
+    {
+        "num": 8, "date": "2026-12-16", "lang": "PT",
+        "url": "https://escribanofabriciorivas.com/cartorio-punta-del-este-brasileiros-temporada/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_08",
+        "plate_kicker": "CARTÓRIO · PUNTA DEL ESTE",
+        "plate_title": "Reconhecimento de firma\nno mesmo dia",
+        "plate_body": "Envie a minuta por WhatsApp para conferência prévia em Punta del Este e assine com horário marcado.",
+        "box_kicker": "ATENDIMENTO EM PORTUGUÊS",
+        "box_text": "Conferência prévia pelo WhatsApp",
+        "footer_sub": "Punta del Este e Maldonado · +598 99 431 185",
+        "gbp_text": "É possível fazer reconhecimento de firma no mesmo dia em Punta del Este?\n\nSim, o reconhecimento de firma pode ser realizado no mesmo dia mediante coordenação prévia pelo WhatsApp. Você envia foto ou PDF do documento antecipado para conferência dos dados pessoais, do passaporte ou RG Mercosul dentro da validade e do conteúdo (autorizações, procurações particulares ou declarações). Com tudo validado, a assinatura presencial ocorre no horário agendado diante do Escribano Público Fabricio Rivas (SCJ 17058/5).\n\nWhatsApp +598 99 431 185. Atendimento em português."
+    },
+    {
+        "num": 9, "date": "2026-12-18", "lang": "EN",
+        "url": "https://escribanofabriciorivas.com/income-certificate-uruguay-residency-1/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_09",
+        "plate_kicker": "RESIDENCY & BANKING · URUGUAY",
+        "plate_title": "Income certificate:\nMigración vs. insurers",
+        "plate_body": "Confirm upfront whether your checklist needs an Escribano Público or Contador Público.",
+        "box_kicker": "COMPLIANCE PRE-REVIEW",
+        "box_text": "Send your written checklist first",
+        "footer_sub": "Punta del Este & Maldonado · +598 99 431 185",
+        "gbp_text": "When do you need an Escribano Público income certificate for Migración vs. a Contador Público for a rental guarantee in Uruguay?\n\nFor legal residency before Dirección Nacional de Migración and bank onboarding, a licensed Escribano Público issues a certificado notarial de ingresos verifying contracts, foreign payouts, pensions, or tax records. For rental guarantee policies (seguro de garantía de alquiler), insurers commonly request a Contador Público (Public Accountant) statement for local income, while accepting a notarial certificate in specific foreign-income cases. Send your checklist for remote pre-review (SCJ Reg. 17058/5).\n\nWhatsApp +598 99 431 185."
+    },
+    {
+        "num": 10, "date": "2026-12-21", "lang": "ES",
+        "url": "https://escribanofabriciorivas.com/certificado-de-ingresos-maldonado/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_10",
+        "plate_kicker": "INGRESOS · MIGRACIÓN Y BANCOS",
+        "plate_title": "Certificado de ingresos\nMigración o alquiler",
+        "plate_body": "Acreditamos medios de vida ante Migración o confirmamos si tu seguro de alquiler exige Contador Público.",
+        "box_kicker": "VERIFICACIÓN PREVIA",
+        "box_text": "Confirma quién exige la firma",
+        "footer_sub": "Punta del Este y Maldonado · +598 99 431 185",
+        "gbp_text": "¿Certificado notarial de ingresos para Migración o Contador Público para seguro de alquiler?\n\nPara residencia ante la Dirección Nacional de Migración y bancos, el Escribano Público emite el certificado notarial de ingresos acreditando medios de vida lícitos con facturación BPS y DGI, rentas o contratos del exterior. En seguros de garantía de alquiler, las aseguradoras suelen pedir Contador Público para renta local o certificado notarial en casos puntuales. Envías el requisito de la entidad para confirmarlo (Matrícula SCJ 17058/5).\n\nConsulta tu caso por WhatsApp al +598 99 431 185."
+    },
+    {
+        "num": 11, "date": "2026-12-23", "lang": "PT",
+        "url": "https://escribanofabriciorivas.com/cartorio-punta-del-este-brasileiros-temporada/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_11",
+        "plate_kicker": "RESIDÊNCIA E BANCOS · URUGUAI",
+        "plate_title": "Certidão de renda:\nMigração e bancos",
+        "plate_body": "Saiba quando a certidão notarial vale na DNM e bancos ou quando seguradoras pedem Contador.",
+        "box_kicker": "VERIFICAÇÃO ANTECIPADA",
+        "box_text": "Envie a lista da instituição",
+        "footer_sub": "Punta del Este e Maldonado · +598 99 431 185",
+        "gbp_text": "Certidão notarial de renda no Uruguai: quando vale para a Migração (DNM), bancos ou aluguel?\n\nNa residência legal junto à Migração do Uruguai (DNM) e abertura de conta bancária, a certidão notarial de renda emitida pelo Escribano Público comprova origem e renda verificada (IRPF, pró-labore, aposentadoria ou contratos). Já em seguradoras de garantia de aluguel (Porto Seguro, SURA, MAPFRE, SBI), rendas locais costumam exigir certidão de Contador Público uruguaio. Confirmamos a exigência exata antes da emissão.\n\nWhatsApp +598 99 431 185. Atendimento em português."
+    },
+    {
+        "num": 12, "date": "2026-12-25", "lang": "EN",
+        "url": "https://escribanofabriciorivas.com/foreign-clients?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_12",
+        "plate_kicker": "POWERS OF ATTORNEY · URUGUAY",
+        "plate_title": "Powers of Attorney:\nUruguay vs. abroad",
+        "plate_body": "Grant your power in Punta del Este or coordinate Hague Apostille and Traductor Público rules.",
+        "box_kicker": "APOSTILLE & DRAFTING",
+        "box_text": "Exact wording reviewed in advance",
+        "footer_sub": "Punta del Este & Maldonado · +598 99 431 185",
+        "gbp_text": "Should you grant a Power of Attorney in Uruguay or from abroad under Hague Apostille and Traductor Público rules?\n\nYou can grant a Power of Attorney directly before an Escribano Público while in Punta del Este for real estate, banking, or corporate matters, or execute one from your home country. Foreign powers require exact legal faculties, a Hague Apostille from the issuing jurisdiction, and Spanish translation in Uruguay by a licensed Traductor Público (Sworn Translator) prior to local notarial registration when applicable. Coordinating the draft before signing ensures full registry acceptance (SCJ Reg. 17058/5).\n\nConsult via WhatsApp +598 99 431 185."
+    },
+    {
+        "num": 13, "date": "2026-12-28", "lang": "ES",
+        "url": "https://escribanofabriciorivas.com/documentacion-vender-propiedad-punta-del-este-1/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_13",
+        "plate_kicker": "VENTA INMOBILIARIA · MALDONADO",
+        "plate_title": "Qué revisamos antes\nde vender tu propiedad",
+        "plate_body": "Controlamos título, planos, padrón, tributos e información registral antes de comprometer fechas.",
+        "box_kicker": "INVENTARIO DOCUMENTAL",
+        "box_text": "Revisión previa por WhatsApp",
+        "footer_sub": "Punta del Este y Maldonado · +598 99 431 185",
+        "gbp_text": "¿Qué documentación se revisa antes de vender una propiedad o firmar una promesa en Maldonado?\n\nAntes de fijar fecha de firma, el Escribano Público analiza el título de propiedad y sus antecedentes, los datos exactos de padrón y unidad, los planos y reformas declaradas, el reglamento de propiedad horizontal si corresponde, los certificados de la Dirección General de Registros y el estado de tributos. También verificamos poderes o representaciones cuando algún titular coordina a distancia. Compartes la ubicación y lo que tengas disponible para iniciar la revisión (Matrícula SCJ 17058/5).\n\nEnvía tu consulta por WhatsApp al +598 99 431 185."
+    },
+    {
+        "num": 14, "date": "2026-12-30", "lang": "PT",
+        "url": "https://escribanofabriciorivas.com/cartorio-punta-del-este-brasileiros-temporada/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_14",
+        "plate_kicker": "TEMPORADA · PUNTA DEL ESTE",
+        "plate_title": "Locação, viagem de menor\ne veículos em Maldonado",
+        "plate_body": "Contratos de temporada, autorização de viagem para menores e carta poder veicular.",
+        "box_kicker": "ATENDIMENTO EM PORTUGUÊS",
+        "box_text": "Coordenação prévia pelo WhatsApp",
+        "footer_sub": "Punta del Este e Maldonado · +598 99 431 185",
+        "gbp_text": "Contrato de locação de temporada, autorização de viagem de menor e veículos em Maldonado: como regularizar cada ato?\n\nDurante o verão em Punta del Este e Maldonado, demandas práticas exigem respaldo do Escribano Público. O Escribano Público Fabricio Rivas redige e certifica contratos de locação de temporada com regras claras de caução e entrega, autorizações de viagem de menor para saída do país ou embarque, e autorizações simples (carta poder) ou transferência de veículos registrados na Prefeitura (Intendência).\n\nWhatsApp +598 99 431 185. Atendimento em português."
+    },
+    {
+        "num": 15, "date": "2027-01-02", "lang": "EN",
+        "url": "https://escribanofabriciorivas.com/notarial-certifications-punta-del-este-1/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp_temporada_15",
+        "plate_kicker": "SAME-DAY SIGNATURE CERTIFICATION",
+        "plate_title": "Same-day signature\ncertification in PDE",
+        "plate_body": "Share your PDF and valid passport via WhatsApp for remote pre-review before signing.",
+        "box_kicker": "DIRECT APPOINTMENT",
+        "box_text": "Remote PDF review before arrival",
+        "footer_sub": "Punta del Este & Maldonado · +598 99 431 185",
+        "gbp_text": "How do same-day signature certification and remote document pre-review work in Punta del Este?\n\nWhen banks, companies, or authorities require a certified signature, Escribano Público Fabricio Rivas provides same-day signature certification in Punta del Este and Maldonado subject to prior WhatsApp review and schedule confirmation. You share your document PDF, valid passport, and destination country via WhatsApp before your visit. Fabricio Rivas prepares the notarial act and confirms any subsequent Hague Apostille or Traductor Público requirements, leaving everything ready for direct signing in Punta del Este (SCJ Reg. 17058/5).\n\nSend your document via WhatsApp +598 99 431 185."
+    },
+]
+
+
+def render_one(entry: dict, logo_s: Image.Image, wm_s: Image.Image):
+    bg = C_CARBON if entry["num"] % 2 == 1 else C_BRONZE
+    g_w, g_h = 700, 700
+    g = Image.new("RGBA", (g_w, g_h), bg + (255,))
+    g.paste(wm_s, ((g_w - wm_s.size[0]) // 2, (g_h - wm_s.size[1]) // 2), wm_s)
+    dg = ImageDraw.Draw(g, "RGBA")
+    dg.rectangle([(24, 24), (g_w - 24, g_h - 24)], outline=C_GOLD_BORDER, width=1)
+    g.paste(logo_s, (52, 46), logo_s)
+
+    badge_txt = f"{entry['num']:02d} / 15 · {entry['lang']}"
+    f_pill = get_font(15, "demibold")
+    bw = int(dg.textlength(badge_txt, font=f_pill)) + 28
+    bx1 = g_w - 52 - bw
+    dg.rounded_rectangle([(bx1, 48), (g_w - 52, 82)], radius=17, fill=C_BOX_BG + (235,), outline=C_GOLD_BORDER, width=1)
+    dg.text((bx1 + 14, 55), badge_txt, font=f_pill, fill=C_GOLD_LIGHT)
+
+    draw_tracked(dg, (52, 110), entry["plate_kicker"], get_font(15, "demibold"), C_GOLD, tracking=1.8)
+    f_gh = get_font(40, "demibold")
+    gy = 144
+    for raw_line in entry["plate_title"].split("\n"):
+        for ln in wrap_lines(dg, raw_line, f_gh, 596):
+            dg.text((52, gy), ln, font=f_gh, fill=C_WHITE)
+            gy += 48
+    gy += 10
+    dg.line([(52, gy), (142, gy)], fill=C_GOLD, width=2)
+    gy += 18
+
+    f_gb = get_font(24, "regular")
+    for ln in wrap_lines(dg, entry["plate_body"], f_gb, 596):
+        dg.text((52, gy), ln, font=f_gb, fill=C_PEARL)
+        gy += 32
+    assert gy <= 452, f"Body overflow on gbp_{entry['num']:02d}: gy={gy}"
+
+    dg.rounded_rectangle([(52, 464), (648, 566)], radius=14, fill=C_BOX_BG + (242,), outline=C_GOLD_BORDER, width=1)
+    draw_tracked(dg, (74, 482), entry["box_kicker"], get_font(14, "demibold"), C_GOLD_LIGHT, tracking=1.8)
+    dg.text((74, 514), entry["box_text"], font=get_font(23, "medium"), fill=C_WHITE)
+
+    dg.line([(52, 592), (648, 592)], fill=C_GOLD_BORDER, width=1)
+    dg.text((52, 608), "Fabricio Rivas · Escribano Público (SCJ 17058/5)", font=get_font(18, "medium"), fill=C_WHITE)
+    dg.text((52, 636), entry["footer_sub"], font=get_font(16, "regular"), fill=C_MUTED)
+
+    out_path = os.path.join(OUT_DIR, f"gbp_{entry['num']:02d}.jpg")
+    g.convert("RGB").save(out_path, "JPEG", quality=92, optimize=True)
+    luma = ImageStat.Stat(Image.open(out_path).convert("L")).mean[0]
+    assert luma <= 39.0, f"Luma > 39 on {out_path}: {luma:.2f}"
+    print(f"OK gbp_{entry['num']:02d}.jpg ({entry['date']} {entry['lang']}) | mean_luma={luma:.2f} | bytes={os.path.getsize(out_path)}")
+
+
+if __name__ == "__main__":
+    logo_s = load_logo(target_height=36)
+    wm_s = make_watermark(size=280)
+    for e in ENTRIES:
+        render_one(e, logo_s, wm_s)
+    json.dump(ENTRIES, open(os.path.join(OUT_DIR, "entries.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    print("ALL 15 GBP PLATES + ENTRIES.JSON READY")

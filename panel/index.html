@@ -776,6 +776,7 @@ window.FR_KNOWLEDGE_BASE = {
       isNew: true,
       defaultIndexed: true,
       hasSpecialDropdown: true,
+      dropdownId: "brasil-temporada-pt-dropdown",
       packDayRef: "Guía PT-BR #1 · Imóveis e Procuração"
     },
     {
@@ -789,6 +790,7 @@ window.FR_KNOWLEDGE_BASE = {
       isNew: true,
       defaultIndexed: true,
       hasSpecialDropdown: true,
+      dropdownId: "brasil-temporada-pt-dropdown",
       packDayRef: "Guía PT-BR #2 · Cartório na Temporada"
     },
     {
@@ -802,6 +804,7 @@ window.FR_KNOWLEDGE_BASE = {
       isNew: true,
       defaultIndexed: true,
       hasSpecialDropdown: true,
+      dropdownId: "criterio-en-income-dropdown",
       packDayRef: "Guía EN · Migración, Bancos y Alquileres"
     },
     {
@@ -815,6 +818,7 @@ window.FR_KNOWLEDGE_BASE = {
       isNew: true,
       defaultIndexed: true,
       hasSpecialDropdown: true,
+      dropdownId: "criterio1-special-dropdown",
       packDayRef: "Nota #1 BPS/DGI y Certificaciones"
     },
     {
@@ -864,7 +868,7 @@ window.FR_KNOWLEDGE_BASE = {
     {
       slug: "certificar-firma-punta-del-este",
       title: "Certificar firma en Punta del Este y Maldonado: requisitos y gestión en el día",
-      url: "https://escribanofabriciorivas.com/certificar-firma-punta-del-este/",
+      url: "https://escribanofabriciorivas.com/certificar-firma-punta-del-este",
       verticalId: "certificaciones",
       inSitemap: true,
       inLlmsTxt: true,
@@ -883,6 +887,7 @@ window.FR_KNOWLEDGE_BASE = {
       isNew: true,
       defaultIndexed: true,
       hasSpecialDropdown: true,
+      dropdownId: "en-temporada-dropdown",
       packDayRef: "Guía EN #2 · Real Estate + POA"
     },
     {
@@ -896,6 +901,7 @@ window.FR_KNOWLEDGE_BASE = {
       isNew: true,
       defaultIndexed: true,
       hasSpecialDropdown: true,
+      dropdownId: "en-temporada-dropdown",
       packDayRef: "Guía EN #3 · Signature, POA & Rentals"
     }
   ],
@@ -2959,11 +2965,11 @@ window.FR_KNOWLEDGE_BASE = {
       let out = "";
       if (currentLang === "en") {
         if (activeNetTab === "ig") {
-          out = `${title}\n\n${bullets}\n\n📌 ${takeaway}\n\nDirect guidance, also remotely if you are in another country.\n📲 WhatsApp: +598 99 431 185\n🌐 Full guide: ${baseUrl}\n\n#PuntaDelEste #UruguayRealEstate #NotaryPublicUruguay #InvestInUruguay #LegalSecurity`;
+          out = `${title}\n\n${bullets}\n\n📌 ${takeaway}\n\nDirect guidance in Punta del Este, also with prior remote review via WhatsApp.\n📲 WhatsApp: +598 99 431 185\n🌐 Full guide: ${baseUrl}\n\n#PuntaDelEste #UruguayRealEstate #NotaryPublicUruguay #InvestInUruguay #LegalSecurity`;
         } else if (activeNetTab === "story") {
           out = `${title} · ${takeaway}\n\nMessage directly on WhatsApp: +598 99 431 185\nLink: ${baseUrl}`;
         } else if (activeNetTab === "tiktok" || activeNetTab === "youtube") {
-          out = `[VIDEO / REEL 9:16 — 35 SEC TELEPROMPTER SCRIPT]\n\nHOOK (0-5s): "${title}"\n\nBODY (5-25s):\n${bullets}\n\nCLOSING (25-35s): "${takeaway} Direct guidance in Punta del Este, also remotely if you are abroad. Message me on WhatsApp at +598 99 431 185."\n\nCAPTION: ${title} · Full details at ${baseUrl}`;
+          out = `[VIDEO / REEL 9:16 · 35 SEC TELEPROMPTER SCRIPT]\n\nHOOK (0-5s): "${title}"\n\nBODY (5-25s):\n${bullets}\n\nCLOSING (25-35s): "${takeaway} Direct guidance in Punta del Este, also with prior remote review. Message WhatsApp +598 99 431 185."\n\nCAPTION: ${title} · Full details at ${baseUrl}`;
         } else if (activeNetTab === "linkedin") {
           out = `${title}\n\nWhen executing real estate or corporate transactions in Punta del Este and Maldonado, preventive notarial due diligence protects your investment at every stage:\n\n${bullets}\n\n${takeaway}\n\nRead more at: ${baseUrl}\nEscribano Público Fabricio Rivas (Mat. 17058/5) · +598 99 431 185`;
         } else {
@@ -2971,11 +2977,11 @@ window.FR_KNOWLEDGE_BASE = {
         }
       } else if (currentLang === "pt") {
         if (activeNetTab === "ig") {
-          out = `${title}\n\n${bullets}\n\n📌 ${takeaway}\n\nAtendimento direto em Punta del Este e Maldonado, também a distância se você está em outro país.\n📲 WhatsApp: +598 99 431 185\n🌐 Guia completo: ${baseUrl}\n\n#PuntaDelEste #ImoveisUruguai #InvestirNoUruguai #SegurancaJuridica #EscribanoUruguai`;
+          out = `${title}\n\n${bullets}\n\n📌 ${takeaway}\n\nAtendimento direto em Punta del Este e Maldonado, também com coordenação prévia à distância.\n📲 WhatsApp: +598 99 431 185\n🌐 Guia completo: ${baseUrl}\n\n#PuntaDelEste #ImoveisUruguai #InvestirNoUruguai #SegurancaJuridica #EscribanoUruguai`;
         } else if (activeNetTab === "story") {
           out = `${title} · ${takeaway}\n\nFale diretamente pelo WhatsApp: +598 99 431 185\nLink: ${baseUrl}`;
         } else if (activeNetTab === "tiktok" || activeNetTab === "youtube") {
-          out = `[ROTEIRO REEL / TIKTOK / SHORTS 9:16 — 35 SEG]\n\nGANCHO (0-5s): "${title}"\n\nDESENVOLVIMENTO (5-25s):\n${bullets}\n\nFECHAMENTO (25-35s): "${takeaway} Atendimento direto em Punta del Este ou a distância. Chame no WhatsApp +598 99 431 185."\n\nLEGENDA: ${title} · Veja mais em ${baseUrl}`;
+          out = `[ROTEIRO REEL / TIKTOK / SHORTS 9:16 · 35 SEG]\n\nGANCHO (0-5s): "${title}"\n\nDESENVOLVIMENTO (5-25s):\n${bullets}\n\nFECHAMENTO (25-35s): "${takeaway} Atendimento direto em Punta del Este com revisão prévia à distância. WhatsApp +598 99 431 185."\n\nLEGENDA: ${title} · Veja mais em ${baseUrl}`;
         } else if (activeNetTab === "linkedin") {
           out = `${title}\n\nPara investidores e famílias brasileiras com patrimônio ou negócios em Punta del Este e Maldonado:\n\n${bullets}\n\n${takeaway}\n\nSaiba mais em: ${baseUrl}\nEscribano Público Fabricio Rivas (Mat. 17058/5) · +598 99 431 185`;
         } else {
@@ -2984,15 +2990,15 @@ window.FR_KNOWLEDGE_BASE = {
       } else {
         // Español (Tuteo Estricto)
         if (activeNetTab === "ig") {
-          out = `${title}\n\n${bullets}\n\n📌 Criterio notarial: ${takeaway}\n\nAtención directa, también a distancia si estás en otro país.\n📲 Consulta por WhatsApp: +598 99 431 185\n🌐 Nota completa en: ${baseUrl}\n\n#EscribanoPuntaDelEste #RealEstateUruguay #PuntaDelEste #Maldonado #SeguridadJuridica #CriterioNotarial`;
+          out = `${title}\n\n${bullets}\n\n📌 Criterio notarial: ${takeaway}\n\nAtención directa, también con coordinación previa a distancia.\n📲 Consulta por WhatsApp: +598 99 431 185\n🌐 Nota completa en: ${baseUrl}\n\n#EscribanoPuntaDelEste #RealEstateUruguay #PuntaDelEste #Maldonado #SeguridadJuridica #CriterioNotarial`;
         } else if (activeNetTab === "story") {
           out = `${title}\n\n${takeaway}\n\n📲 Escríbeme directo por WhatsApp: +598 99 431 185\n🔗 Lee la guía en: ${baseUrl}`;
         } else if (activeNetTab === "tiktok" || activeNetTab === "youtube") {
-          out = `[GUION TELEPROMPTER O SECUENCIA DE PLACAS EN VIDEO 9:16 (1080×1920) — 35 SEG]\n\n• GANCHO EN PANTALLA (0 a 5 seg): "${title}"\n\n• DESARROLLO CLARO (5 a 25 seg):\n${bullets}\n\n• CIERRE NOTARIAL (25 a 35 seg): "${takeaway} Atención directa en Punta del Este y Maldonado, también a distancia si estás en otro país. Escríbeme al WhatsApp +598 99 431 185."\n\n• TEXTO DE LA DESCRIPCIÓN:\n${title}. Guía completa en ${baseUrl} · WhatsApp +598 99 431 185`;
+          out = `[GUION TELEPROMPTER O SECUENCIA DE PLACAS EN VIDEO 9:16 (1080×1920) · 35 SEG]\n\n• GANCHO EN PANTALLA (0 a 5 seg): "${title}"\n\n• DESARROLLO CLARO (5 a 25 seg):\n${bullets}\n\n• CIERRE NOTARIAL (25 a 35 seg): "${takeaway} Atención directa en Punta del Este y Maldonado, también con coordinación previa a distancia. Escríbeme al WhatsApp +598 99 431 185."\n\n• TEXTO DE LA DESCRIPCIÓN:\n${title}. Guía completa en ${baseUrl} · WhatsApp +598 99 431 185`;
         } else if (activeNetTab === "linkedin") {
-          out = `${title}\n\nEn la práctica notarial en Punta del Este y Maldonado, revisar estos puntos con anticipación evita demoras, observaciones registrales y costos innecesarios:\n\n${bullets}\n\n${takeaway}\n\nAtención directa, también a distancia si estás en otro país.\nArtículo de referencia: ${baseUrl}\n\nEscribano Público Fabricio Rivas · Matrícula Notarial 17058/5 · WhatsApp +598 99 431 185`;
+          out = `${title}\n\nEn la práctica notarial en Punta del Este y Maldonado, revisar estos puntos con anticipación evita demoras, observaciones registrales y costos innecesarios:\n\n${bullets}\n\n${takeaway}\n\nAtención directa, también con coordinación previa a distancia.\nArtículo de referencia: ${baseUrl}\n\nEscribano Público Fabricio Rivas · Matrícula Notarial 17058/5 · WhatsApp +598 99 431 185`;
         } else {
-          out = `${title}\n\n${bullets}\n\n${takeaway}\nAtención directa en Punta del Este y Maldonado, también a distancia si estás en otro país. Coordina por WhatsApp al +598 99 431 185 o visita ${baseUrl}`;
+          out = `${title}\n\n${bullets}\n\n${takeaway}\nAtención directa en Punta del Este y Maldonado, también con coordinación previa a distancia. Coordina por WhatsApp al +598 99 431 185 o visita ${baseUrl}`;
         }
       }
 
@@ -3161,7 +3167,7 @@ window.FR_KNOWLEDGE_BASE = {
               <div style="display:flex; gap:6px; flex-wrap:wrap;">
                 <button class="btn btn-sm" onclick="copyTextValue('${b.url}')">🔗 Copiar Link</button>
                 <button class="btn btn-green btn-sm" onclick="requestGoogleIndexing('${b.url}')">🚀 Pedir Indexación en Google</button>
-                ${b.hasSpecialDropdown ? `<button class="btn btn-gold btn-sm" onclick="const d=document.getElementById('criterio1-special-dropdown'); d.open=true; d.scrollIntoView({behavior:'smooth'});">📂 Desplegable GBP / Stories / WA</button>` : `<button class="btn btn-gold btn-sm" onclick="openBlogInGenerator('${b.verticalId}')">📦 Generar Pack de Redes</button>`}
+                ${b.hasSpecialDropdown ? `<button class="btn btn-gold btn-sm" onclick="const d=document.getElementById('${b.dropdownId || 'criterio1-special-dropdown'}'); if(d){d.open=true; d.scrollIntoView({behavior:'smooth'});}">📂 Desplegable GBP / Stories / WA</button>` : `<button class="btn btn-gold btn-sm" onclick="openBlogInGenerator('${b.verticalId}')">📦 Generar Pack de Redes</button>`}
               </div>
             </td>
           </tr>

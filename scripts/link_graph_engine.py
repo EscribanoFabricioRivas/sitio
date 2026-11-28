@@ -259,7 +259,7 @@ CLUSTERS = {
                 "url": "/buying-property-punta-del-este-foreigners-1/",
                 "tag": "English Guide · Real Estate",
                 "title": "Buying property in Punta del Este as a foreigner",
-                "desc": "Step-by-step legal framework, title deed due diligence, escrow and closing process in Uruguay.",
+                "desc": "Step-by-step legal framework, title deed due diligence, deposit custody and closing process in Uruguay.",
                 "cta": "Read English guide",
             },
             {

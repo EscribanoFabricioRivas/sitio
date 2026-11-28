@@ -62,7 +62,7 @@ window.FR_KNOWLEDGE_BASE = {
             title: "EL PROCESO DE TU COMPRA EN 3 ETAPAS",
             tag: "GUÍA TÉCNICA NOTARIAL · PUNTA DEL ESTE",
             bullets: [
-              "1. RESERVA: Bloquea el inmueble y deja tu seña en custodia notarial (Escrow).",
+              "1. RESERVA: Bloquea el inmueble y deja tu seña en custodia notarial.",
               "2. ESTUDIO 30 AÑOS: Tu escribano audita antecedentes, planos, BPS, DGI y deudas.",
               "3. ESCRITURA: Firma final y pago recién con certificados registrales limpios."
             ],
@@ -106,7 +106,7 @@ window.FR_KNOWLEDGE_BASE = {
             title: "3 STEPS TO BUY PROPERTY IN PUNTA DEL ESTE",
             tag: "NOTARIAL DUE DILIGENCE · URUGUAY",
             bullets: [
-              "1. RESERVATION (BOLETO): Locks the price while your deposit stays in notarial escrow.",
+              "1. RESERVATION (BOLETO): Locks the price while your deposit stays under notarial custody.",
               "2. 30-YEAR TITLE SEARCH: Your Notary Public audits deeds, liens, tax clearance and plans.",
               "3. CLOSING DEED: Funds are released only when all Registry certificates are clean."
             ],
@@ -550,7 +550,7 @@ window.FR_KNOWLEDGE_BASE = {
             tag: "SEGURIDAD JURÍDICA Y TRATO DIRECTO ANTES DE FIRMAR LA RESERVA",
             bullets: [
               "• TU PROPIO ESCRIBANO: En Uruguay quien compra elige a su escribano de confianza para resguardar su inversión.",
-              "• SEÑA EN CUSTODIA (ESCROW) + 30 AÑOS: Tu entrega inicial queda protegida mientras auditamos títulos, planos y libre deuda.",
+              "• SEÑA EN CUSTODIA NOTARIAL + 30 AÑOS: Tu entrega inicial queda protegida mientras auditamos títulos, planos y libre deuda.",
               "• TRATO DIRECTO Y A DISTANCIA: Puedes estructurar la reserva o firmar con Poder Especial Apostillado sin viajar."
             ],
             takeaway: "No necesitas reunir certificados por tu cuenta antes de consultar: revisamos el borrador de reserva en el día.",
@@ -564,10 +564,10 @@ window.FR_KNOWLEDGE_BASE = {
         en: [
           {
             title: "BUYING PROPERTY IN PUNTA DEL ESTE FROM ABROAD?",
-            tag: "DIRECT NOTARIAL GUIDANCE & ESCROW PROTECTION · URUGUAY",
+            tag: "DIRECT NOTARIAL GUIDANCE & DEPOSIT PROTECTION · URUGUAY",
             bullets: [
               "• BUYER CHOOSES THE NOTARY: Under Uruguayan law, you appoint your own Notary Public to protect your purchase.",
-              "• ESCROW & 30-YEAR TITLE AUDIT: Your deposit stays in notarial custody until all deeds and clearances are verified.",
+              "• NOTARIAL CUSTODY & TITLE AUDIT: Your deposit stays in notarial custody until all deeds and clearances are verified.",
               "• REMOTE CLOSING AVAILABLE: Complete the reservation and closing via apostilled Power of Attorney without traveling."
             ],
             takeaway: "Direct, agile guidance before you sign any reservation or transfer funds.",
@@ -584,7 +584,7 @@ window.FR_KNOWLEDGE_BASE = {
             tag: "SEGURANÇA JURÍDICA E TRATO DIRETO · URUGUAI",
             bullets: [
               "• ESCOLHA DO COMPRADOR: No Uruguai, quem compra escolhe o seu próprio Escribano de confiança.",
-              "• SINAL EM CUSTÓDIA (ESCROW): Seu depósito fica protegido enquanto auditamos 30 anos de títulos e plantas.",
+              "• SINAL EM CUSTÓDIA NOTARIAL: Seu depósito fica protegido enquanto auditamos 30 anos de títulos e plantas.",
               "• COMPRA A DISTÂNCIA: Assine com segurança por Procuração Apostilada sem precisar viajar."
             ],
             takeaway: "Atendemos consultas em português com trato direto e ágil pelo WhatsApp.",
@@ -685,7 +685,7 @@ window.FR_KNOWLEDGE_BASE = {
             tag: "DIRECT & AGILE SERVICE · LOCAL & FOREIGN CLIENTS",
             bullets: [
               "• SAME-DAY CERTIFICATIONS: Signatures, powers of attorney, corporate certificates and notarial records.",
-              "• REAL ESTATE CLOSINGS: Reservation review, escrow custody and 30-year title due diligence.",
+              "• REAL ESTATE CLOSINGS: Reservation review, notarial custody of the deposit and 30-year title due diligence.",
               "• WHATSAPP COORDINATION: Pre-review your documents digitally before your appointment."
             ],
             takeaway: "Direct guidance in Punta del Este, also remotely if you are in another country.",
@@ -701,7 +701,7 @@ window.FR_KNOWLEDGE_BASE = {
             tag: "TRATO DIRETO E ÁGIL · ATENDIMENTO EM PORTUGUÊS",
             bullets: [
               "• AGILIDADE NO DIA: Reconhecimento e certificação de assinaturas, procurações e atas notariais.",
-              "• COMPRA E VENDA DE IMÓVEIS: Custódia de sinal (escrow), revisão de reserva e auditoria de títulos.",
+              "• COMPRA E VENDA DE IMÓVEIS: Custódia notarial do sinal, revisão de reserva e auditoria de títulos.",
               "• PRÉ-ANÁLISE PELO WHATSAPP: Envie seus documentos antes para atendimento rápido e sem espera."
             ],
             takeaway: "Atendemos consultas em português · Punta del Este & Maldonado.",
@@ -814,10 +814,10 @@ window.FR_KNOWLEDGE_BASE = {
       ],
       vertImg: "../campana/semana_1_pack_completo/piezas/dia2_vertical_1080x1920.jpg",
       blogUrl: "https://escribanofabriciorivas.com/compraventa-inmuebles-punta-del-este-1/",
-      igCopy: `Desliza estas placas para ver exactamente cómo se protege tu inversión inmobiliaria en Punta del Este paso a paso:\n\n1️⃣ RESERVA (BOLETO DE RESERVA): Bloquea el inmueble y fija el precio. La seña (10%) queda en custodia notarial (Escrow) del escribano del comprador.\n2️⃣ AUDITORÍA DE 30 AÑOS: Estudio de títulos antecedentes, planos de mensura, libre deuda de impuestos, gastos comunes y construcciones en BPS.\n3️⃣ ESCRITURA DE COMPRAVENTA: Recién con todos los certificados registrales limpios se firma la transferencia y se libera el saldo.\n\nEn Uruguay, quien compra elige a su escribano de confianza. Consúltame antes de firmar la reserva.\n\nAtención directa, también a distancia si estás en otro país.\nWhatsApp directo: +598 99 431 185\n\n#CompraventaPuntaDelEste #InversionEnUruguay #EscribanoPublico #SeguridadJuridica #RealEstatePuntaDelEste`,
+      igCopy: `Desliza estas placas para ver exactamente cómo se protege tu inversión inmobiliaria en Punta del Este paso a paso:\n\n1️⃣ RESERVA (BOLETO DE RESERVA): Bloquea el inmueble y fija el precio. La seña (10%) queda en custodia notarial del escribano del comprador.\n2️⃣ AUDITORÍA DE 30 AÑOS: Estudio de títulos antecedentes, planos de mensura, libre deuda de impuestos, gastos comunes y construcciones en BPS.\n3️⃣ ESCRITURA DE COMPRAVENTA: Recién con todos los certificados registrales limpios se firma la transferencia y se libera el saldo.\n\nEn Uruguay, quien compra elige a su escribano de confianza. Consúltame antes de firmar la reserva.\n\nAtención directa, también a distancia si estás en otro país.\nWhatsApp directo: +598 99 431 185\n\n#CompraventaPuntaDelEste #InversionEnUruguay #EscribanoPublico #SeguridadJuridica #RealEstatePuntaDelEste`,
       storyCopy: `GUARDABLE · Los 3 pasos técnicos de una compraventa segura en Punta del Este + Qué revisa tu escribano en PH vs. Casa. Consúltame antes de firmar la reserva (+598 99 431 185).`,
-      linkedinCopy: `En el derecho uruguayo, el escribano del comprador cumple una función de auditoría preventiva insustituible antes de entregar cualquier seña: retención en custodia (escrow), estudio de títulos de los últimos 30 años y control de regularidad en PH o padrón común.\n\nEn este resumen técnico detallo las 3 etapas clave de toda compraventa en Punta del Este y Maldonado.\n\nMás información en: https://escribanofabriciorivas.com/compraventa-inmuebles-punta-del-este-1/`,
-      gbpCopy: `Asesoramiento notarial al comprador en Punta del Este y Maldonado: revisión de boleto de reserva, custodia de seña (escrow) y estudio de títulos de 30 años. Atención directa, también a distancia si estás en otro país. WhatsApp: +598 99 431 185.`
+      linkedinCopy: `En el derecho uruguayo, el escribano del comprador cumple una función de auditoría preventiva insustituible antes de entregar cualquier seña: retención en custodia notarial, estudio de títulos de los últimos 30 años y control de regularidad en PH o padrón común.\n\nEn este resumen técnico detallo las 3 etapas clave de toda compraventa en Punta del Este y Maldonado.\n\nMás información en: https://escribanofabriciorivas.com/compraventa-inmuebles-punta-del-este-1/`,
+      gbpCopy: `Asesoramiento notarial al comprador en Punta del Este y Maldonado: revisión de boleto de reserva, custodia notarial de la seña y estudio de títulos de 30 años. Atención directa, también a distancia si estás en otro país. WhatsApp: +598 99 431 185.`
     },
     {
       day: "Día 3 · Reserva vs. Promesa de Compraventa (Placa Técnica XXL)",

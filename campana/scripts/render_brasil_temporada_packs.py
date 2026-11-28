@@ -336,7 +336,7 @@ PACKS = [
         "s1_box_kicker": "TABELIÃO NO URUGUAI (ESCRIBANO PÚBLICO)",
         "s1_box_text": "No Uruguai, o comprador escolhe o seu Tabelião.",
         "s2_kicker": "SEGURANÇA ANTES DE TRANSFERIR O SINAL",
-        "s2_title": "Reserva e custódia de sinal (escrow)",
+        "s2_title": "Reserva e custódia notarial do sinal",
         "s2_boxes": [
             ("01 · Contrato de reserva revisado", "Cláusulas de prazo, forma de pagamento e devolução caso surja pendência no imóvel."),
             ("02 · Custódia de sinal com o Tabelião", "O valor fica protegido sob guarda notarial até a conferência completa dos registros."),
@@ -352,7 +352,7 @@ PACKS = [
         "s4_body": "Poupa cartório brasileiro, Apostila de Haia e tradução pública.\n\nAtendimento em português. Coordenação prévia pelo WhatsApp no link da bio.",
         "gbp_kicker": "IMÓVEIS · PUNTA DEL ESTE",
         "gbp_title": "Imóvel em\nPunta del Este",
-        "gbp_body": "Reserva, custódia de sinal (escrow), estudo de títulos e procuração antes do voo de volta ao Brasil.",
+        "gbp_body": "Reserva, custódia notarial do sinal, estudo de títulos e procuração antes do voo de volta ao Brasil.",
         "story_kicker": "GUIA EM PORTUGUÊS · IMÓVEIS",
         "story_title": "Imóvel em Punta del Este",
         "story_body": "Proteja o sinal na reserva e deixe a procuração assinada no Uruguai antes do voo de volta ao Brasil.",

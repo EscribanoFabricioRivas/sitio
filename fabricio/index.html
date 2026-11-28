@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Espacio de Trabajo · Fabricio Rivas Escribano Público</title>
+  <style>
+    :root {
+      --bg: #10100f;
+      --surface: #181715;
+      --card: #1f1d19;
+      --border: rgba(196, 173, 122, 0.28);
+      --gold: #c4ad7a;
+      --gold-light: #e5d2a4;
+      --text: #f6f5f1;
+      --muted: #b6b1a5;
+      --green: #69d896;
+      --green-bg: rgba(105, 216, 150, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Avenir Next', 'Open Sauce One', Inter, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .topbar {
+      background: #0a0a09;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+    .topbar-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.02em;
+    }
+    .brand-sub {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+    .tabs {
+      max-width: 1080px;
+      margin: 18px auto 0;
+      padding: 0 18px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .tab-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 14px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.16s ease;
+    }
+    .tab-btn.active {
+      background: var(--gold);
+      color: #111111;
+      border-color: var(--gold);
+    }
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 20px 18px 64px;
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .intro-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 18px;
+    }
+    .intro-box h1 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      color: var(--gold-light);
+    }
+    .intro-box p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .card h2 {
+      margin: 0;
+      font-size: 16px;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+    .pill {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      color: var(--gold-light);
+      white-space: nowrap;
+    }
+    .pill.green {
+      background: var(--green-bg);
+      border-color: rgba(105, 216, 150, 0.45);
+      color: var(--green);
+    }
+    .msg-preview {
+      background: #12110f;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 13.5px;
+      color: #e6e2d8;
+      white-space: pre-wrap;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: #27241e;
+      color: var(--text);
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: #111111;
+      border-color: var(--gold);
+    }
+    .btn-green {
+      background: #1b3626;
+      color: var(--green);
+      border-color: rgba(105, 216, 150, 0.45);
+    }
+    .done-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      color: var(--gold-light);
+      cursor: pointer;
+      user-select: none;
+    }
+    .replies-box {
+      margin-top: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .replies-box h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      color: var(--gold-light);
+    }
+    .teleprompter-overlay {
+      position: fixed;
+      inset: 0;
+      background: #090908;
+      z-index: 100;
+      display: none;
+      flex-direction: column;
+    }
+    .teleprompter-overlay.open { display: flex; }
+    .tp-bar {
+      padding: 12px 18px;
+      background: #141310;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .tp-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 40px 24px 120px;
+      max-width: 780px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .tp-text {
+      font-size: 32px;
+      line-height: 1.45;
+      color: #ffffff;
+      white-space: pre-wrap;
+      font-weight: 600;
+    }
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: #111111;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13.5px;
+      display: none;
+      z-index: 150;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+    }
+    @media (max-width: 720px) {
+      .tabs { grid-template-columns: 1fr; }
+      .tp-text { font-size: 25px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div>
+        <div class="brand-title">Fabricio Rivas · Escribano Público (SCJ 17058/5)</div>
+        <div class="brand-sub">Tu mesa diaria en 3 pestañas: aprobar en Aprobalo, mandar 6 mensajes de prospección y grabar videos en español.</div>
+      </div>
+      <a class="btn btn-gold" href="https://aprobala-app.943ari.workers.dev/" target="_blank" rel="noopener noreferrer">Abrir Aprobalo Cloud</a>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Secciones principales">
+    <button class="tab-btn active" onclick="showTab('aprobalo', this)">1. Para revisar hoy · Aprobalo</button>
+    <button class="tab-btn" onclick="showTab('prospeccion', this)">2. Prospección lista · 6 contactos</button>
+    <button class="tab-btn" onclick="showTab('guiones', this)">3. Guiones en español · 12 videos</button>
+  </nav>
+
+  <main>
+    <!-- PESTAÑA 1: APROBALO HOY -->
+    <section id="tab-aprobalo" class="tab-panel active">
+      <div class="intro-box">
+        <h1>Lo que tienes para revisar hoy en Aprobalo</h1>
+        <p>Tocas el botón, revisas la publicación lista con audio y placas, y mandas tu OK o ajuste por WhatsApp en un toque.</p>
+      </div>
+      <div class="grid" id="aprobalo-grid"></div>
+    </section>
+
+    <!-- PESTAÑA 2: PROSPECCIÓN 6 CONTACTOS REALES -->
+    <section id="tab-prospeccion" class="tab-panel">
+      <div class="intro-box">
+        <h1>Micro-piloto semanal · 6 contactos reales en Punta del Este y Maldonado</h1>
+        <p>2 mensajes por día entre lunes y miércoles (15 minutos totales en la semana). Cero comisiones ni exclusividad: solo quedar agendado como Escribano Público de respaldo para clientes de Brasil y operaciones de temporada.</p>
+      </div>
+      <div class="grid" id="prospeccion-grid"></div>
+
+      <div class="replies-box">
+        <h3>Respuestas en 1 línea si contestan (copiar en 1 toque)</h3>
+        <div class="grid">
+          <div class="card">
+            <div class="card-head">
+              <h2>Si responden "Ya tengo escribano" (ES / PT)</h2>
+              <span class="pill">1 línea</span>
+            </div>
+            <div class="msg-preview">Español: Perfecto, queda mi contacto agendado solo como respaldo por si en algún pico de temporada necesitas una segunda opción.
+
+Português: Perfeito, fico à disposição apenas como contato de apoio caso seu tabelião esteja com a agenda cheia na temporada.</div>
+            <div class="actions">
+              <button class="btn btn-gold" onclick="copyTxt('Perfecto, queda mi contacto agendado solo como respaldo por si en algún pico de temporada necesitas una segunda opción.')">Copiar en Español</button>
+              <button class="btn" onclick="copyTxt('Perfeito, fico à disposição apenas como contato de apoio caso seu tabelião esteja com a agenda cheia na temporada.')">Copiar en Português</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head">
+              <h2>Si piden reunión por Zoom (ES / PT)</h2>
+              <span class="pill">1 línea</span>
+            </div>
+            <div class="msg-preview">Español: Para ser preciso con los detalles documentales, reviso primero el caso y los documentos por escrito aquí en WhatsApp y luego coordinamos cita presencial en mi estudio en Punta del Este.
+
+Português: Para agilizar e ser preciso nos detalhes jurídicos, prefiro que me envie os pontos ou documentos por escrito aqui no WhatsApp primeiro e, com tudo revisado, combinamos um horário presencial no meu estúdio em Punta del Este.</div>
+            <div class="actions">
+              <button class="btn btn-gold" onclick="copyTxt('Para ser preciso con los detalles documentales, reviso primero el caso y los documentos por escrito aquí en WhatsApp y luego coordinamos cita presencial en mi estudio en Punta del Este.')">Copiar en Español</button>
+              <button class="btn" onclick="copyTxt('Para agilizar e ser preciso nos detalhes jurídicos, prefiro que me envie os pontos ou documentos por escrito aqui no WhatsApp primeiro e, com tudo revisado, combinamos um horário presencial no meu estúdio em Punta del Este.')">Copiar en Português</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PESTAÑA 3: 12 GUIONES EN ESPAÑOL PARA GRABAR -->
+    <section id="tab-guiones" class="tab-panel">
+      <div class="intro-box">
+        <h1>12 guiones en español para grabar videos cortos (25 a 35 segundos)</h1>
+        <p>Tuteo formal sobrio, lenguaje directo al cliente real y teleprompter grande para grabar con tu celular sin improvisar.</p>
+      </div>
+      <div class="grid" id="guiones-grid"></div>
+    </section>
+  </main>
+
+  <!-- MODAL TELEPROMPTER -->
+  <div id="tp-overlay" class="teleprompter-overlay" aria-hidden="true">
+    <div class="tp-bar">
+      <strong id="tp-title" style="color:var(--gold-light); font-size:15px;">Teleprompter</strong>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+        <button class="btn" onclick="tpResize(-4)">A-</button>
+        <button class="btn" onclick="tpResize(4)">A+</button>
+        <button class="btn btn-gold" id="tp-play-btn" onclick="tpToggleScroll()">Iniciar lectura</button>
+        <button class="btn" onclick="tpResetScroll()">Al inicio</button>
+        <button class="btn btn-green" onclick="tpClose()">Cerrar</button>
+      </div>
+    </div>
+    <div class="tp-scroll" id="tp-scroll-area">
+      <div class="tp-text" id="tp-body"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Copiado</div>
+
+  <script>
+    const APROBALO_ITEMS = [
+      {
+        id: "4790ac86-fb7b-4a4e-9a11-c8ccb0dfb24d",
+        fecha: "27/11/2026 · En revisión",
+        estado: "Tu OK pendiente",
+        titulo: "Certificado notarial de ingresos en Uruguay (EN · Migración, Bancos y Alquileres)",
+        resumen: "Publicación en inglés sobre residencia ante Dirección Nacional de Migración y diferencia frente a seguros de alquiler.",
+        aprobalaUrl: "https://aprobala-app.943ari.workers.dev/ver/4790ac86-fb7b-4a4e-9a11-c8ccb0dfb24d",
+        webUrl: "https://escribanofabriciorivas.com/income-certificate-uruguay-residency-1/"
+      },
+      {
+        id: "0341a090-c347-4719-a3c8-6a324bf1281f",
+        fecha: "07/12/2026 · Lunes",
+        estado: "Borrador listo",
+        titulo: "Comprar propiedad en Punta del Este (EN · Boleto de reserva, custodia de seña y poder)",
+        resumen: "Carrusel 4:5 con portada arquitectónica y Reel 9:16 con música instrumental dirigido a compradores extranjeros.",
+        aprobalaUrl: "https://aprobala-app.943ari.workers.dev/ver/0341a090-c347-4719-a3c8-6a324bf1281f",
+        webUrl: "https://escribanofabriciorivas.com/buying-property-punta-del-este-foreigners-1/"
+      },
+      {
+        id: "bd421217-bcfb-4cdd-9829-b0395eb6e2e9",
+        fecha: "10/12/2026 · Jueves",
+        estado: "Borrador listo",
+        titulo: "Certificación de firma en el día, poderes y residencia en Punta del Este (EN)",
+        resumen: "Carrusel 4:5 y Reel 9:16 instrumental con el paso a paso de revisión previa por WhatsApp antes de la cita.",
+        aprobalaUrl: "https://aprobala-app.943ari.workers.dev/ver/bd421217-bcfb-4cdd-9829-b0395eb6e2e9",
+        webUrl: "https://escribanofabriciorivas.com/notarial-certifications-punta-del-este-1/"
+      },
+      {
+        id: "cbe7eceb-87e1-4870-a583-5045a6e5d792",
+        fecha: "05/12/2026 · Sábado",
+        estado: "Aprobada",
+        titulo: "Comprar imóvel em Punta del Este: Tabelião, custódia do sinal e procuração (PT-BR)",
+        resumen: "Pack completo en portugués conectado a la guía de compradores de Brasil y al hub /clientes-estrangeiros/.",
+        aprobalaUrl: "https://aprobala-app.943ari.workers.dev/ver/cbe7eceb-87e1-4870-a583-5045a6e5d792",
+        webUrl: "https://escribanofabriciorivas.com/comprar-imovel-punta-del-este-tabeliao/"
+      },
+      {
+        id: "2051f7e7-4e94-414b-9bcd-3d7483f5f87d",
+        fecha: "28/11/2026 · Hoy",
+        estado: "Aprobada",
+        titulo: "Cartório em Punta del Este na temporada: firma no mesmo dia, locação, menor e veículos (PT-BR)",
+        resumen: "Pack de temporada en portugués con música instrumental y placas revisadas.",
+        aprobalaUrl: "https://aprobala-app.943ari.workers.dev/ver/2051f7e7-4e94-414b-9bcd-3d7483f5f87d",
+        webUrl: "https://escribanofabriciorivas.com/cartorio-punta-del-este-brasileiros-temporada/"
+      }
+    ];
+
+    const CONTACTS_6 = [
+      {
+        id: "c1",
+        dia: "Lunes 30/11 · Mensaje 1",
+        nombre: "Punta Stock Serviços Imobiliários",
+        rubro: "Inmobiliaria en Punta del Este con atención en portugués",
+        web: "https://puntastock.uy",
+        tel: "+598 95 762 501",
+        waDigits: "59895762501",
+        idioma: "Português",
+        msg: "Olá, equipe da Punta Stock. Sou Fabricio Rivas, Escribano Público (tabelião) em Punta del Este. Vi o trabalho de vocês com compradores e aluguéis para clientes brasileiros e deixo meu contato caso precisem de suporte notarial na temporada (reservas, procurações, certidões ou reconhecimento de firma no mesmo dia), com atendimento em português. Se surgir alguma operação, podem enviar o documento por aqui para análise prévia antes da assinatura presencial. Deixo minha página para clientes do Brasil: https://escribanofabriciorivas.com/clientes-estrangeiros/"
+      },
+      {
+        id: "c2",
+        dia: "Lunes 30/11 · Mensaje 2",
+        nombre: "Modo Punta Real Estate",
+        rubro: "Inmobiliaria boutique en Punta del Este",
+        web: "https://modopunta.com",
+        tel: "+598 92 234 494",
+        waDigits: "59892234494",
+        idioma: "Español",
+        msg: "Hola, ¿cómo están en Modo Punta? Soy Fabricio Rivas, Escribano Público en Punta del Este. Como en temporada muchas operaciones con compradores de Brasil y del exterior se frenan en los boletos de reserva o poderes, les dejo mi contacto de respaldo para revisión previa de documentación por escrito y coordinación en portugués o inglés con cita presencial en Punta del Este. Les comparto el enlace de referencia para sus clientes extranjeros: https://escribanofabriciorivas.com/clientes-estrangeiros/"
+      },
+      {
+        id: "c3",
+        dia: "Martes 01/12 · Mensaje 3",
+        nombre: "Santiago Pereyra Propiedades",
+        rubro: "Inmobiliaria en Parada 2 Brava · Web en portugués",
+        web: "https://santiagopereyra.com.uy",
+        tel: "+598 99 239 632",
+        waDigits: "59899239632",
+        idioma: "Português",
+        msg: "Olá, equipe da Santiago Pereyra. Sou Fabricio Rivas, Escribano Público (tabelião) em Punta del Este. Como vocês atendem compradores brasileiros na Brava e região, deixo meu contato como apoio notarial na temporada para revisão de boletos de reserva, custódia notarial de sinal, procurações assinadas no Uruguai antes do retorno ao Brasil e reconhecimento de firma no mesmo dia, com atendimento em português. Caso queiram salvar o guia para enviar a clientes: https://escribanofabriciorivas.com/comprar-imovel-punta-del-este-tabeliao/"
+      },
+      {
+        id: "c4",
+        dia: "Martes 01/12 · Mensaje 4",
+        nombre: "Estudio Zurbriggen · Contadores Públicos",
+        rubro: "La Barra · Residencia fiscal, DGI, BPS y SAS para extranjeros",
+        web: "https://estudiozurbriggen.com",
+        tel: "+598 98 213 879",
+        waDigits: "59898213879",
+        idioma: "Español",
+        msg: "Hola equipo de Estudio Zurbriggen, soy Fabricio Rivas, Escribano Público en Punta del Este. Vi que trabajan con residentes extranjeros, DGI, BPS y sociedades SAS en La Barra y la zona. Como solemos cruzar casos que requieren certificados notariales de ingresos para Migración, poderes, actas o compraventas con atención en portugués e inglés, te dejo mi contacto directo por si necesitan respaldo notarial ágil esta temporada. Guía de referencia: https://escribanofabriciorivas.com/foreign-clients"
+      },
+      {
+        id: "c5",
+        dia: "Miércoles 02/12 · Mensaje 5",
+        nombre: "Victoria Fones Real Estate",
+        rubro: "Inmobiliaria boutique en José Ignacio y Punta del Este",
+        web: "https://victoriafones.com",
+        tel: "+598 93 985 888",
+        waDigits: "59893985888",
+        idioma: "Español",
+        msg: "Hola Victoria y equipo, soy Fabricio Rivas, Escribano Público en Punta del Este. Les dejo mi contacto directo como estudio de respaldo para esta temporada si reciben compradores extranjeros que necesiten revisar rápido un boleto de reserva, firmar poder local antes de su vuelo de regreso o coordinar certificaciones con atención en inglés y portugués. Te comparto la guía en inglés por si les resulta práctica para sus compradores: https://escribanofabriciorivas.com/foreign-clients"
+      },
+      {
+        id: "c6",
+        dia: "Miércoles 02/12 · Mensaje 6",
+        nombre: "Devincenzi & Luizzi · Contadores Públicos",
+        rubro: "Maldonado · No residentes, residencia fiscal, inmuebles y SAS",
+        web: "https://dyl.com.uy",
+        tel: "+598 99 280 867",
+        waDigits: "59899280867",
+        idioma: "Español",
+        msg: "Hola equipo de Devincenzi & Luizzi, soy Fabricio Rivas, Escribano Público en Punta del Este. Como asesoran a no residentes en residencia fiscal, inversiones inmobiliarias y sociedades en Maldonado, les dejo mi contacto directo para respaldar a sus clientes en certificados notariales para Migración, poderes, compraventas y certificaciones de firma con coordinación previa por WhatsApp. Dejo el enlace de nuestra guía: https://escribanofabriciorivas.com/certificado-de-ingresos-maldonado/"
+      }
+    ];
+
+    const SCRIPTS_12 = [
+      {
+        id: "g1",
+        tema: "Compraventa",
+        titulo: "1. Por qué en Uruguay el comprador elige al Escribano Público",
+        dur: "30 seg",
+        texto: "Si estás por comprar una propiedad en Punta del Este o Maldonado, hay una regla clave del sistema uruguayo que conviene tener presente antes de firmar nada.\n\nEn Uruguay, al Escribano Público lo elige el comprador.\n\nNo es un simple testigo de firma: revisa el boleto de reserva, controla los títulos antecedentes y certificados registrales, verifica que no existan deudas municipales ni en BPS, y redacta la escritura definitiva.\n\nAntes de transferir una seña, envíame el borrador por WhatsApp y lo revisamos juntos."
+      },
+      {
+        id: "g2",
+        tema: "Boleto de reserva",
+        titulo: "2. Custodia notarial de la seña antes de reservar",
+        dur: "30 seg",
+        texto: "El momento de mayor riesgo al comprar un apartamento o una casa en Punta del Este es el boleto de reserva.\n\nSi entregas la seña directo sin cláusulas de resguardo y luego aparece una hipoteca vigente, una deuda municipal o un problema en los planos, recuperar ese dinero puede volverse cuesta arriba.\n\nCon revisión notarial previa, la seña queda bajo custodia notarial hasta comprobar que toda la documentación está en orden.\n\nAntes de transferir, envíanos el borrador por WhatsApp."
+      },
+      {
+        id: "g3",
+        tema: "Promesa de compraventa",
+        titulo: "3. Cuándo conviene firmar promesa de compraventa inscripta",
+        dur: "30 seg",
+        texto: "Muchas operaciones en Punta del Este se cierran con precio financiado en cuotas o mientras se terminan certificados o regularizaciones.\n\nAhí es donde la promesa de compraventa inscripta en el registro protege tu posición frente a terceros.\n\nFija precio, plazos, entrega de la posesión y condiciones reales hasta la escritura definitiva.\n\nSi te propusieron firmar una promesa, envíanos los datos del inmueble por WhatsApp para revisarla antes."
+      },
+      {
+        id: "g4",
+        tema: "Venta inmobiliaria",
+        titulo: "4. Qué revisar antes de ofrecer tu propiedad en venta",
+        dur: "30 seg",
+        texto: "Si vas a vender tu casa o apartamento en Punta del Este esta temporada, no esperes a que aparezca el comprador para juntar los papeles.\n\nUna obra no declarada ante BPS, un plano desactualizado o un certificado vencido pueden demorar semanas y enfriar una oferta firme.\n\nRevisar títulos, planos, contribución inmobiliaria, primaria y gastos comunes antes de publicar acelera el cierre desde el primer día.\n\nEscríbeme por WhatsApp y ordenamos tu carpeta."
+      },
+      {
+        id: "g5",
+        tema: "Poderes",
+        titulo: "5. Cómo firmar un poder sin viajar o antes de volver a tu país",
+        dur: "30 seg",
+        texto: "Si estás unos días en Punta del Este mirando propiedades y vas a volver antes de la escritura definitiva, puedes firmar un poder público uruguayo mientras estás acá.\n\nEso te evita trámites notariales en tu país, Apostilla de La Haya y traducción pública posterior.\n\nY si ya regresaste y necesitas otorgar el poder desde el exterior, te preparamos el texto exacto compatible con los registros uruguayos.\n\nConsulta tu caso por WhatsApp."
+      },
+      {
+        id: "g6",
+        tema: "Firma en el día",
+        titulo: "6. Certificación de firma en el día con revisión previa por WhatsApp",
+        dur: "25 seg",
+        texto: "¿Necesitas certificar una firma hoy en Punta del Este o Maldonado para un banco, un contrato o una autorización?\n\nPuedes resolver tu certificación de firma en el día mediante coordinación previa por WhatsApp.\n\nEnvías una foto o PDF del documento junto con tu cédula o pasaporte vigente. Verificamos los requisitos formales, redactamos el acta notarial y confirmamos tu horario presencial.\n\nEscríbenos directo al WhatsApp."
+      },
+      {
+        id: "g7",
+        tema: "Residencia y Alquiler",
+        titulo: "7. Certificado de ingresos: cuándo va Escribano y cuándo va Contador",
+        dur: "35 seg",
+        texto: "Esta es una de las dudas más frecuentes de extranjeros que llegan a Maldonado: ¿quién firma mi certificado de ingresos?\n\nPara tu trámite de residencia legal ante la Dirección Nacional de Migración y para varios bancos, corresponde un certificado notarial de ingresos firmado por Escribano Público.\n\nEn cambio, para seguros de garantía de alquiler en Uruguay, las aseguradoras suelen pedir certificado de Contador Público cuando acreditas renta local.\n\nEnvíanos la lista escrita que te pidieron y confirmamos en minutos cuál te corresponde."
+      },
+      {
+        id: "g8",
+        tema: "Automotores",
+        titulo: "8. Carta poder o poder para tu vehículo en Maldonado",
+        dur: "30 seg",
+        texto: "Si necesitas que otra persona conduzca tu vehículo, haga trámites en la Intendencia de Maldonado o venda el auto en tu nombre, no siempre alcanza con el mismo documento.\n\nPara circular o realizar gestiones administrativas usamos una carta poder con firma certificada. Si el encargo incluye vender o transferir la titularidad, redactamos un poder con facultades expresas.\n\nEnvía foto de la libreta y de las cédulas por WhatsApp para prepararlo."
+      },
+      {
+        id: "g9",
+        tema: "Viajes de verano",
+        titulo: "9. Autorización de viaje de menor en temporada",
+        dur: "25 seg",
+        texto: "Antes de embarcar o cruzar frontera con menores de edad en vacaciones, revisa con tiempo la autorización de viaje.\n\nCuando viaja con uno solo de los padres o con un tercero, las autoridades migratorias y aerolíneas exigen el permiso formal en regla.\n\nCoordinamos previamente los datos del menor, acompañante, fechas y destino por WhatsApp para dejar tu firma certificada lista en Punta del Este."
+      },
+      {
+        id: "g10",
+        tema: "Alquiler de temporada",
+        titulo: "10. Contratos de alquiler de temporada con respaldo notarial",
+        dur: "30 seg",
+        texto: "Alquilar una casa o un apartamento en temporada alta sin contrato claro ni inventario firmado suele traer discusiones al entregar las llaves.\n\nCon un contrato de arrendamiento de temporada revisado por Escribano Público y firmas certificadas, quedan ordenados el precio, la garantía o depósito, el inventario, los consumos y la fecha exacta de desocupación.\n\nEnvíanos los datos del alquiler por WhatsApp antes de entregar la llave."
+      },
+      {
+        id: "g11",
+        tema: "Bancos y Cumplimiento",
+        titulo: "11. Origen de fondos para bancos o compra de inmueble",
+        dur: "30 seg",
+        texto: "Al transferir fondos hacia Uruguay para comprar una propiedad o abrir una cuenta bancaria, la entidad suele exigir justificar el origen lícito de ese dinero.\n\nPreparamos la certificación notarial respaldada en tus escrituras de venta previas, balances, distribución de dividendos o comprobantes oficiales de tu país.\n\nEnvíanos el requisito escrito del banco por WhatsApp para revisar qué documentación necesitas reunir."
+      },
+      {
+        id: "g12",
+        tema: "Empresas y Organismos",
+        titulo: "12. Certificados notariales y firmas para BPS, DGI e INAC",
+        dur: "30 seg",
+        texto: "Cuando abres un comercio en verano, renuevas habilitaciones o presentas trámites societarios ante BPS, DGI o INAC, muchos formularios se traban por confundir una certificación de firma con un certificado notarial completo.\n\nEnvíanos por WhatsApp la captura o el instructivo exacto que te pide el organismo.\n\nRevisamos el alcance legal, verificamos la vigencia societaria y dejamos el instrumento listo para presentar sin rechazos."
+      }
+    ];
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.style.display = "block";
+      clearTimeout(window.__tpToastTimer);
+      window.__tpToastTimer = setTimeout(() => { t.style.display = "none"; }, 2200);
+    }
+
+    function copyTxt(s) {
+      navigator.clipboard.writeText(s);
+      showToast("Copiado al portapapeles");
+    }
+
+    function showTab(name, btn) {
+      document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      document.getElementById("tab-" + name).classList.add("active");
+      btn.classList.add("active");
+    }
+
+    function renderAprobalo() {
+      const grid = document.getElementById("aprobalo-grid");
+      grid.innerHTML = APROBALO_ITEMS.map(item => {
+        const waOk = "https://api.whatsapp.com/send?text=" + encodeURIComponent("Revisé en Aprobalo \"" + item.titulo + "\" (" + item.fecha + "): OK / quiero cambiar ...");
+        const pillCls = item.estado === "Aprobada" ? "pill green" : "pill";
+        return `
+          <article class="card">
+            <div class="card-head">
+              <h2>${item.titulo}</h2>
+              <span class="${pillCls}">${item.estado}</span>
+            </div>
+            <div style="font-size:12.5px; color:var(--gold); font-weight:700;">${item.fecha}</div>
+            <p style="margin:0; font-size:13.5px; color:var(--muted);">${item.resumen}</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="${item.aprobalaUrl}" target="_blank" rel="noopener noreferrer">Abrir en Aprobalo</a>
+              <a class="btn btn-green" href="${waOk}" target="_blank" rel="noopener noreferrer">Mandar OK o cambio</a>
+              <a class="btn" href="${item.webUrl}" target="_blank" rel="noopener noreferrer">Ver nota web</a>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderProspeccion() {
+      const saved = JSON.parse(localStorage.getItem("fr_prospect_done") || "{}");
+      const grid = document.getElementById("prospeccion-grid");
+      grid.innerHTML = CONTACTS_6.map(c => {
+        const waLink = "https://api.whatsapp.com/send?phone=" + c.waDigits + "&text=" + encodeURIComponent(c.msg);
+        const checked = saved[c.id] ? "checked" : "";
+        return `
+          <article class="card">
+            <div class="card-head">
+              <div>
+                <div style="font-size:12px; color:var(--gold); font-weight:700; margin-bottom:2px;">${c.dia}</div>
+                <h2>${c.nombre}</h2>
+              </div>
+              <span class="pill">${c.idioma}</span>
+            </div>
+            <div style="font-size:13px; color:var(--muted);">
+              ${c.rubro}<br>
+              <strong>Tel / WhatsApp:</strong> ${c.tel} · <a href="${c.web}" target="_blank" rel="noopener noreferrer" style="color:var(--gold-light); text-decoration:underline;">Sitio web</a>
+            </div>
+            <div class="msg-preview">${c.msg}</div>
+            <div class="actions">
+              <button class="btn btn-gold" data-msg="${c.msg.replace(/"/g, '&quot;')}" onclick="copyTxt(this.getAttribute('data-msg'))">Copiar mensaje</button>
+              <a class="btn btn-green" href="${waLink}" target="_blank" rel="noopener noreferrer">Abrir WhatsApp listo</a>
+              <label class="done-toggle">
+                <input type="checkbox" ${checked} onchange="toggleDone('fr_prospect_done','${c.id}',this.checked)" />
+                <span>Enviado</span>
+              </label>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderGuiones() {
+      const saved = JSON.parse(localStorage.getItem("fr_scripts_done") || "{}");
+      const grid = document.getElementById("guiones-grid");
+      grid.innerHTML = SCRIPTS_12.map(g => {
+        const checked = saved[g.id] ? "checked" : "";
+        return `
+          <article class="card">
+            <div class="card-head">
+              <div>
+                <div style="font-size:12px; color:var(--gold); font-weight:700; margin-bottom:2px;">${g.tema} · ${g.dur}</div>
+                <h2>${g.titulo}</h2>
+              </div>
+              <span class="pill">Español</span>
+            </div>
+            <div class="msg-preview">${g.texto}</div>
+            <div class="actions">
+              <button class="btn btn-gold" onclick="openTeleprompter('${g.id}')">Abrir Teleprompter</button>
+              <button class="btn" data-msg="${g.texto.replace(/"/g, '&quot;')}" onclick="copyTxt(this.getAttribute('data-msg'))">Copiar texto</button>
+              <label class="done-toggle">
+                <input type="checkbox" ${checked} onchange="toggleDone('fr_scripts_done','${g.id}',this.checked)" />
+                <span>Ya lo grabé</span>
+              </label>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function toggleDone(key, id, val) {
+      const cur = JSON.parse(localStorage.getItem(key) || "{}");
+      cur[id] = val;
+      localStorage.setItem(key, JSON.stringify(cur));
+      showToast(val ? "Marcado como hecho" : "Actualizado");
+    }
+
+    let tpFont = 32;
+    let tpTimer = null;
+    function openTeleprompter(id) {
+      const g = SCRIPTS_12.find(x => x.id === id);
+      if (!g) return;
+      document.getElementById("tp-title").textContent = g.titulo + " (" + g.dur + ")";
+      document.getElementById("tp-body").textContent = g.texto;
+      document.getElementById("tp-scroll-area").scrollTop = 0;
+      document.getElementById("tp-overlay").classList.add("open");
+      document.getElementById("tp-overlay").setAttribute("aria-hidden", "false");
+    }
+    function tpClose() {
+      if (tpTimer) { clearInterval(tpTimer); tpTimer = null; }
+      document.getElementById("tp-play-btn").textContent = "Iniciar lectura";
+      document.getElementById("tp-overlay").classList.remove("open");
+      document.getElementById("tp-overlay").setAttribute("aria-hidden", "true");
+    }
+    function tpResize(delta) {
+      tpFont = Math.max(20, Math.min(54, tpFont + delta));
+      document.getElementById("tp-body").style.fontSize = tpFont + "px";
+    }
+    function tpResetScroll() {
+      document.getElementById("tp-scroll-area").scrollTop = 0;
+    }
+    function tpToggleScroll() {
+      const btn = document.getElementById("tp-play-btn");
+      if (tpTimer) {
+        clearInterval(tpTimer);
+        tpTimer = null;
+        btn.textContent = "Iniciar lectura";
+        return;
+      }
+      const area = document.getElementById("tp-scroll-area");
+      btn.textContent = "Pausar lectura";
+      tpTimer = setInterval(() => {
+        area.scrollTop += 1;
+      }, 42);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderAprobalo();
+      renderProspeccion();
+      renderGuiones();
+    });
+  </script>
+</body>
+</html>

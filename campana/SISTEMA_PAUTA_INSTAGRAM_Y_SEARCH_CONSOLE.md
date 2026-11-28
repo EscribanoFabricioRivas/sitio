@@ -25,7 +25,7 @@ En servicios notariales de alto ticket en Punta del Este y Maldonado, Instagram 
 * **Público:** Geo-segmentación exterior (Argentina, Brasil, EE.UU., Europa) + idioma del navegador.
 * **Competencia Creativa:**
   * **Ángulo A (Español — Tuteo Formal):** *"¿Vives fuera de Uruguay y necesitas comprar, vender o administrar un inmueble en Punta del Este? Con un Poder Especial correctamente redactado y apostillado, resuelves toda la escrituración con representación notarial directa sin necesidad de viajar."*
-  * **Ángulo B (English — `/foreign-clients`):** *"Buying real estate in Punta del Este from abroad? In Uruguay, the buyer chooses the Notary Public (Escribano) to perform the 30-year title search and hold escrow safely. Direct legal guidance in English via WhatsApp."*
+  * **Ángulo B (English — `/foreign-clients`):** *"Buying real estate in Punta del Este from abroad? In Uruguay, the buyer chooses the Notary Public (Escribano) to perform the 30-year title search and safeguard the reservation deposit in notarial custody. Direct legal guidance in English via WhatsApp."*
 
 #### Conjunto 3 — Captura Rápida Local: Certificaciones de Firma, Poderes y Actas (Maldonado & Punta del Este)
 * **Conectado directamente a las oportunidades detectadas en Google Search Console** (donde hoy el sitio ya tracciona impresiones en posiciones 4 a 11 por *"certificar firma"* y *"cuánto sale certificar una firma ante escribano"*).

@@ -186,7 +186,7 @@ def render_step_card_xxl(
 
 
 def main():
-    # 1. PASO 01: Seña en Custodia (Escrow) — Fondo Claro Editorial (#e9e7e1)
+    # 1. PASO 01: Seña en Custodia Notarial — Fondo Claro Editorial (#e9e7e1)
     render_step_card_xxl(
         filename_base="tecnica_01_proceso_compraventa_1080x1350",
         dark_mode=False,
@@ -197,7 +197,7 @@ def main():
             "La seña queda en",
             "custodia notarial.",
         ],
-        body_text="En Uruguay, el 10% de reserva no se entrega directo al vendedor: tu escribano lo retiene en garantía (escrow) hasta auditar los títulos.",
+        body_text="En Uruguay, el 10% de reserva no se entrega directo al vendedor: tu escribano lo retiene en custodia notarial hasta auditar los títulos.",
         takeaway_label="RECOMENDACIÓN CLAVE:",
         takeaway_text="Exige cláusula de devolución íntegra si hay deudas.",
     )
